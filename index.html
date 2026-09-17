@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f2efe7">
+<title>A.V.I.L.U.S Share · Build 3 (Light)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2efe7; --panel:#fbf9f4; --sink:#e9e5da;
+  --line:rgba(35,30,24,.1); --line-2:rgba(35,30,24,.2);
+  --txt:#221d16; --mut:#837a6c;
+  --amber:#b06a0a; --amber-soft:rgba(176,106,10,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',ui-sans-serif,sans-serif;
+  -webkit-font-smoothing:antialiased;min-height:100vh;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:var(--amber);color:#fff8ee}
+svg{display:block}
+
+/* ---------- header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:0 22px;height:58px;background:rgba(242,239,231,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:Syne;font-weight:800;font-size:16px;letter-spacing:.14em;white-space:nowrap}
+.brand em{font-style:normal;color:var(--amber);font-size:9.5px;letter-spacing:.32em;vertical-align:2px;margin-left:10px;
+  border:1px solid var(--amber-soft);padding:3px 7px 2px;border-radius:3px}
+.bld{font-size:8.5px;letter-spacing:.22em;color:var(--amber);border:1px solid var(--amber-soft);
+  padding:3px 7px 2px;border-radius:3px;margin-left:10px;vertical-align:2px;font-weight:600}
+.actions{display:flex;gap:8px}
+.actions button{display:flex;align-items:center;gap:7px;padding:8px 13px;border:1px solid var(--line-2);
+  border-radius:8px;font-size:13px;transition:.18s}
+.actions button:hover{border-color:rgba(176,106,10,.55);color:var(--amber)}
+.actions button svg{width:15px;height:15px}
+@media(max-width:640px){.actions button span{display:none}header{padding:0 14px}.bld{display:none}}
+
+/* ---------- main ---------- */
+main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:26px 2px 14px}
+.sec-head h2{font-family:Syne;font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
+.sec-head span{font-size:12px;color:var(--mut)}
+#grid{position:relative;width:100%}
+#grid figure{position:absolute;overflow:hidden;border-radius:7px;background:var(--sink);cursor:zoom-in;
+  outline:1px solid rgba(35,30,24,.08);outline-offset:-1px;transition:outline-color .18s}
+#grid figure img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .18s}
+#grid figure:hover{outline-color:rgba(176,106,10,.75);z-index:2}
+#grid figure:hover img{filter:brightness(1.04)}
+#grid figure::after{content:attr(data-name);position:absolute;left:0;right:0;bottom:0;padding:24px 10px 8px;font-size:11px;color:#fff;
+  background:linear-gradient(transparent,rgba(20,15,8,.62));opacity:0;transition:opacity .18s;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#grid figure:hover::after{opacity:1}
+#grid figure .rx{position:absolute;top:7px;left:7px;font-size:9px;letter-spacing:.18em;color:var(--amber);
+  border:1px solid var(--amber-soft);background:rgba(251,249,244,.8);padding:2px 5px;border-radius:3px}
+
+#empty{display:none;place-items:center;border:1px dashed var(--line-2);border-radius:14px;min-height:340px;text-align:center;padding:30px}
+#empty h3{font-family:Syne;font-size:24px;margin-bottom:8px}
+#empty p{color:var(--mut);font-size:13px;margin-bottom:20px;max-width:430px;line-height:1.6}
+#empty .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-solid{background:var(--amber);color:#fff8ee;font-weight:600;padding:10px 18px;border-radius:8px;
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;transition:.18s}
+.btn-solid:hover{filter:brightness(1.07)}
+.btn-ghost{border:1px solid var(--line-2);padding:10px 18px;border-radius:8px;font-size:13px;
+  display:inline-flex;align-items:center;gap:8px;transition:.18s}
+.btn-ghost:hover{border-color:rgba(176,106,10,.55);color:var(--amber)}
+.btn-solid svg,.btn-ghost svg{width:15px;height:15px}
+
+#filesSec{margin-top:38px}
+#fileList{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+.frow{display:grid;grid-template-columns:20px 1fr auto;gap:14px;align-items:center;padding:13px 16px;
+  border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s}
+.frow:last-child{border-bottom:none}
+.frow:hover{background:#efece2}
+.frow>svg{width:17px;height:17px;color:var(--mut)}
+.frow:hover>svg{color:var(--amber)}
+.fname{font-size:13.5px;display:block}
+.fsub{font-size:11px;color:var(--mut)}
+.fsize{font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
+
+/* ---------- lightbox ---------- */
+#lightbox{position:fixed;inset:0;z-index:60;background:rgba(242,239,231,.95);display:flex;align-items:center;justify-content:center;
+  opacity:1;transition:opacity .3s}
+#lightbox.out{opacity:0}
+#lbCanvas{border-radius:4px;box-shadow:0 26px 80px rgba(52,40,18,.38),0 4px 18px rgba(52,40,18,.22)}
+#lbImg{max-width:86vw;max-height:74vh;object-fit:contain;border-radius:4px;box-shadow:0 26px 80px rgba(52,40,18,.38)}
+#lbBar{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;max-width:80vw}
+#lbName{font-size:13px}
+#lbHint{font-size:12px;color:var(--amber);margin-top:5px;letter-spacing:.02em;font-weight:600}
+#lbClose{position:absolute;top:18px;right:18px;width:40px;height:40px;border:1px solid var(--line-2);border-radius:50%;
+  display:grid;place-items:center;color:var(--mut);transition:.18s}
+#lbClose:hover{border-color:var(--amber);color:var(--amber)}
+#lbClose svg{width:16px;height:16px}
+/* sits ABOVE the camera panel so it's always tappable */
+#lbGrab{position:absolute;right:24px;bottom:192px;display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:var(--mut);font-size:10px;letter-spacing:.14em;text-transform:uppercase;touch-action:none;user-select:none}
+#lbGrab .ring{width:46px;height:46px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:.15s}
+#lbGrab .ring svg{width:18px;height:18px}
+#lbGrab:active .ring,#lbGrab.arming .ring{border-color:var(--amber);color:var(--amber);transform:scale(.92)}
+@media(max-width:640px){
+  #lbBar{left:16px;right:16px;transform:none;text-align:left;bottom:126px}#lbName{font-size:12px}
+  #lbGrab{bottom:130px;right:16px}
+}
+body.lb #coach{opacity:0}
+
+/* ---------- camera pip (stays dark — it's the video feed) ---------- */
+#pip{position:fixed;right:20px;bottom:20px;width:196px;height:147px;border-radius:14px;overflow:hidden;z-index:80;
+  border:1px solid var(--line-2);background:#000;box-shadow:0 12px 34px rgba(40,30,12,.3);transition:border-color .25s}
+#pip.live{border-color:rgba(176,106,10,.8)}
+#pip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+#pipOv{position:absolute;inset:0;width:100%;height:100%}
+#pipTag{position:absolute;left:8px;bottom:7px;display:flex;align-items:center;gap:6px;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(236,233,225,.9);background:rgba(10,8,5,.6);padding:3px 8px;border-radius:20px}
+#pipTag .dot{width:5px;height:5px;border-radius:50%;background:#5a5763;transition:.2s}
+#pip.live #pipTag .dot{background:#f0a63f}
+@media(max-width:640px){#pip{width:128px;height:96px;right:12px;bottom:12px}}
+
+/* ---------- diagnostics line ---------- */
+#diag{position:fixed;left:20px;bottom:96px;z-index:84;font-size:10.5px;letter-spacing:.08em;color:var(--mut);
+  background:rgba(251,249,244,.88);border:1px solid var(--line);padding:6px 10px;border-radius:8px;
+  pointer-events:none;font-variant-numeric:tabular-nums}
+@media(max-width:640px){#diag{left:12px;bottom:106px;font-size:9.5px}}
+
+/* ---------- coach ---------- */
+#coach{position:fixed;left:20px;bottom:20px;z-index:85;display:flex;align-items:center;gap:11px;max-width:340px;
+  background:rgba(251,249,244,.94);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px;
+  padding:12px 15px;pointer-events:none;transition:opacity .25s;box-shadow:0 10px 30px rgba(52,40,18,.12)}
+#coach .ic{color:var(--amber);flex:none}
+#coach .ic svg{width:19px;height:19px}
+#coach span{font-size:12.5px;line-height:1.5}
+@media(max-width:640px){#coach{left:12px;right:150px;bottom:12px;max-width:none;padding:10px 12px}}
+
+/* ---------- beacon ---------- */
+#beacon{position:fixed;top:74px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:18px;
+  background:var(--panel);border:1px solid rgba(176,106,10,.4);border-radius:14px;padding:14px 16px;min-width:380px;
+  box-shadow:0 18px 60px rgba(52,40,18,.22)}
+.bc-live{display:flex;align-items:center;gap:8px;font-family:Syne;font-weight:700;font-size:10.5px;letter-spacing:.22em;color:var(--amber)}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pul 1.4s infinite}
+@keyframes pul{0%,100%{opacity:1}50%{opacity:.25}}
+.bc-code{font-size:26px;font-weight:700;letter-spacing:.24em;margin:5px 0 3px}
+.bc-status{font-size:11.5px;color:var(--mut);max-width:250px;line-height:1.45}
+.bc-bar{height:2px;background:var(--line-2);border-radius:2px;margin-top:9px;overflow:hidden;opacity:0;transition:.2s}
+.bc-bar.on{opacity:1}
+.bc-bar i{display:block;height:100%;width:0;background:var(--amber);transition:width .2s}
+#beaconQR{width:88px;height:88px;background:#fff;padding:6px;border-radius:8px;border:1px solid var(--line);flex:none;visibility:hidden}
+#bcStop{width:34px;height:34px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;flex:none;color:var(--mut);transition:.18s}
+#bcStop:hover{border-color:var(--amber);color:var(--amber)}
+#bcStop svg{width:14px;height:14px}
+@media(max-width:560px){#beacon{flex-wrap:wrap;min-width:0;width:calc(100vw - 24px);gap:12px}.bc-status{max-width:none}}
+
+/* ---------- link popover ---------- */
+#linkPop{position:fixed;top:68px;right:20px;z-index:95;width:290px;background:var(--panel);
+  border:1px solid var(--line-2);border-radius:14px;padding:16px;box-shadow:0 18px 50px rgba(52,40,18,.2)}
+.lp-title{font-family:Syne;font-weight:700;font-size:10.5px;letter-spacing:.22em;color:var(--mut);margin-bottom:12px}
+.lp-row{display:flex;gap:8px}
+#codeInput{flex:1;background:#fff;border:1px solid var(--line-2);border-radius:8px;color:var(--txt);
+  padding:9px 12px;font-size:15px;letter-spacing:.35em;text-transform:uppercase;font-weight:600;outline:none;min-width:0}
+#codeInput:focus{border-color:rgba(176,106,10,.6)}
+#btnGo{background:var(--amber);color:#fff8ee;font-weight:700;border-radius:8px;padding:0 16px;font-size:13px}
+#btnGo:hover{filter:brightness(1.07)}
+#linkStatus{font-size:11.5px;color:var(--mut);margin-top:11px;line-height:1.5}
+
+/* ---------- toasts ---------- */
+#toasts{position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:100;display:flex;flex-direction:column;
+  gap:8px;align-items:center;pointer-events:none}
+.toast{display:flex;align-items:center;gap:9px;background:var(--panel);border:1px solid var(--line-2);
+  border-left:2px solid var(--amber);border-radius:9px;padding:10px 15px;font-size:12.5px;opacity:0;
+  transform:translateY(-8px);transition:.25s;max-width:86vw;box-shadow:0 10px 30px rgba(52,40,18,.15)}
+.toast.in{opacity:1;transform:none}
+.toast svg{width:14px;height:14px;color:var(--amber);flex:none}
+
+/* ---------- intro ---------- */
+#intro{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .6s}
+#intro.gone{opacity:0;pointer-events:none}
+.in-wrap{max-width:560px;padding:30px;text-align:center}
+.in-over{font-size:10.5px;letter-spacing:.34em;color:var(--mut);margin-bottom:18px}
+.in-mark{font-family:Syne;font-weight:800;font-size:clamp(40px,8.5vw,82px);letter-spacing:.06em;line-height:1}
+.in-mark em{font-style:normal;color:var(--amber)}
+.in-sub{font-size:12px;letter-spacing:.46em;color:var(--mut);margin:14px 0 0}
+.in-rule{width:56px;height:1px;background:var(--amber);margin:32px auto}
+.in-g{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;text-align:left}
+.in-g>div{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:10px;padding:13px 16px;background:var(--panel)}
+.in-g svg{width:19px;height:19px;color:var(--amber);flex:none}
+.in-g b{font-size:12.5px;letter-spacing:.06em;display:block}
+.in-g small{font-size:11.5px;color:var(--mut);line-height:1.45}
+.in-note{margin-top:16px;font-size:11px;color:var(--mut);line-height:1.6}
+.in-ver{margin-top:10px;font-size:10px;letter-spacing:.24em;color:var(--amber);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- ============ intro ============ -->
+<div id="intro">
+  <div class="in-wrap">
+    <div class="in-over">HANDS-ON FILE TRANSFER</div>
+    <div class="in-mark">A<em>.</em>V<em>.</em>I<em>.</em>L<em>.</em>U<em>.</em>S</div>
+    <div class="in-sub">SHARE</div>
+    <div class="in-rule"></div>
+    <div class="in-g">
+      <div><i data-lucide="hand"></i><div><b>OPEN PALM, THEN CLOSE IT INTO A FIST</b>
+        <small>Watch your hand skeleton appear in the camera panel — amber is open, red is a fist. The photo bends toward your hand, then crumples into it.</small></div></div>
+      <div><i data-lucide="grab"></i><div><b>OPEN YOUR FIST TO LAUNCH</b>
+        <small>A beacon lights up. On the other device: link the code, make a fist, open your palm — it's caught mid-air.</small></div></div>
+    </div>
+    <button id="btnBegin" class="btn-solid"><i data-lucide="camera"></i><span>Begin — enable camera</span></button>
+    <div class="in-note" id="inNote">The camera never leaves this device. Transfers run as a direct WebRTC peer link.<br>Chrome or Edge recommended.</div>
+    <div class="in-ver">BUILD 3 · LIGHT MODE</div>
+  </div>
+</div>
+
+<header>
+  <div class="brand">A.V.I.L.U.S<em>SHARE</em><span class="bld">BUILD 3 · LIGHT</span></div>
+  <div class="actions">
+    <button id="btnFolder"><i data-lucide="folder-open"></i><span>Open folder</span></button>
+    <button id="btnSamples"><i data-lucide="images"></i><span>Samples</span></button>
+    <button id="btnLink"><i data-lucide="link"></i><span>Link device</span></button>
+  </div>
+</header>
+
+<main>
+  <div class="sec-head"><h2>Photos</h2><span id="photoCount"></span></div>
+  <div id="grid"></div>
+  <div id="empty">
+    <div>
+      <h3>Nothing in the light yet</h3>
+      <p>Point A.V.I.L.U.S at a folder of photos, or load a sample roll to try the grab gesture right away.</p>
+      <div class="row">
+        <button class="btn-solid" id="btnFolder2"><i data-lucide="folder-open"></i>Open a folder</button>
+        <button class="btn-ghost" id="btnSamples2"><i data-lucide="images"></i>Load samples</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="filesSec" hidden>
+    <div class="sec-head"><h2>Documents &amp; files</h2><span id="fileCount"></span></div>
+    <div id="fileList"></div>
+  </div>
+</main>
+
+<!-- ============ lightbox ============ -->
+<div id="lightbox" hidden>
+  <canvas id="lbCanvas"></canvas>
+  <img id="lbImg" hidden alt="">
+  <div id="lbBar"><div id="lbName"></div><div id="lbHint"></div></div>
+  <button id="lbClose"><i data-lucide="x"></i></button>
+  <button id="lbGrab"><span class="ring"><i data-lucide="grab"></i></span><span class="lbl">hold to grab</span></button>
+</div>
+
+<!-- ============ camera pip ============ -->
+<div id="pip">
+  <video id="cam" playsinline muted autoplay></video>
+  <canvas id="pipOv"></canvas>
+  <div id="pipTag"><span class="dot"></span><span id="pipState">camera off</span></div>
+</div>
+
+<!-- ============ diagnostics ============ -->
+<div id="diag">CAM — · VIS — · GL —</div>
+
+<!-- ============ coach ============ -->
+<div id="coach"><span class="ic" id="coachIcon"><i data-lucide="hand"></i></span><span id="coachText"></span></div>
+
+<!-- ============ beacon ============ -->
+<div id="beacon" hidden>
+  <div class="bc-left">
+    <div class="bc-live"><span class="pulse"></span>BEACON LIVE</div>
+    <div class="bc-code" id="beaconCode">AVL·····</div>
+    <div class="bc-status" id="beaconStatus">opening channel…</div>
+    <div class="bc-bar" id="bcBar"><i id="bcBarFill"></i></div>
+  </div>
+  <img id="beaconQR" alt="scan to link">
+  <button id="bcStop"><i data-lucide="x"></i></button>
+</div>
+
+<!-- ============ link popover ============ -->
+<div id="linkPop" hidden>
+  <div class="lp-title">LINK A BEACON</div>
+  <div class="lp-row">
+    <input id="codeInput" maxlength="4" placeholder="CODE" autocomplete="off" spellcheck="false">
+    <button id="btnGo">Link</button>
+  </div>
+  <div id="linkStatus">Enter the 4-letter code shown on the sending device.</div>
+</div>
+
+<div id="toasts"></div>
+<input type="file" id="dirInput" webkitdirectory multiple hidden>
+<input type="file" id="fileInput" accept="image/*" multiple hidden>
+
+<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js"></script>
+<script>
+/* ================================================================
+   A.V.I.L.U.S SHARE — BUILD 3 (LIGHT) · skeleton + diag build
+   ================================================================ */
+const $=s=>document.querySelector(s);
+const on=(el,ev,fn,o)=>el.addEventListener(ev,fn,o);
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const truncName=(s,n=28)=>s.length>n?s.slice(0,n-1)+'…':s;
+const fmtSize=n=>n<1024?n+' B':n<1048576?(n/1024).toFixed(1)+' KB':(n/1048576).toFixed(1)+' MB';
+const CODE_AB='ACDEFHJKLMNPRTUVWXY34679';
+const mkCode=()=>Array.from({length:4},()=>CODE_AB[Math.random()*CODE_AB.length|0]).join('');
+
+const IDLE_COACH='Browse and tap a photo — then watch your hand skeleton in the camera panel.';
+const S={mode:'idle',hand:{present:false,ok:false,px:.5,py:.5,size:.15,pts:null},heldItem:null,peer:null,conn:null,code:null};
+let camOn=false, pendingCode=null;
+
+/* ---------------- diagnostics ---------------- */
+const DG={cam:'—',vis:'—',gl:'—'};
+function diag(){$('#diag').textContent=`CAM ${DG.cam} · VIS ${DG.vis} · GL ${DG.gl}`;}
+
+/* ---------------- toasts / coach / pip label ---------------- */
+let lastPipTxt='';
+function toast(msg,icon='check'){
+  const t=document.createElement('div');t.className='toast';
+  t.innerHTML=`<i data-lucide="${icon}"></i><span>${esc(msg)}</span>`;
+  $('#toasts').appendChild(t);lucide.createIcons();
+  requestAnimationFrame(()=>t.classList.add('in'));
+  setTimeout(()=>{t.classList.remove('in');setTimeout(()=>t.remove(),300)},3800);
+}
+function setCoach(icon,text){
+  $('#coachIcon').innerHTML=`<i data-lucide="${icon}"></i>`;lucide.createIcons();
+  $('#coachText').textContent=text;
+}
+function pipState(t){if(t===lastPipTxt)return;lastPipTxt=t;$('#pipState').textContent=t;}
+
+/* ---------------- items / library ---------------- */
+const items=[];let itemId=0;
+function classify(f){
+  const n=f.name.toLowerCase();
+  if(/\.(jpe?g|png|gif|webp|bmp|avif)$/.test(n)||f.type.startsWith('image/'))return'image';
+  if(/\.(txt|md|json|csv|log|xml|js|css|html?|yml|yaml|ini)$/.test(n)||(f.type||'').startsWith('text/'))return'text';
+  return'file';
+}
+function ingestFile(f){
+  if(!f||f.size>80*1048576)return;
+  const kind=classify(f);
+  const it={id:++itemId,kind,name:f.name,file:f,url:URL.createObjectURL(f),w:0,h:0,received:false};
+  items.push(it);
+  if(kind==='image')probeSize(it);
+}
+function probeSize(it){
+  const im=new Image();
+  im.onload=()=>{it.w=im.naturalWidth;it.h=im.naturalHeight;
+    const g=gridFigs.find(r=>r.it===it);if(g){g.a=it.w/it.h;relayout();}};
+  im.src=it.url;
+}
+function renderSections(){renderGrid();renderFiles();}
+
+/* ---------------- justified photo grid ---------------- */
+let gridFigs=[];
+function renderGrid(){
+  const grid=$('#grid');grid.textContent='';gridFigs=[];
+  const photos=items.filter(i=>i.kind==='image');
+  $('#photoCount').textContent=photos.length?photos.length+' frames':'';
+  $('#empty').style.display=photos.length?'none':'grid';
+  gridFigs=photos.map(it=>{
+    const f=document.createElement('figure');f.dataset.name=it.name;
+    if(it.received){const s=document.createElement('span');s.className='rx';s.textContent='RX';f.appendChild(s);}
+    const img=new Image();img.loading='lazy';img.src=it.url;img.alt=it.name;
+    f.appendChild(img);
+    f.addEventListener('click',()=>openLightbox(it));
+    grid.appendChild(f);
+    return{it,f,a:(it.w&&it.h)?it.w/it.h:1.45};
+  });
+  relayout();
+}
+function relayout(){
+  const grid=$('#grid');const W=grid.clientWidth;if(!W)return;
+  const gap=8,target=W>1000?236:W>640?184:128;
+  let row=[],sum=0,y=0;
+  const flush=h=>{let x=0;for(const r of row){const w=r.a*h;
+    r.f.style.left=x+'px';r.f.style.top=y+'px';r.f.style.width=w+'px';r.f.style.height=h+'px';x+=w+gap;}
+    y+=h+gap;row=[];sum=0;};
+  for(const r of gridFigs){
+    row.push(r);sum+=r.a;
+    const h=(W-gap*(row.length-1))/sum;
+    if(h<=target)flush(h);
+  }
+  if(row.length)flush(Math.min(target*1.35,(W-gap*(row.length-1))/sum));
+  grid.style.height=Math.max(0,y-gap)+'px';
+}
+function renderFiles(){
+  const files=items.filter(i=>i.kind!=='image');
+  $('#filesSec').hidden=files.length===0;
+  $('#fileCount').textContent=files.length+' items';
+  const list=$('#fileList');list.textContent='';
+  for(const it of files){
+    const row=document.createElement('div');row.className='frow';
+    row.innerHTML=`<i data-lucide="${it.kind==='text'?'file-text':'file'}"></i>
+      <div><span class="fname">${esc(it.name)}</span>
+      <span class="fsub">${it.received?'received · ':''}${esc(it.file.type||'file')}</span></div>
+      <span class="fsize">${fmtSize(it.file.size)}</span>`;
+    row.addEventListener('click',()=>openLightbox(it));
+    list.appendChild(row);
+  }
+  lucide.createIcons();
+}
+
+/* ---------------- folder / sample loading ---------------- */
+async function openFolder(){
+  const isTouch=matchMedia('(pointer:coarse)').matches;
+  try{
+    if(window.showDirectoryPicker&&!isTouch){
+      const dir=await showDirectoryPicker();
+      let n=0;
+      await walk(dir,0,()=>{if(n>=600)return false;n++;return true;});
+      renderSections();
+      toast(items.filter(i=>i.file).length+' files indexed','check');
+    }else if(isTouch){$('#fileInput').click();}
+    else{$('#dirInput').click();}
+  }catch(e){if(e.name!=='AbortError')toast('Could not open folder','x');}
+}
+async function walk(dir,depth,alive){
+  if(depth>5||!alive())return;
+  for await(const[name,h]of dir.entries()){
+    if(!alive())return;
+    if(name.startsWith('.'))continue;
+    if(h.kind==='directory')await walk(h,depth+1,alive);
+    else{try{const f=await h.getFile();ingestFile(f);}catch(e){}}
+  }
+}
+const SAMPLES=[[900,1200],[1200,800],[880,880],[720,1080],[1150,760],[900,1350],[1000,700],
+  [820,820],[1200,900],[750,1000],[1080,810],[860,1150],[1160,770],[980,980],[1000,1250]];
+function loadSamples(){
+  SAMPLES.forEach((d,i)=>{
+    items.push({id:++itemId,kind:'image',name:`sample-${String(i+1).padStart(2,'0')}.jpg`,
+      url:`https://picsum.photos/seed/avilus-${i+7}/${d[0]}/${d[1]}.jpg`,w:d[0],h:d[1],received:false,file:null});
+  });
+  renderSections();
+  toast('Sample roll loaded — 15 frames','images');
+}
+
+/* ---------------- lightbox + warp shader ---------------- */
+const LB={item:null,open:false,holdBusy:false,texReady:false,gl:null,prog:null,u:{},tex:null,aspect:1.5,
+  grab:0,grabV:0,grabT:0,reach:0,reachT:0,glow:0,hand:{x:.5,y:.5,tx:.5,ty:.5}};
+
+function initGL(){
+  const cv=$('#lbCanvas');
+  const gl=cv.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:false});
+  if(!gl){DG.gl='fail';diag();toast('WebGL unavailable — the grab warp needs it','x');return;}
+  const vs=`attribute vec2 aPos;varying vec2 vUv;
+    void main(){vUv=aPos*.5+.5;gl_Position=vec4(aPos,0.,1.);}`;
+  const fs=`precision highp float;varying vec2 vUv;
+    uniform sampler2D uTex;uniform vec2 uHand;
+    uniform float uReach,uGrab,uAspect,uTime,uGlow;
+    void main(){
+      vec2 p=vUv-.5; p.x*=uAspect;
+      vec2 h=uHand-.5; h.x*=uAspect;
+      float g=uGrab;
+      vec2 toH=h-p; float dH=length(toH);
+      float fall=exp(-dH*dH*2.4);
+      vec2 warp=normalize(toH+1e-5)*(uReach*.05*fall);
+      float edge=smoothstep(.04,.85,length(p));
+      vec2 q=p+warp+(h-p)*g*(.16+.74*edge);
+      float ang=g*.38*smoothstep(0.,.8,length(p-h));
+      float ca=cos(ang),sa=sin(ang);
+      q=h+mat2(ca,-sa,sa,ca)*(q-h);
+      float tr=g*(1.-g)*4.;
+      q.x+=tr*.02*sin(q.y*13.+uTime*17.);
+      vec2 uv=q; uv.x/=uAspect; uv+=.5;
+      float inb=step(0.,uv.x)*step(uv.x,1.)*step(0.,uv.y)*step(uv.y,1.);
+      vec3 col=vec3(0.);
+      if(inb>.5)col=texture2D(uTex,uv).rgb;
+      float eb=min(min(uv.x,1.-uv.x),min(uv.y,1.-uv.y));
+      float rim=1.-smoothstep(0.,.085,eb);
+      float flick=.86+.14*sin(uTime*7.+(uv.x+uv.y)*23.);
+      float energy=clamp(g*1.35+uReach*fall*.55+uGlow,0.,2.);
+      vec3 warm=vec3(1.,.72,.35);
+      col+=rim*rim*energy*1.7*warm*flick;
+      col+=rim*energy*.34*warm;
+      col*=1.-.22*g*(1.-rim);
+      gl_FragColor=vec4(col,inb);
+    }`;
+  const sh=(t,s)=>{const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);
+    if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(o));return o;};
+  const pr=gl.createProgram();
+  gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));
+  gl.linkProgram(pr);gl.useProgram(pr);
+  const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  const loc=gl.getAttribLocation(pr,'aPos');
+  gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  LB.gl=gl;LB.prog=pr;
+  for(const n of['uTex','uHand','uReach','uGrab','uAspect','uTime','uGlow'])LB.u[n]=gl.getUniformLocation(pr,n);
+  gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+  DG.gl='ok';diag();
+}
+function uploadTex(src){
+  const gl=LB.gl;
+  if(!LB.tex)LB.tex=gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D,LB.tex);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,src);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+}
+function drawLB(t){
+  const gl=LB.gl;if(!gl||!LB.tex)return;
+  const cv=$('#lbCanvas');
+  gl.viewport(0,0,cv.width,cv.height);
+  gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,LB.tex);
+  gl.uniform1i(LB.u.uTex,0);
+  gl.uniform2f(LB.u.uHand,LB.hand.x,LB.hand.y);
+  gl.uniform1f(LB.u.uReach,LB.reach);
+  gl.uniform1f(LB.u.uGrab,clamp(LB.grab,-.2,1.3));
+  gl.uniform1f(LB.u.uAspect,LB.aspect||1.5);
+  gl.uniform1f(LB.u.uTime,t);
+  gl.uniform1f(LB.u.uGlow,LB.glow);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+}
+function sizeLightbox(){
+  if(!LB.gl)return;
+  const cv=$('#lbCanvas'),vw=innerWidth,vh=innerHeight,a=LB.aspect||1.5;
+  let w=Math.min(vw*.86,vh*.74*a);let h=w/a;
+  const d=Math.min(devicePixelRatio||1,2);
+  cv.style.width=w+'px';cv.style.height=h+'px';
+  cv.width=Math.round(w*d);cv.height=Math.round(h*d);
+}
+
+/* textures: images direct; text files & other docs get drawn onto paper */
+const readAsText=f=>new Promise(r=>{const x=new FileReader();x.onload=()=>r(String(x.result));x.readAsText(f.slice(0,200000));});
+function wrapLines(ctx,text,maxW){
+  const words=String(text).split(' ');const out=[];let line='';
+  for(const w of words){const t=line?line+' '+w:w;
+    if(ctx.measureText(t).width>maxW&&line){out.push(line);line=w;}else line=t;}
+  if(line)out.push(line);return out;
+}
+function makeTextCanvas(it,text){
+  const c=document.createElement('canvas');c.width=1000;c.height=1280;const x=c.getContext('2d');
+  x.fillStyle='#f6f2e8';x.fillRect(0,0,1000,1280);
+  x.fillStyle='#9a9284';x.font='500 20px "Space Grotesk",monospace';
+  x.fillText('A.V.I.L.U.S · DOCUMENT',64,84);
+  x.fillStyle='#211c15';x.font='700 40px "Space Grotesk",sans-serif';
+  x.fillText(truncName(it.name,34),64,148);
+  x.fillStyle='#d4cdbd';x.fillRect(64,176,872,2);
+  x.font='24px "Space Grotesk",monospace';x.fillStyle='#332e26';
+  const lines=text.replace(/\t/g,'    ').split('\n');
+  let y=228;
+  for(let i=0;i<lines.length&&i<32;i++){
+    for(const seg of wrapLines(x,lines[i]||' ',872)){
+      if(y>1160)break;x.fillText(seg,64,y);y+=34;
+    }
+    if(y>1160){x.fillText('…',64,y);break;}
+  }
+  return c;
+}
+function makeCardCanvas(it){
+  const c=document.createElement('canvas');c.width=1000;c.height=1280;const x=c.getContext('2d');
+  x.fillStyle='#f6f2e8';x.fillRect(0,0,1000,1280);
+  const ext=(it.name.split('.').pop()||'BIN').toUpperCase().slice(0,5);
+  x.strokeStyle='#211c15';x.lineWidth=4;x.strokeRect(64,84,872,300);
+  x.fillStyle='#211c15';x.font='800 150px "Space Grotesk",sans-serif';x.textAlign='center';
+  x.fillText(ext,500,288);x.textAlign='left';
+  x.font='700 44px "Space Grotesk",sans-serif';
+  x.fillText(truncName(it.name,26),64,486);
+  x.font='24px "Space Grotesk",sans-serif';x.fillStyle='#6f6759';
+  x.fillText(`${it.file.type||'application/octet-stream'} · ${fmtSize(it.file.size)}`,64,534);
+  x.fillStyle='#c4bcab';x.fillRect(64,572,872,2);
+  x.font='500 22px "Space Grotesk",sans-serif';x.fillStyle='#9a9284';
+  x.fillText('Show your open hand, then close it to take this file.',64,628);
+  return c;
+}
+async function texSource(it){
+  if(it.kind==='image')return new Promise(res=>{const im=new Image();im.crossOrigin='anonymous';
+    im.onload=()=>res(im);im.onerror=()=>res(makeCardCanvas(it));im.src=it.url;});
+  if(it.kind==='text')return makeTextCanvas(it,await readAsText(it.file));
+  return makeCardCanvas(it);
+}
+async function ensureTexture(it){
+  LB.texReady=false;
+  const src=await texSource(it);
+  uploadTex(src);
+  LB.aspect=(src.naturalWidth||src.width)/(src.naturalHeight||src.height);
+  sizeLightbox();
+  LB.texReady=true;
+}
+
+async function openLightbox(it,materialize=false){
+  LB.item=it;LB.open=true;LB.holdBusy=false;
+  document.body.classList.add('lb');
+  $('#lightbox').hidden=false;$('#lightbox').classList.remove('out');
+  $('#lbName').textContent=it.name;
+  $('#lbHint').textContent=materialize?'incoming…':'show your open hand to the camera';
+  if(!camOn)setCoach('grab','No camera — press and hold the round button (right side) to grab instead.');
+  else setCoach('hand',`Show your open palm over the ${it.kind==='image'?'photo':'document'} — close it into a fist to take it.`);
+  closeLinkPop();
+  LB.grab=materialize?1:0;LB.grabV=0;LB.grabT=0;LB.glow=materialize?1:0;
+  LB.hand.x=.5;LB.hand.y=.5;LB.hand.tx=.5;LB.hand.ty=.5;
+  if(LB.gl){
+    $('#lbCanvas').hidden=false;$('#lbImg').hidden=true;
+    await ensureTexture(it);
+  }else{
+    $('#lbCanvas').hidden=true;const im=$('#lbImg');im.hidden=false;im.src=it.url;LB.texReady=false;
+  }
+  if(materialize)setTimeout(()=>setCoach('hand','Caught. It lives in your gallery now — marked RX.'),1500);
+}
+function closeLightboxNow(){
+  $('#lightbox').hidden=true;LB.open=false;LB.grab=0;LB.grabT=0;LB.grabV=0;
+  document.body.classList.remove('lb');
+  if(S.mode==='idle')setCoach('hand',IDLE_COACH);
+}
+function doGrab(){
+  if(!LB.open||LB.holdBusy||!LB.texReady)return;
+  if(S.mode!=='idle'){setCoach('grab','Your hand is full — open your palm to release what you hold.');return;}
+  LB.holdBusy=true;LB.reachT=0;LB.grabT=1;
+  $('#lbHint').textContent='taken.';
+  setTimeout(finishHold,620);
+}
+function finishHold(){
+  enterHolding();
+  $('#lightbox').classList.add('out');
+  setTimeout(()=>{
+    $('#lightbox').hidden=true;$('#lightbox').classList.remove('out');
+    document.body.classList.remove('lb');
+    LB.open=false;LB.holdBusy=false;LB.grab=0;LB.grabT=0;LB.grabV=0;
+  },320);
+}
+
+/* ---------------- hand tracking ---------------- */
+const G={state:'none',open:1,openFrames:0,fistFrames:0,cool:0};
+const OPEN_TH=1.5, FIST_TH=1.33, MIN_SIZE=.05, COOL_MS=500;
+const HAND_CONN=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[5,9],[9,10],[10,11],[11,12],
+  [9,13],[13,14],[14,15],[15,16],[13,17],[17,18],[18,19],[19,20],[0,17]];
+function openness(lm){
+  const d=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+  const palm=Math.max(1e-5,d(lm[0],lm[9]));
+  let s=0;for(const i of[8,12,16,20])s+=d(lm[i],lm[0])/palm;
+  return s/4;
+}
+function onHandResults(res){
+  const lms=res.multiHandLandmarks;
+  if(!lms||!lms.length){
+    G.openFrames=0;G.fistFrames=0;S.hand.present=false;S.hand.ok=false;S.hand.pts=null;
+    if(G.state!=='none'){G.state='none';updateHandUI();}
+    if(camOn){pipState('searching…');DG.vis='seek';diag();}
+    if(LB.open&&S.mode==='idle'&&!LB.holdBusy)$('#lbHint').textContent='show your open hand to the camera';
+    return;
+  }
+  const lm=lms[0],o=openness(lm);
+  G.open=o;DG.vis='lock';diag();
+  S.hand.present=true;
+  const mx=1-lm[9].x;   /* mirror to match the flipped video feed */
+  S.hand.px=mx;S.hand.py=lm[9].y;
+  S.hand.size=Math.hypot(lm[0].x-lm[9].x,lm[0].y-lm[9].y);
+  S.hand.ok=S.hand.size>MIN_SIZE;
+  S.hand.pts=lm.map(p=>({x:1-p.x,y:p.y}));
+  LB.hand.tx=mx;LB.hand.ty=1-lm[9].y;
+  let st=G.state;
+  if(o>OPEN_TH){G.fistFrames=0;if(++G.openFrames>=3)st='open';}
+  else if(o<FIST_TH){G.openFrames=0;if(++G.fistFrames>=3)st='fist';}
+  else{G.openFrames=0;G.fistFrames=0;}
+  if(st!==G.state){
+    const prev=G.state;G.state=st;updateHandUI();
+    const nowMs=performance.now();
+    if(S.hand.ok&&nowMs-G.cool>COOL_MS){
+      if(prev==='open'&&st==='fist'){G.cool=nowMs;onGrabGesture();}
+      else if(prev==='fist'&&st==='open'){G.cool=nowMs;onReleaseGesture();}
+    }
+  }
+  const pct=res.multiHandedness&&res.multiHandedness[0]?Math.round(res.multiHandedness[0].score*100):0;
+  if(!S.hand.ok)pipState('move closer');
+  else pipState(G.state==='fist'?`fist ${pct}%`:G.state==='open'?`palm ${pct}%`:'hand…');
+  if(LB.open&&S.mode==='idle'&&!LB.holdBusy){
+    $('#lbHint').textContent=G.state==='open'?'close your fist to take it':'';
+  }
+  LB.reachT=(S.hand.present&&LB.open&&!LB.holdBusy)?1:0;
+}
+function updateHandUI(){
+  $('#pip').classList.toggle('live',camOn);
+  if(S.mode==='beacon')pipState('beacon live');
+  else if(S.mode==='holding')pipState('holding');
+  else if(!camOn)pipState('camera off');
+  else if(!S.hand.present)pipState('searching…');
+}
+function onGrabGesture(){if(LB.open&&!LB.holdBusy&&LB.texReady)doGrab();}
+function onReleaseGesture(){
+  if(S.mode==='holding'&&HOLD.item)stageBeacon();
+  else if(S.mode==='linked'&&RX.linked&&!RX.busy)doCatch();
+}
+
+async function startCamera(){
+  DG.cam='req';diag();
+  const video=$('#cam');
+  const stream=await navigator.mediaDevices.getUserMedia(
+    {video:{facingMode:'user',width:{ideal:640},height:{ideal:480}},audio:false});
+  video.srcObject=stream;await video.play();
+  camOn=true;DG.cam='on';DG.vis=typeof Hands!=='undefined'?'boot':'n/a';diag();
+  $('#pip').classList.add('on');updateHandUI();sizePipOv();
+  if(typeof Hands==='undefined'){
+    toast('Hand model did not load — "hold to grab" still works','camera-off');return;
+  }
+  const hands=new Hands({locateFile:f=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/${f}`});
+  hands.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:.5,minTrackingConfidence:.5,selfieMode:false});
+  hands.onResults(onHandResults);
+  let busy=false;
+  (function pump(){
+    if(!busy&&video.readyState>=2){busy=true;hands.send({image:video}).catch(()=>{}).finally(()=>busy=false);}
+    requestAnimationFrame(pump);
+  })();
+}
+
+/* ---------------- PIP overlay: skeleton + meter + held thumb ---------------- */
+const HOLD={item:null,x:.5,y:.5,tx:.5,ty:.5,scale:.5,alpha:0,launching:false,launchT:0};
+let PIPW=0,PIPH=0,PDPR=1;
+function sizePipOv(){
+  const p=$('#pip'),c=$('#pipOv'),r=p.getBoundingClientRect();
+  PDPR=Math.min(devicePixelRatio||1,2);
+  c.width=Math.max(2,Math.round(r.width*PDPR));c.height=Math.max(2,Math.round(r.height*PDPR));
+  PIPW=c.width;PIPH=c.height;
+}
+function rr(x,px,py,w,h,r){x.beginPath();x.moveTo(px+r,py);x.arcTo(px+w,py,px+w,py+h,r);
+  x.arcTo(px+w,py+h,px,py+h,r);x.arcTo(px,py+h,px,py,r);x.arcTo(px,py,px+w,py,r);x.closePath();}
+function thumbEl(it){
+  if(it._thumb)return it._thumb;
+  if(it.kind==='image'){const e=new Image();e.crossOrigin='anonymous';e.src=it.url;it._thumb=e;return e;}
+  const c=document.createElement('canvas');c.width=200;c.height=256;const x=c.getContext('2d');
+  x.fillStyle='#f6f2e8';x.fillRect(0,0,200,256);
+  x.fillStyle='#211c15';x.font='800 54px "Space Grotesk",sans-serif';x.textAlign='center';
+  x.fillText((it.name.split('.').pop()||'BIN').toUpperCase().slice(0,4),100,140);x.textAlign='left';
+  it._thumb=c;return c;
+}
+function enterHolding(){
+  HOLD.item=LB.item;
+  HOLD.tx=S.hand.present?S.hand.px:.5;HOLD.ty=S.hand.present?S.hand.py:.5;
+  HOLD.x=HOLD.tx;HOLD.y=HOLD.ty;HOLD.alpha=0;HOLD.scale=.4;HOLD.launching=false;
+  S.mode='holding';
+  setCoach('grab',`You're holding "${truncName(LB.item.name,24)}". Open your palm to launch it toward the other device.`);
+  updateHandUI();
+}
+function drawHand(x){
+  const pts=S.hand.pts;if(!pts)return;
+  const d=PDPR;
+  const col=G.state==='fist'?'#ff6b57':G.state==='open'?'#f0a63f':'rgba(255,255,255,.85)';
+  x.strokeStyle=col;x.fillStyle=col;
+  x.lineWidth=Math.max(1.2,1.4*d);
+  x.shadowColor='rgba(0,0,0,.65)';x.shadowBlur=3*d;
+  x.beginPath();
+  for(const[a,b]of HAND_CONN){x.moveTo(pts[a].x*PIPW,pts[a].y*PIPH);x.lineTo(pts[b].x*PIPW,pts[b].y*PIPH);}
+  x.stroke();
+  for(let i=0;i<21;i++){
+    const r=(i===0?3.4:(i%4===0?2.8:2))*d;
+    x.beginPath();x.arc(pts[i].x*PIPW,pts[i].y*PIPH,r,0,7);x.fill();
+  }
+  x.shadowBlur=0;
+}
+function drawMeter(x){
+  const d=PDPR,w=64*d,h=5*d,px=PIPW-w-8*d,py=PIPH-8*d-h;
+  const map=o=>clamp((o-.9)/(2.05-.9),0,1)*w;
+  x.fillStyle='rgba(255,255,255,.14)';x.fillRect(px,py,w,h);
+  x.fillStyle='rgba(255,255,255,.35)';
+  x.fillRect(px+map(FIST_TH),py-2*d,1,h+4*d);
+  x.fillRect(px+map(OPEN_TH),py-2*d,1,h+4*d);
+  x.fillStyle=G.state==='fist'?'#ff6b57':G.state==='open'?'#f0a63f':'rgba(255,255,255,.6)';
+  x.fillRect(px,py,map(G.open),h);
+}
+function drawGuide(x){
+  const d=PDPR;
+  x.strokeStyle='rgba(255,255,255,.35)';x.setLineDash([5*d,5*d]);x.lineWidth=1*d;
+  x.beginPath();x.arc(PIPW/2,PIPH*.44,PIPH*.28,0,7);x.stroke();x.setLineDash([]);
+  x.fillStyle='rgba(255,255,255,.6)';x.font=`600 ${10*d}px "Space Grotesk",sans-serif`;x.textAlign='center';
+  x.fillText('show your hand here',PIPW/2,PIPH*.44+PIPH*.28+16*d);
+}
+function drawOverlay(dt){
+  const c=$('#pipOv'),x=c.getContext('2d');
+  x.clearRect(0,0,c.width,c.height);
+  if(S.hand.present){drawHand(x);drawMeter(x);}else drawGuide(x);
+  if(S.mode==='holding'&&S.hand.present){HOLD.tx=S.hand.px;HOLD.ty=S.hand.py;}
+  if(HOLD.launching){
+    HOLD.launchT+=dt;const k=HOLD.launchT/.6;
+    HOLD.scale=1+k*1.4;HOLD.alpha=Math.max(0,1-k*1.2);
+    if(k>=1){HOLD.launching=false;HOLD.alpha=0;HOLD.item=null;}
+  }else if(HOLD.item){
+    HOLD.alpha=lerp(HOLD.alpha,S.hand.present?1:.5,.08);
+    HOLD.scale=lerp(HOLD.scale,1,.12);
+  }
+  HOLD.x=lerp(HOLD.x,HOLD.tx,.22);HOLD.y=lerp(HOLD.y,HOLD.ty,.22);
+  const it=HOLD.item;
+  if(it&&HOLD.alpha>.02){
+    const el=thumbEl(it);
+    if(el.naturalWidth||el.width){
+      const a=(el.naturalWidth||el.width)/(el.naturalHeight||el.height);
+      let th=c.height*.42*HOLD.scale,tw=th*a;
+      const mw=c.width*.62;if(tw>mw){tw=mw;th=tw/a;}
+      const px=HOLD.x*c.width-tw/2,py=HOLD.y*c.height-th/2;
+      x.save();x.globalAlpha=HOLD.alpha;
+      rr(x,px,py,tw,th,tw*.09);x.save();x.clip();
+      const s=Math.max(tw/(el.naturalWidth||el.width),th/(el.naturalHeight||el.height));
+      const iw=(el.naturalWidth||el.width)*s,ih=(el.naturalHeight||el.height)*s;
+      x.drawImage(el,px+(tw-iw)/2,py+(th-ih)/2,iw,ih);
+      x.restore();
+      x.shadowColor='rgba(240,166,63,.85)';x.shadowBlur=14;
+      x.strokeStyle='rgba(240,166,63,.9)';x.lineWidth=1.5;
+      rr(x,px,py,tw,th,tw*.09);x.stroke();
+      x.restore();
+    }
+  }
+}
+
+/* ---------------- sender: holding → beacon → transfer ---------------- */
+function makeQR(text){try{const q=qrcode(0,'M');q.addData(text);q.make();return q.createDataURL(5,6);}catch(e){return'';}}
+function beaconStatus(t){$('#beaconStatus').textContent=t;}
+function beaconBar(k,onOff){$('#bcBar').classList.toggle('on',!!onOff);$('#bcBarFill').style.width=(k*100)+'%';}
+
+function stageBeacon(attempt=0){
+  if(S.peer){try{S.peer.destroy();}catch(e){}}
+  S.heldItem=HOLD.item;S.mode='beacon';
+  HOLD.launching=true;HOLD.launchT=0;
+  $('#beacon').hidden=false;beaconBar(0,false);
+  const code=mkCode();S.code=code;
+  $('#beaconCode').textContent='AVL·'+code;
+  const qr=$('#beaconQR');qr.style.visibility='hidden';
+  const url=location.href.split('#')[0]+'#avilus='+code;
+  qr.onload=()=>qr.style.visibility='visible';qr.src=makeQR(url);
+  beaconStatus('opening channel…');
+  setCoach('radio','Beacon live. On the other device: open this page, link the code (or scan), then fist → open palm to catch.');
+  updateHandUI();
+  const peer=new Peer('avilus-'+code,{debug:0});S.peer=peer;
+  peer.on('open',()=>{if(S.peer===peer)beaconStatus('beacon lit — waiting for the other device to link');});
+  peer.on('connection',conn=>{
+    if(S.peer!==peer)return;
+    S.conn=conn;
+    beaconStatus('device linked — it will catch with a fist, then an open palm');
+    conn.on('data',d=>{if(d&&d.t==='req')sendHeld(conn);});
+    conn.on('close',()=>{if(S.conn===conn){S.conn=null;beaconStatus('device left — beacon still live');}});
+    conn.on('error',()=>beaconStatus('connection hiccup'));
+  });
+  peer.on('error',e=>{
+    if(e.type==='unavailable-id'&&attempt<3){try{peer.destroy();}catch(x){}stageBeacon(attempt+1);return;}
+    beaconStatus('network says no ('+e.type+') — check internet');
+  });
+}
+async function sendHeld(conn){
+  const it=S.heldItem;if(!it)return;
+  let f=it.file;
+  if(!f){
+    try{
+      const b=await(await fetch(it.url,{mode:'cors'})).blob();
+      it.file=f=new File([b],it.name,{type:b.type||'image/jpeg'});
+    }catch(e){beaconStatus('could not bundle the file — offline?');return;}
+  }
+  beaconStatus('transferring "'+truncName(f.name,22)+'"…');beaconBar(0,true);
+  conn.send({t:'meta',name:f.name,mime:f.type||'application/octet-stream',size:f.size,kind:it.kind});
+  const CH=65536;let off=0;
+  while(off<f.size){
+    if(conn.dataChannel&&conn.dataChannel.bufferedAmount>4194304){await sleep(25);continue;}
+    const buf=await f.slice(off,off+CH).arrayBuffer();
+    try{conn.send(buf);}catch(e){beaconStatus('transfer interrupted');return;}
+    off+=buf.byteLength;beaconBar(off/f.size,true);
+  }
+  conn.send({t:'end'});
+  beaconStatus('delivered — light has traveled.');beaconBar(1,true);
+  toast('Delivered "'+truncName(f.name,26)+'"','send');
+  S.mode='idle';updateHandUI();
+  setTimeout(closeBeacon,1600);
+}
+function closeBeacon(){
+  try{S.peer&&S.peer.destroy();}catch(e){}
+  S.peer=null;S.conn=null;S.heldItem=null;
+  $('#beacon').hidden=true;
+  if(S.mode==='beacon')S.mode='idle';
+  setCoach('hand',IDLE_COACH);updateHandUI();
+}
+
+/* ---------------- receiver: link → catch → materialize ---------------- */
+const RX={peer:null,conn:null,code:null,linked:false,busy:false,parts:[],meta:null,got:0};
+function linkStatus(t){$('#linkStatus').textContent=t;}
+function openLinkPop(){$('#linkPop').hidden=false;$('#codeInput').focus();}
+function closeLinkPop(){$('#linkPop').hidden=true;}
+function linkCode(code){
+  try{RX.peer&&RX.peer.destroy();}catch(e){}
+  RX.linked=false;RX.busy=false;RX.code=code;
+  linkStatus('opening channel…');
+  const peer=new Peer({debug:0});RX.peer=peer;
+  peer.on('error',e=>{
+    linkStatus(e.type==='peer-unavailable'?'no live beacon with that code':'link error: '+e.type);
+  });
+  peer.on('open',()=>{
+    linkStatus('reaching beacon AVL·'+code+'…');
+    const conn=peer.connect('avilus-'+code,{reliable:true});RX.conn=conn;
+    conn.on('open',()=>{
+      RX.linked=true;S.mode='linked';closeLinkPop();
+      setCoach('grab','Linked to AVL·'+code+'. Make a fist, then open your palm to catch.');
+      toast('Beacon linked — gesture to catch','link');
+    });
+    conn.on('data',onRxData);
+    conn.on('close',()=>{RX.linked=false;
+      if(S.mode==='linked'){S.mode='idle';setCoach('hand','Beacon closed. Link again to receive.');}});
+  });
+}
+function doCatch(){
+  RX.busy=true;
+  setCoach('download','Reaching into the light…');
+  try{RX.conn.send({t:'req'});}
+  catch(e){RX.busy=false;toast('Link lost — link again','x');}
+}
+function onRxData(d){
+  if(d&&d.t==='meta'){RX.meta=d;RX.parts=[];RX.got=0;
+    setCoach('download','Catching "'+truncName(d.name,26)+'"…');}
+  else if(d instanceof ArrayBuffer){RX.parts.push(new Uint8Array(d));RX.got+=d.byteLength;
+    if(RX.meta)setCoach('download','Catching… '+Math.round(100*RX.got/RX.meta.size)+'%');}
+  else if(d&&d.t==='end')finishRx();
+}
+async function finishRx(){
+  const blob=new Blob(RX.parts,{type:RX.meta.mime});RX.parts=[];
+  const file=new File([blob],RX.meta.name,{type:RX.meta.mime});
+  const url=URL.createObjectURL(file);
+  const kind=classify(file);
+  const it={id:++itemId,kind,name:file.name,file,url,w:0,h:0,received:true};
+  items.push(it);
+  if(kind==='image')probeSize(it);
+  renderSections();
+  RX.linked=false;RX.busy=false;S.mode='idle';
+  try{RX.conn.close();}catch(e){}try{RX.peer.destroy();}catch(e){}
+  toast('Caught "'+truncName(file.name,26)+'"','hand');
+  openLightbox(it,true);
+}
+
+/* ---------------- main loop ---------------- */
+let lastT=performance.now();
+function tick(now){
+  const dt=Math.min(.05,(now-lastT)/1000);lastT=now;
+  if(LB.open||Math.abs(LB.grab)>.004){
+    LB.grabV+=(LB.grabT-LB.grab)*110*dt;
+    LB.grabV*=Math.exp(-10.5*dt);
+    LB.grab+=LB.grabV*dt;
+    LB.reach=lerp(LB.reach,LB.reachT,1-Math.exp(-9*dt));
+    LB.glow=Math.max(0,LB.glow-dt*.7);
+    LB.hand.x=lerp(LB.hand.x,LB.hand.tx,1-Math.exp(-11*dt));
+    LB.hand.y=lerp(LB.hand.y,LB.hand.ty,1-Math.exp(-11*dt));
+    if(LB.gl)drawLB(now/1000);
+  }
+  if(camOn)drawOverlay(dt);
+  requestAnimationFrame(tick);
+}
+
+/* ---------------- wiring ---------------- */
+on($('#btnFolder'),'click',openFolder);
+on($('#btnFolder2'),'click',openFolder);
+on($('#btnSamples'),'click',loadSamples);
+on($('#btnSamples2'),'click',loadSamples);
+on($('#btnLink'),'click',()=>{$('#linkPop').hidden?openLinkPop():closeLinkPop();});
+on($('#bcStop'),'click',closeBeacon);
+on($('#btnGo'),'click',()=>{
+  const v=$('#codeInput').value.trim().toUpperCase();
+  if(v.length<3){linkStatus('enter the 4-letter beacon code');return;}
+  linkCode(v);
+});
+on($('#codeInput'),'input',e=>{e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');});
+on($('#codeInput'),'keydown',e=>{if(e.key==='Enter')$('#btnGo').click();});
+on($('#dirInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderSections();
+  toast('files indexed','check');e.target.value='';});
+on($('#fileInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderSections();
+  toast('photos added','check');e.target.value='';});
+on($('#lbClose'),'click',()=>{if(!LB.holdBusy)closeLightboxNow();});
+on($('#lightbox'),'click',e=>{if(e.target.id==='lightbox'&&!LB.holdBusy)closeLightboxNow();});
+on(document,'keydown',e=>{
+  if(e.key==='Escape'){
+    if(!$('#linkPop').hidden){closeLinkPop();return;}
+    if(LB.open&&!LB.holdBusy)closeLightboxNow();
+  }
+});
+on($('#lbGrab'),'contextmenu',e=>e.preventDefault());
+let armTimer=0;
+on($('#lbGrab'),'pointerdown',e=>{
+  if(S.mode!=='idle'){setCoach('grab','Your hand is full — open your palm to release it first.');return;}
+  $('#lbGrab').classList.add('arming');
+  armTimer=setTimeout(()=>{doGrab();},550);
+});
+on($('#lbGrab'),'pointerup',()=>{
+  clearTimeout(armTimer);$('#lbGrab').classList.remove('arming');
+  if(S.mode==='holding')stageBeacon();
+});
+on($('#lbGrab'),'pointerleave',()=>{clearTimeout(armTimer);$('#lbGrab').classList.remove('arming');});
+let rsz=0;
+on(window,'resize',()=>{clearTimeout(rsz);rsz=setTimeout(()=>{relayout();sizePipOv();if(LB.open)sizeLightbox();},150);});
+on($('#pip'),'click',async()=>{
+  if(camOn)return;
+  try{await startCamera();setCoach('hand',IDLE_COACH);}catch(e){DG.cam='denied';diag();toast('Camera still blocked','camera-off');}
+});
+
+on($('#btnBegin'),'click',async()=>{
+  const b=$('#btnBegin');b.disabled=true;
+  b.querySelector('span').textContent='calibrating vision…';
+  try{
+    await startCamera();
+    $('#intro').classList.add('gone');setTimeout(()=>$('#intro').remove(),700);
+    if(pendingCode){setCoach('link','Beacon code '+pendingCode+' detected from the link — connecting…');
+      setTimeout(()=>linkCode(pendingCode),600);}
+    else setCoach('hand',IDLE_COACH);
+  }catch(e){
+    DG.cam='denied';diag();
+    b.disabled=false;b.querySelector('span').textContent='retry camera';
+    $('#inNote').textContent='Camera unavailable ('+(e.name||'error')+'). ' +
+      'You can continue without it — retry here, or explore and use "hold to grab" in the viewer.';
+  }
+});
+
+/* ---------------- boot ---------------- */
+lucide.createIcons();
+initGL();
+diag();
+sizePipOv();
+setCoach('hand',IDLE_COACH);
+renderSections();
+pendingCode=(location.hash.match(/avilus=([A-Za-z0-9]{3,8})/)||[])[1]?.toUpperCase()||null;
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>
