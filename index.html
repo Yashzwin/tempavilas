@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0d">
-<title>A.V.I.L.U.S Share · Build 7 — Cross-Room</title>
+<title>A.V.I.L.U.S Share · Build 8 — Air Carry</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -52,10 +52,11 @@ main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 .sec-head span{font-size:12px;color:var(--mut)}
 #grid{position:relative;width:100%}
 #grid figure{position:absolute;overflow:hidden;border-radius:7px;background:#141318;cursor:zoom-in;
-  outline:1px solid rgba(236,231,219,.06);outline-offset:-1px;transition:outline-color .18s}
+  outline:1px solid rgba(236,231,219,.06);outline-offset:-1px;transition:outline-color .18s,box-shadow .18s}
 #grid figure img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .18s}
 #grid figure:hover{outline-color:rgba(240,166,63,.7);z-index:2}
 #grid figure:hover img{filter:brightness(1.08)}
+#grid figure.carried{outline:2px solid rgba(240,166,63,.85);box-shadow:0 0 24px rgba(240,166,63,.35);z-index:2}
 #grid figure::after{content:attr(data-name);position:absolute;left:0;right:0;bottom:0;padding:24px 10px 8px;font-size:11px;color:#fff;
   background:linear-gradient(transparent,rgba(0,0,0,.62));opacity:0;transition:opacity .18s;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -69,10 +70,7 @@ main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 .btn-solid{background:var(--amber);color:#181004;font-weight:600;padding:10px 18px;border-radius:8px;
   display:inline-flex;align-items:center;gap:8px;font-size:13px;transition:.18s}
 .btn-solid:hover{filter:brightness(1.08)}
-.btn-ghost{border:1px solid var(--line-2);padding:10px 18px;border-radius:8px;font-size:13px;
-  display:inline-flex;align-items:center;gap:8px;transition:.18s}
-.btn-ghost:hover{border-color:rgba(240,166,63,.55);color:var(--amber)}
-.btn-solid svg,.btn-ghost svg{width:15px;height:15px}
+.btn-solid svg{width:15px;height:15px}
 
 #lightbox{position:fixed;inset:0;z-index:60;background:rgba(7,7,9,.93);display:flex;align-items:center;justify-content:center;
   opacity:1;transition:opacity .3s}
@@ -134,6 +132,15 @@ body.lb #coach{opacity:0}
 #coach span{font-size:12.5px;line-height:1.5}
 @media(max-width:640px){#coach{left:12px;right:150px;bottom:12px;max-width:none;padding:10px 12px}}
 
+#airChip{position:fixed;top:74px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:14px;
+  background:var(--panel);border:1px solid rgba(240,166,63,.45);border-radius:14px;padding:12px 16px;
+  box-shadow:0 18px 60px rgba(0,0,0,.55);max-width:calc(100vw - 24px)}
+.ac-live{display:flex;align-items:center;gap:8px;font-family:Syne;font-weight:700;font-size:10.5px;letter-spacing:.22em;color:var(--amber);white-space:nowrap}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pul 1.4s infinite;flex:none}
+#acSub{font-size:11.5px;color:var(--mut)}
+#btnTakeBack{border:1px solid var(--line-2);border-radius:8px;padding:8px 13px;font-size:12px;flex:none;transition:.18s}
+#btnTakeBack:hover{border-color:rgba(240,166,63,.55);color:var(--amber)}
+
 #flash{position:fixed;inset:0;z-index:110;pointer-events:none;opacity:0;
   background:radial-gradient(circle at 50% 45%,rgba(240,166,63,.5),transparent 62%)}
 #flash.go{animation:fl .7s ease-out}
@@ -176,26 +183,26 @@ body.lb #coach{opacity:0}
 
 <div id="intro">
   <div class="in-wrap">
-    <div class="in-over">THROW PHOTOS DEVICE TO DEVICE</div>
+    <div class="in-over">CARRY PHOTOS BETWEEN DEVICES</div>
     <div class="in-mark">A<em>.</em>V<em>.</em>I<em>.</em>L<em>.</em>U<em>.</em>S</div>
     <div class="in-sub">SHARE</div>
     <div class="in-rule"></div>
     <div class="in-g">
       <div><i data-lucide="image-plus"></i><div><b>THROW PHOTOS IN — DRAG &amp; DROP OR PASTE</b>
         <small>Photos only, saved on this device. Download any of them from the viewer.</small></div></div>
-      <div><i data-lucide="grab"></i><div><b>FIST PICKS UP · OPEN PALM RELEASES</b>
-        <small>The photo lifts into your hand — perfectly flat, never distorted.</small></div></div>
-      <div><i data-lucide="send"></i><div><b>WORKS ACROSS ROOMS</b>
-        <small>Open your fist anywhere — even in another room — and the photo lands by itself on every linked device: flash, and it opens. Nothing to confirm. If nothing is linked, it just drops back into your gallery.</small></div></div>
+      <div><i data-lucide="grab"></i><div><b>CLOSE YOUR FIST OVER A PHOTO — IT'S IN YOUR HAND</b>
+        <small>Walk away. The moment your hand leaves this camera, the photo goes with you — the screen lets go.</small></div></div>
+      <div><i data-lucide="hand"></i><div><b>OPEN YOUR PALM AT ANY OTHER DEVICE — IT LANDS THERE</b>
+        <small>Every paired device watches for your open palm. The photo appears there and disappears from the device you took it from. Open your palm back here to put it back.</small></div></div>
     </div>
     <button id="btnBegin" class="btn-solid"><i data-lucide="camera"></i><span>Begin — enable camera</span></button>
-    <div class="in-note" id="inNote">The camera only controls YOUR gestures on this device — the receiving device needs nothing.<br>Chrome or Edge recommended.</div>
-    <div class="in-ver">BUILD 7 · CROSS-ROOM</div>
+    <div class="in-note" id="inNote">The camera only reads your hand — nothing is recorded, nothing leaves this device.<br>Chrome or Edge recommended.</div>
+    <div class="in-ver">BUILD 8 · AIR CARRY</div>
   </div>
 </div>
 
 <header>
-  <div class="brand">A.V.I.L.U.S<em>SHARE</em><span class="bld">BUILD 7 · CROSS-ROOM</span></div>
+  <div class="brand">A.V.I.L.U.S<em>SHARE</em><span class="bld">BUILD 8 · AIR CARRY</span></div>
   <div class="right">
     <button id="netChip"><span class="nd"></span><span id="netTxt">pairing…</span></button>
     <div class="actions">
@@ -237,6 +244,12 @@ body.lb #coach{opacity:0}
 <div id="diag">CAM — · VIS — · NET —</div>
 <div id="coach"><span class="ic" id="coachIcon"><i data-lucide="hand"></i></span><span id="coachText"></span></div>
 
+<div id="airChip" hidden>
+  <span class="ac-live"><span class="pulse"></span><span id="acTitle">PHOTO IN THE AIR</span></span>
+  <span id="acSub"></span>
+  <button id="btnTakeBack" hidden>Take back</button>
+</div>
+
 <div id="flash"></div>
 <div id="drop"><div class="dz"><i data-lucide="image-plus"></i><b>Drop to add</b><small>photos land in your gallery</small></div></div>
 <div id="toasts"></div>
@@ -247,9 +260,10 @@ body.lb #coach{opacity:0}
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js"></script>
 <script>
 /* ================================================================
-   A.V.I.L.U.S SHARE — BUILD 7
-   photos only · fist pickup · release ANYWHERE (cross-room) ·
-   auto-landing on all linked devices · downloads
+   A.V.I.L.U.S SHARE — BUILD 8 · AIR CARRY
+   fist = pick up · hand leaves camera = photo carried in the air ·
+   open palm at ANY paired device = it lands there & vanishes here ·
+   open palm back here = put back · move semantics (not a copy)
    ================================================================ */
 const $=s=>document.querySelector(s);
 const on=(el,ev,fn,o)=>el.addEventListener(ev,fn,o);
@@ -328,6 +342,10 @@ function renderGrid(){
   });
   relayout();
 }
+function markCarried(it,onOff){
+  const g=gridFigs.find(r=>r.it===it);
+  if(g)g.f.classList.toggle('carried',!!onOff);
+}
 function relayout(){
   const grid=$('#grid');const W=grid.clientWidth;if(!W)return;
   const gap=8,target=W>1000?236:W>640?184:128;
@@ -344,7 +362,7 @@ function relayout(){
   grid.style.height=Math.max(0,y-gap)+'px';
 }
 
-/* ---------------- demo roll: clean minimal landscape posters ---------------- */
+/* ---------------- demo roll ---------------- */
 const POSTERS=[
  {n:'dusk',   sky:['#35235d','#d96a4f','#f2b47e'],sun:'#ffe3b3',m:['#4a2a55','#33204a','#1c1230']},
  {n:'night',  sky:['#0c1631','#16244a','#22335c'],sun:'#e8ecf5',m:['#101c3a','#0a1226','#060b1c'],stars:true},
@@ -404,7 +422,7 @@ function openLightbox(it,materialize=false){
   img.style.transform='';
   img.src=it.url;
   $('#lbName').textContent=it.name;
-  $('#lbHint').textContent=materialize?'arrived from the other device — added to your gallery':'photo is still — close your fist over it to pick it up';
+  $('#lbHint').textContent=materialize?'arrived out of the air — added to your gallery':'photo is still — close your fist over it to pick it up';
   if(!camOn)setCoach('grab','No camera — press and hold the round button (right side) to pick the photo up.');
   else setCoach('hand','The photo holds still. Open palm over it, then close a fist to pick it up.');
   $('#lightbox').hidden=false;$('#lightbox').classList.remove('out');
@@ -438,10 +456,10 @@ function startPickup(){
   if(!LB.open||LB.busy)return;
   const img=$('#lbImg');
   if(!img.complete||!img.naturalWidth){toast('Photo still loading — one sec','image-plus');return;}
-  if(S.mode!=='idle'){setCoach('grab','Your hand is full — open your palm first.');return;}
+  if(S.mode!=='idle'){setCoach('grab','Your hand is full — release what you carry first.');return;}
   LB.busy=true;
   img.classList.remove('armed');img.classList.add('picked');
-  $('#lbHint').textContent='picked up.';
+  $('#lbHint').textContent='in your hand.';
   const r=img.getBoundingClientRect();
   LB.cx0=r.left+r.width/2;LB.cy0=r.top+r.height/2;
   const pip=$('#pip').getBoundingClientRect();
@@ -473,9 +491,57 @@ function finishPickup(){
   LB.open=false;LB.busy=false;LB.pick=null;
 }
 
+/* ---------------- carry state machine ----------------
+   holding  : photo in hand, hand still visible to THIS camera
+   carrying : hand left the camera — photo is in the air,
+              every paired device watches for an open palm     */
+const CARRY={item:null};
+function enterHolding(){
+  CARRY.item=LB.item;
+  HOLD.tx=S.hand.present?S.hand.px:.5;HOLD.ty=S.hand.present?S.hand.py:.5;
+  HOLD.x=HOLD.tx;HOLD.y=HOLD.ty;HOLD.alpha=0;HOLD.scale=.4;HOLD.fx=null;
+  HOLD.item=CARRY.item;
+  S.mode='holding';
+  markCarried(CARRY.item,true);
+  setCoach('grab',`In your hand: "${truncName(CARRY.item.name,22)}". Walk to the other device — open your palm there.`);
+  updateHandUI();
+}
+function enterCarrying(){
+  if(!CARRY.item)return;
+  HOLD.item=null;HOLD.fx=null;HOLD.alpha=0;
+  S.mode='carrying';updateHandUI();
+  bcast({t:'carry',id:DEVID,name:CARRY.item.name});
+  showAirChip(true);
+  setCoach('hand','Carrying "'+truncName(CARRY.item.name,20)+'". Open your palm in front of the other device — it appears there and vanishes from here.');
+}
+function releaseBack(){ /* open fist while hand still visible → put back */
+  const it=HOLD.item;if(!it)return;
+  HOLD.item=null;markCarried(it,false);
+  HOLD.fx={type:'drop',t:0};S.mode='throwing';updateHandUI();
+  bcast({t:'cancel'});NET.carry=null;hideAirChip();
+  setCoach('hand','Put back — "'+truncName(it.name,22)+'" stays in your gallery.');
+}
+function takeBack(){ /* open palm at own device while carrying → reclaim */
+  const it=CARRY.item;if(!it){S.mode='idle';updateHandUI();return;}
+  CARRY.item=null;
+  markCarried(it,false);
+  bcast({t:'cancel'});NET.carry=null;hideAirChip();
+  S.mode='idle';updateHandUI();
+  setCoach('hand','Taken back — "'+truncName(it.name,22)+'" is in your gallery again.');
+}
+function showAirChip(mine){
+  $('#airChip').hidden=false;
+  $('#btnTakeBack').hidden=!mine;
+  $('#acTitle').textContent=mine?'IN YOUR HAND':'PHOTO IN THE AIR';
+  $('#acSub').textContent=mine
+    ?'walk to the other device · open your palm there'
+    :'open your palm in front of this camera to take it';
+}
+function hideAirChip(){$('#airChip').hidden=true;}
+
 /* ---------------- hand tracking ---------------- */
-const G={state:'none',open:1,openFrames:0,fistFrames:0,cool:0};
-const OPEN_TH=1.5, FIST_TH=1.33, MIN_SIZE=.05, COOL_MS=500;
+const G={state:'none',open:1,openFrames:0,fistFrames:0,cool:0,lastHand:0};
+const OPEN_TH=1.5, FIST_TH=1.33, MIN_SIZE=.05, COOL_MS=500, LOST_MS=700;
 const HAND_CONN=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[5,9],[9,10],[10,11],[11,12],
   [9,13],[13,14],[14,15],[15,16],[13,17],[17,18],[18,19],[19,20],[0,17]];
 function openness(lm){
@@ -493,7 +559,7 @@ function onHandResults(res){
     return;
   }
   const lm=lms[0],o=openness(lm);
-  G.open=o;DG.vis='lock';diag();
+  G.open=o;G.lastHand=performance.now();DG.vis='lock';diag();
   S.hand.present=true;
   const mx=1-lm[9].x;
   S.hand.px=mx;S.hand.py=lm[9].y;
@@ -509,7 +575,7 @@ function onHandResults(res){
     const nowMs=performance.now();
     if(S.hand.ok&&nowMs-G.cool>COOL_MS){
       if(prev==='open'&&st==='fist'){G.cool=nowMs;onGrabGesture();}
-      else if(prev==='fist'&&st==='open'){G.cool=nowMs;onReleaseGesture();}
+      else if(st==='open'){G.cool=nowMs;onOpenGesture();}   /* ANY → open */
     }
   }
   const pct=res.multiHandedness&&res.multiHandedness[0]?Math.round(res.multiHandedness[0].score*100):0;
@@ -522,15 +588,19 @@ function onHandResults(res){
 function updateHandUI(){
   $('#pip').classList.toggle('live',camOn);
   if(S.mode==='holding')pipState('holding');
-  else if(S.mode==='throwing')pipState(HOLD.fx&&HOLD.fx.type==='throw'?'thrown':'released');
+  else if(S.mode==='carrying')pipState('carrying');
+  else if(S.mode==='sending')pipState('releasing');
+  else if(S.mode==='throwing')pipState('putting back');
   else if(!camOn)pipState('camera off');
   else if(!S.hand.present)pipState('searching…');
 }
 function onGrabGesture(){
   if(S.mode==='idle'&&LB.open&&!LB.busy)startPickup();
 }
-function onReleaseGesture(){
-  if(S.mode==='holding'&&HOLD.item)launchHeld();
+function onOpenGesture(){
+  if(S.mode==='holding'){releaseBack();return;}
+  if(S.mode==='carrying'){takeBack();return;}
+  if(S.mode==='idle'&&!RX.busy&&NET.carry&&NET.carry.from!==DEVID)sendClaim();
 }
 
 async function startCamera(){
@@ -568,14 +638,6 @@ function rr(x,px,py,w,h,r){x.beginPath();x.moveTo(px+r,py);x.arcTo(px+w,py,px+w,
 function thumbEl(it){
   if(it._thumb)return it._thumb;
   const e=new Image();e.src=it.url;it._thumb=e;return e;
-}
-function enterHolding(){
-  HOLD.item=LB.item;HOLD.fx=null;
-  HOLD.tx=S.hand.present?S.hand.px:.5;HOLD.ty=S.hand.present?S.hand.py:.5;
-  HOLD.x=HOLD.tx;HOLD.y=HOLD.ty;HOLD.alpha=0;HOLD.scale=.4;
-  S.mode='holding';
-  setCoach('grab',`In your hand: "${truncName(HOLD.item.name,22)}". Open your palm anywhere — it flies to every linked device.`);
-  updateHandUI();
 }
 function endFx(){HOLD.fx=null;HOLD.item=null;HOLD.alpha=0;S.mode='idle';updateHandUI();}
 function drawHand(x){
@@ -618,16 +680,9 @@ function drawOverlay(dt){
   if(S.mode==='holding'&&S.hand.present){HOLD.tx=S.hand.px;HOLD.ty=S.hand.py;}
   if(HOLD.fx){
     const f=HOLD.fx;f.t+=dt;
-    if(f.type==='throw'){
-      const k=Math.min(1,f.t/.62);
-      HOLD.scale=1+1.6*k;HOLD.alpha=1-k*k;
-      HOLD.x+=dt*1.1;HOLD.y-=dt*.8;
-      if(k>=1)endFx();
-    }else{
-      const k=Math.min(1,f.t/.5);
-      HOLD.alpha=1-k;HOLD.y+=dt*1.2;HOLD.scale=Math.max(.3,1-k*.6);
-      if(k>=1)endFx();
-    }
+    const k=Math.min(1,f.t/.5);
+    HOLD.alpha=1-k;HOLD.y+=dt*1.2;HOLD.scale=Math.max(.3,1-k*.6);
+    if(k>=1)endFx();
   }else if(HOLD.item){
     HOLD.alpha=lerp(HOLD.alpha,S.hand.present?1:.5,.08);
     HOLD.scale=lerp(HOLD.scale,1,.12);
@@ -655,20 +710,13 @@ function drawOverlay(dt){
   }
 }
 
-/* ---------------- automatic room (no codes) ----------------
-   All devices that open the site meet at one shared rendezvous
-   point and form a room. Anyone can throw to the whole room
-   from anywhere — rooms span rooms, houses, networks.         */
+/* ---------------- automatic room ---------------- */
 const DEVID=Math.random().toString(36).slice(2,6);
-const STAGE_ID='avilus-room-v7';
-const NET={peer:null,link:null,conns:new Set(),connDev:new Map(),devs:new Map(),role:'—',run:true};
+const STAGE_ID='avilus-room-v8';
+const NET={peer:null,link:null,conns:new Set(),connDev:new Map(),devs:new Map(),
+  role:'—',run:true,carry:null,claimTs:0};
 const RX={busy:false,meta:null,parts:[],got:0};
 
-function knownIds(){
-  const now=performance.now(),out=[];
-  for(const[id,v]of NET.devs){if(id!==DEVID&&now-v.ts<6000)out.push(id);}
-  return out;
-}
 function linkedCount(){return NET.role==='stage'?NET.conns.size:(NET.link&&NET.link.open?1:0);}
 function refreshChip(){
   const lk=linkedCount();
@@ -681,13 +729,14 @@ function relay(d,fromConn){
   if(NET.role!=='stage')return;
   for(const c of NET.conns){if(c!==fromConn&&c.open){try{c.send(d);}catch(e){}}}
 }
-function forward(d,fromConn,to){
-  if(NET.role!=='stage')return;
-  const star=to.includes('*');
-  for(const[c,id]of NET.connDev){
-    if(c===fromConn||!c.open)continue;
-    if(star||to.includes(id)){try{c.send(d);}catch(e){}}
-  }
+function bcast(msg){
+  if(NET.role==='stage'){for(const c of NET.conns){if(c.open){try{c.send(msg);}catch(e){}}}}
+  else if(NET.link&&NET.link.open){try{NET.link.send(msg);}catch(e){}}
+}
+function sendToId(msg,id){
+  if(NET.role==='stage'){
+    for(const[c,cid]of NET.connDev){if(c.open&&cid===id){try{c.send(msg);}catch(e){}}}
+  }else if(NET.link&&NET.link.open){try{NET.link.send(msg);}catch(e){}}
 }
 function handleMsg(d,fromConn){
   if(!d||typeof d!=='object')return;
@@ -696,9 +745,32 @@ function handleMsg(d,fromConn){
     NET.devs.set(d.id,{ts:performance.now()});
     relay(d,fromConn);refreshChip();return;
   }
+  if(d.t==='carry'){
+    if(d.id!==DEVID&&S.mode==='idle'){
+      NET.carry={from:d.id,name:d.name,ts:performance.now()};
+      showAirChip(false);
+    }
+    relay(d,fromConn);return;
+  }
+  if(d.t==='cancel'||d.t==='gone'){
+    const had=NET.carry;
+    NET.carry=null;hideAirChip();
+    if(d.t==='gone'&&had&&had.from!==DEVID)toast('The photo landed on another device','hand');
+    relay(d,fromConn);return;
+  }
+  if(d.t==='claim'){
+    if(S.mode==='carrying'&&CARRY.item&&d.id!==DEVID)winClaim(d.id);
+    relay(d,fromConn);return;
+  }
+  /* photo payload */
   const to=d.to||['*'];
   if(to.includes('*')||to.includes(DEVID))receiveMsg(d);
-  forward(d,fromConn,to);
+  if(NET.role==='stage'){
+    const star=to.includes('*');
+    for(const[c,id]of NET.connDev){
+      if(c!==fromConn&&c.open&&(star||to.includes(id))){try{c.send(d);}catch(e){}}
+    }
+  }
 }
 function bindConn(c){
   NET.conns.add(c);
@@ -748,48 +820,52 @@ setInterval(()=>{
   for(const[id,v]of NET.devs)if(now-v.ts>6000)NET.devs.delete(id);
   refreshChip();
 },900);
+setInterval(()=>{ /* keep the carry alive on all devices; prune stale ones */
+  if(S.mode==='carrying'&&CARRY.item)bcast({t:'carry',id:DEVID,name:CARRY.item.name});
+  if(NET.carry&&performance.now()-NET.carry.ts>6000){NET.carry=null;hideAirChip();}
+},2000);
 
-/* ---------------- throw / drop / receive ---------------- */
-function sendTargeted(msg,to){
-  if(NET.role==='stage'){
-    const star=to.includes('*');
-    for(const[c,id]of NET.connDev){
-      if(!c.open)continue;
-      if(star||to.includes(id)){try{c.send(msg);}catch(e){}}
-    }
-  }else if(NET.link&&NET.link.open){try{NET.link.send(msg);}catch(e){}}
+/* ---------------- claim → release ---------------- */
+function sendClaim(){
+  if(!NET.carry||NET.carry.from===DEVID)return;
+  const now=performance.now();
+  if(now-NET.claimTs<1500)return;
+  NET.claimTs=now;
+  $('#acSub').textContent='reaching for it…';
+  bcast({t:'claim',id:DEVID});
 }
-function launchHeld(){
-  const it=HOLD.item;if(!it)return;
-  const lk=linkedCount();
-  if(!lk){dropHeld('nothing is linked — open this site on the other device first');return;}
-  HOLD.fx={type:'throw',t:0};S.mode='throwing';updateHandUI();
-  const targets=knownIds();
-  sendToTargets(targets.length?targets:['*'],it,lk);
-}
-async function sendToTargets(to,it,count){
+async function winClaim(claimId){
+  const it=CARRY.item;if(!it)return;
+  CARRY.item=null;NET.carry=null;hideAirChip();
+  S.mode='sending';updateHandUI();
   try{
-    sendTargeted({t:'tx',to,name:it.name,mime:it.file.type||'image/jpeg',size:it.file.size},to);
+    sendToId({t:'tx',to:[claimId],name:it.name,mime:it.file.type||'image/jpeg',size:it.file.size},claimId);
     const CH=65536;let off=0;
     const dc=(NET.role==='stage'?[...NET.conns][0]:NET.link)?.dataChannel;
     while(off<it.file.size){
       if(dc&&dc.bufferedAmount>4194304){await sleep(25);continue;}
       const buf=await it.file.slice(off,off+CH).arrayBuffer();
-      sendTargeted({t:'chunk',to,b:buf},to);
+      sendToId({t:'chunk',to:[claimId],b:buf},claimId);
       off+=buf.byteLength;
     }
-    sendTargeted({t:'end',to},to);
-    toast('Threw to '+count+' device'+(count>1?'s':''),'send');
-  }catch(e){toast('Transfer failed — link lost','x');}
-}
-function dropHeld(why){
-  HOLD.fx={type:'drop',t:0};S.mode='throwing';updateHandUI();
-  setCoach('hand','Released — '+why+'. The photo stays in your gallery.');
+    sendToId({t:'end',to:[claimId]},claimId);
+    /* move semantics: the photo leaves this device */
+    const idx=items.indexOf(it);if(idx>-1)items.splice(idx,1);
+    dbDel(it.id);
+    try{URL.revokeObjectURL(it.url);}catch(e){}
+    renderGrid();
+    bcast({t:'gone'});
+    toast('Released — the photo left this device','send');
+  }catch(e){
+    toast('Transfer failed — photo returned to gallery','x');
+    items.push(it);dbSave(it);markCarried(it,false);renderGrid();
+  }
+  S.mode='idle';updateHandUI();
 }
 function receiveMsg(d){
   if(d.t==='tx'){
     RX.meta={name:d.name,mime:d.mime,size:d.size};RX.parts=[];RX.got=0;RX.busy=true;
-    setCoach('download','A photo is flying in from another device…');
+    setCoach('download','A photo is landing…');
   }else if(d.t==='chunk'&&RX.busy){
     const b=d.b instanceof ArrayBuffer?new Uint8Array(d.b):new Uint8Array(d.b.buffer,d.b.byteOffset,d.b.byteLength);
     RX.parts.push(b);RX.got+=b.byteLength;
@@ -802,6 +878,7 @@ async function finishRx(){
   const it={id:++itemId,kind:'image',name:file.name,file,url:URL.createObjectURL(file),w:0,h:0,received:true};
   items.push(it);dbSave(it);probeSize(it);
   renderGrid();
+  NET.carry=null;hideAirChip();
   toast('Caught "'+truncName(file.name,26)+'" — added to gallery','hand');
   setCoach('hand',IDLE_COACH);
   openLightbox(it,true);
@@ -815,6 +892,8 @@ function tick(now){
   else if(LB.open&&!LB.busy){
     $('#lbImg').classList.toggle('armed',G.state==='open'&&S.hand.ok);
   }
+  /* hand slipped out of frame while holding → the photo goes into the air */
+  if(S.mode==='holding'&&performance.now()-G.lastHand>LOST_MS)enterCarrying();
   if(camOn)drawOverlay(dt);
   requestAnimationFrame(tick);
 }
@@ -823,9 +902,10 @@ function tick(now){
 on($('#btnAdd'),'click',()=>$('#fileInput').click());
 on($('#btnAdd2'),'click',()=>$('#fileInput').click());
 on($('#btnSamples'),'click',()=>loadDemo(false));
+on($('#btnTakeBack'),'click',takeBack);
 on($('#netChip'),'click',()=>{
   const lk=linkedCount();
-  toast(lk?lk+' device(s) linked. Open your palm while holding a photo — it lands on all of them, any room.'
+  toast(lk?lk+' device(s) linked. Pick a photo up here, walk over, open your palm at the other device.'
           :'Open this site on the other device — pairing is automatic, no codes.','link');
 });
 on($('#fileInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderGrid();
@@ -861,7 +941,8 @@ on($('#lbGrab'),'pointerdown',()=>{
 });
 on($('#lbGrab'),'pointerup',()=>{
   clearTimeout(armTimer);$('#lbGrab').classList.remove('arming');
-  if(S.mode==='holding')launchHeld();
+  if(S.mode==='holding')releaseBack();
+  else if(S.mode==='carrying')takeBack();
 });
 on($('#lbGrab'),'pointerleave',()=>{clearTimeout(armTimer);$('#lbGrab').classList.remove('arming');});
 let rsz=0;
