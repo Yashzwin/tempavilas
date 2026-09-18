@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f2efe7">
-<title>A.V.I.L.U.S Share · Build 3 (Light)</title>
+<title>A.V.I.L.U.S Share · Build 4 (Light)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -23,7 +23,6 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 ::selection{background:var(--amber);color:#fff8ee}
 svg{display:block}
 
-/* ---------- header ---------- */
 header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
   padding:0 22px;height:58px;background:rgba(242,239,231,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .brand{font-family:Syne;font-weight:800;font-size:16px;letter-spacing:.14em;white-space:nowrap}
@@ -38,7 +37,6 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:c
 .actions button svg{width:15px;height:15px}
 @media(max-width:640px){.actions button span{display:none}header{padding:0 14px}.bld{display:none}}
 
-/* ---------- main ---------- */
 main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 .sec-head{display:flex;align-items:baseline;gap:12px;margin:26px 2px 14px}
 .sec-head h2{font-family:Syne;font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
@@ -80,7 +78,6 @@ main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 .fsub{font-size:11px;color:var(--mut)}
 .fsize{font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
 
-/* ---------- lightbox ---------- */
 #lightbox{position:fixed;inset:0;z-index:60;background:rgba(242,239,231,.95);display:flex;align-items:center;justify-content:center;
   opacity:1;transition:opacity .3s}
 #lightbox.out{opacity:0}
@@ -89,11 +86,11 @@ main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 #lbBar{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;max-width:80vw}
 #lbName{font-size:13px}
 #lbHint{font-size:12px;color:var(--amber);margin-top:5px;letter-spacing:.02em;font-weight:600}
-#lbClose{position:absolute;top:18px;right:18px;width:40px;height:40px;border:1px solid var(--line-2);border-radius:50%;
-  display:grid;place-items:center;color:var(--mut);transition:.18s}
-#lbClose:hover{border-color:var(--amber);color:var(--amber)}
-#lbClose svg{width:16px;height:16px}
-/* sits ABOVE the camera panel so it's always tappable */
+#lbClose,#lbDel{position:absolute;top:18px;width:40px;height:40px;border:1px solid var(--line-2);border-radius:50%;
+  display:grid;place-items:center;color:var(--mut);transition:.18s;background:rgba(251,249,244,.7)}
+#lbClose{right:18px}#lbDel{left:18px}
+#lbClose:hover,#lbDel:hover{border-color:var(--amber);color:var(--amber)}
+#lbClose svg,#lbDel svg{width:16px;height:16px}
 #lbGrab{position:absolute;right:24px;bottom:192px;display:flex;flex-direction:column;align-items:center;gap:6px;
   color:var(--mut);font-size:10px;letter-spacing:.14em;text-transform:uppercase;touch-action:none;user-select:none}
 #lbGrab .ring{width:46px;height:46px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:.15s}
@@ -105,7 +102,6 @@ main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 }
 body.lb #coach{opacity:0}
 
-/* ---------- camera pip (stays dark — it's the video feed) ---------- */
 #pip{position:fixed;right:20px;bottom:20px;width:196px;height:147px;border-radius:14px;overflow:hidden;z-index:80;
   border:1px solid var(--line-2);background:#000;box-shadow:0 12px 34px rgba(40,30,12,.3);transition:border-color .25s}
 #pip.live{border-color:rgba(176,106,10,.8)}
@@ -117,13 +113,11 @@ body.lb #coach{opacity:0}
 #pip.live #pipTag .dot{background:#f0a63f}
 @media(max-width:640px){#pip{width:128px;height:96px;right:12px;bottom:12px}}
 
-/* ---------- diagnostics line ---------- */
 #diag{position:fixed;left:20px;bottom:96px;z-index:84;font-size:10.5px;letter-spacing:.08em;color:var(--mut);
   background:rgba(251,249,244,.88);border:1px solid var(--line);padding:6px 10px;border-radius:8px;
   pointer-events:none;font-variant-numeric:tabular-nums}
 @media(max-width:640px){#diag{left:12px;bottom:106px;font-size:9.5px}}
 
-/* ---------- coach ---------- */
 #coach{position:fixed;left:20px;bottom:20px;z-index:85;display:flex;align-items:center;gap:11px;max-width:340px;
   background:rgba(251,249,244,.94);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px;
   padding:12px 15px;pointer-events:none;transition:opacity .25s;box-shadow:0 10px 30px rgba(52,40,18,.12)}
@@ -132,7 +126,15 @@ body.lb #coach{opacity:0}
 #coach span{font-size:12.5px;line-height:1.5}
 @media(max-width:640px){#coach{left:12px;right:150px;bottom:12px;max-width:none;padding:10px 12px}}
 
-/* ---------- beacon ---------- */
+#drop{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;
+  background:rgba(176,106,10,.12);backdrop-filter:blur(3px)}
+#drop.on{display:flex}
+#drop .dz{border:2px dashed var(--amber);border-radius:18px;padding:38px 48px;text-align:center;background:rgba(251,249,244,.92);
+  box-shadow:0 20px 60px rgba(52,40,18,.2)}
+#drop .dz svg{width:34px;height:34px;color:var(--amber);margin:0 auto 12px}
+#drop .dz b{font-family:Syne;font-size:19px;display:block;margin-bottom:6px}
+#drop .dz small{color:var(--mut);font-size:12.5px}
+
 #beacon{position:fixed;top:74px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:18px;
   background:var(--panel);border:1px solid rgba(176,106,10,.4);border-radius:14px;padding:14px 16px;min-width:380px;
   box-shadow:0 18px 60px rgba(52,40,18,.22)}
@@ -150,7 +152,6 @@ body.lb #coach{opacity:0}
 #bcStop svg{width:14px;height:14px}
 @media(max-width:560px){#beacon{flex-wrap:wrap;min-width:0;width:calc(100vw - 24px);gap:12px}.bc-status{max-width:none}}
 
-/* ---------- link popover ---------- */
 #linkPop{position:fixed;top:68px;right:20px;z-index:95;width:290px;background:var(--panel);
   border:1px solid var(--line-2);border-radius:14px;padding:16px;box-shadow:0 18px 50px rgba(52,40,18,.2)}
 .lp-title{font-family:Syne;font-weight:700;font-size:10.5px;letter-spacing:.22em;color:var(--mut);margin-bottom:12px}
@@ -162,7 +163,6 @@ body.lb #coach{opacity:0}
 #btnGo:hover{filter:brightness(1.07)}
 #linkStatus{font-size:11.5px;color:var(--mut);margin-top:11px;line-height:1.5}
 
-/* ---------- toasts ---------- */
 #toasts{position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:100;display:flex;flex-direction:column;
   gap:8px;align-items:center;pointer-events:none}
 .toast{display:flex;align-items:center;gap:9px;background:var(--panel);border:1px solid var(--line-2);
@@ -171,7 +171,6 @@ body.lb #coach{opacity:0}
 .toast.in{opacity:1;transform:none}
 .toast svg{width:14px;height:14px;color:var(--amber);flex:none}
 
-/* ---------- intro ---------- */
 #intro{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .6s}
 #intro.gone{opacity:0;pointer-events:none}
 .in-wrap{max-width:560px;padding:30px;text-align:center}
@@ -191,7 +190,6 @@ body.lb #coach{opacity:0}
 </head>
 <body>
 
-<!-- ============ intro ============ -->
 <div id="intro">
   <div class="in-wrap">
     <div class="in-over">HANDS-ON FILE TRANSFER</div>
@@ -199,21 +197,22 @@ body.lb #coach{opacity:0}
     <div class="in-sub">SHARE</div>
     <div class="in-rule"></div>
     <div class="in-g">
-      <div><i data-lucide="hand"></i><div><b>OPEN PALM, THEN CLOSE IT INTO A FIST</b>
-        <small>Watch your hand skeleton appear in the camera panel — amber is open, red is a fist. The photo bends toward your hand, then crumples into it.</small></div></div>
-      <div><i data-lucide="grab"></i><div><b>OPEN YOUR FIST TO LAUNCH</b>
-        <small>A beacon lights up. On the other device: link the code, make a fist, open your palm — it's caught mid-air.</small></div></div>
+      <div><i data-lucide="hand"></i><div><b>THROW PICTURES IN — DRAG &amp; DROP OR TAP PHOTOS</b>
+        <small>Your library is saved on this device. It's here even after you close the tab.</small></div></div>
+      <div><i data-lucide="grab"></i><div><b>OPEN PALM STILL · FIST GRABS</b>
+        <small>The photo freezes until your fist closes — then it crumples toward your hand with light at the borders. Open your fist to launch it to the other device.</small></div></div>
     </div>
     <button id="btnBegin" class="btn-solid"><i data-lucide="camera"></i><span>Begin — enable camera</span></button>
     <div class="in-note" id="inNote">The camera never leaves this device. Transfers run as a direct WebRTC peer link.<br>Chrome or Edge recommended.</div>
-    <div class="in-ver">BUILD 3 · LIGHT MODE</div>
+    <div class="in-ver">BUILD 4 · LIGHT</div>
   </div>
 </div>
 
 <header>
-  <div class="brand">A.V.I.L.U.S<em>SHARE</em><span class="bld">BUILD 3 · LIGHT</span></div>
+  <div class="brand">A.V.I.L.U.S<em>SHARE</em><span class="bld">BUILD 4 · LIGHT</span></div>
   <div class="actions">
-    <button id="btnFolder"><i data-lucide="folder-open"></i><span>Open folder</span></button>
+    <button id="btnAdd"><i data-lucide="image-plus"></i><span>Photos</span></button>
+    <button id="btnFiles"><i data-lucide="file-plus"></i><span>Files</span></button>
     <button id="btnSamples"><i data-lucide="images"></i><span>Samples</span></button>
     <button id="btnLink"><i data-lucide="link"></i><span>Link device</span></button>
   </div>
@@ -224,11 +223,11 @@ body.lb #coach{opacity:0}
   <div id="grid"></div>
   <div id="empty">
     <div>
-      <h3>Nothing in the light yet</h3>
-      <p>Point A.V.I.L.U.S at a folder of photos, or load a sample roll to try the grab gesture right away.</p>
+      <h3>Throw pictures in</h3>
+      <p>Drag &amp; drop files anywhere on this page, paste with Ctrl+V, or use the buttons. Everything you add is saved on this device.</p>
       <div class="row">
-        <button class="btn-solid" id="btnFolder2"><i data-lucide="folder-open"></i>Open a folder</button>
-        <button class="btn-ghost" id="btnSamples2"><i data-lucide="images"></i>Load samples</button>
+        <button class="btn-solid" id="btnAdd2"><i data-lucide="image-plus"></i>Add photos</button>
+        <button class="btn-ghost" id="btnSamples2"><i data-lucide="images"></i>Generate samples</button>
       </div>
     </div>
   </div>
@@ -239,29 +238,26 @@ body.lb #coach{opacity:0}
   </div>
 </main>
 
-<!-- ============ lightbox ============ -->
 <div id="lightbox" hidden>
   <canvas id="lbCanvas"></canvas>
   <img id="lbImg" hidden alt="">
   <div id="lbBar"><div id="lbName"></div><div id="lbHint"></div></div>
+  <button id="lbDel"><i data-lucide="trash-2"></i></button>
   <button id="lbClose"><i data-lucide="x"></i></button>
   <button id="lbGrab"><span class="ring"><i data-lucide="grab"></i></span><span class="lbl">hold to grab</span></button>
 </div>
 
-<!-- ============ camera pip ============ -->
 <div id="pip">
   <video id="cam" playsinline muted autoplay></video>
   <canvas id="pipOv"></canvas>
   <div id="pipTag"><span class="dot"></span><span id="pipState">camera off</span></div>
 </div>
 
-<!-- ============ diagnostics ============ -->
 <div id="diag">CAM — · VIS — · GL —</div>
-
-<!-- ============ coach ============ -->
 <div id="coach"><span class="ic" id="coachIcon"><i data-lucide="hand"></i></span><span id="coachText"></span></div>
 
-<!-- ============ beacon ============ -->
+<div id="drop"><div class="dz"><i data-lucide="image-plus"></i><b>Drop to add</b><small>photos, documents — anything</small></div></div>
+
 <div id="beacon" hidden>
   <div class="bc-left">
     <div class="bc-live"><span class="pulse"></span>BEACON LIVE</div>
@@ -273,7 +269,6 @@ body.lb #coach{opacity:0}
   <button id="bcStop"><i data-lucide="x"></i></button>
 </div>
 
-<!-- ============ link popover ============ -->
 <div id="linkPop" hidden>
   <div class="lp-title">LINK A BEACON</div>
   <div class="lp-row">
@@ -284,8 +279,8 @@ body.lb #coach{opacity:0}
 </div>
 
 <div id="toasts"></div>
-<input type="file" id="dirInput" webkitdirectory multiple hidden>
 <input type="file" id="fileInput" accept="image/*" multiple hidden>
+<input type="file" id="anyInput" multiple hidden>
 
 <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
@@ -293,7 +288,7 @@ body.lb #coach{opacity:0}
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js"></script>
 <script>
 /* ================================================================
-   A.V.I.L.U.S SHARE — BUILD 3 (LIGHT) · skeleton + diag build
+   A.V.I.L.U.S SHARE — BUILD 4 · still-hand / sheet-grab rewrite
    ================================================================ */
 const $=s=>document.querySelector(s);
 const on=(el,ev,fn,o)=>el.addEventListener(ev,fn,o);
@@ -306,15 +301,13 @@ const fmtSize=n=>n<1024?n+' B':n<1048576?(n/1024).toFixed(1)+' KB':(n/1048576).t
 const CODE_AB='ACDEFHJKLMNPRTUVWXY34679';
 const mkCode=()=>Array.from({length:4},()=>CODE_AB[Math.random()*CODE_AB.length|0]).join('');
 
-const IDLE_COACH='Browse and tap a photo — then watch your hand skeleton in the camera panel.';
+const IDLE_COACH='Throw pictures in — drag & drop, paste, or tap Photos.';
 const S={mode:'idle',hand:{present:false,ok:false,px:.5,py:.5,size:.15,pts:null},heldItem:null,peer:null,conn:null,code:null};
 let camOn=false, pendingCode=null;
 
-/* ---------------- diagnostics ---------------- */
 const DG={cam:'—',vis:'—',gl:'—'};
 function diag(){$('#diag').textContent=`CAM ${DG.cam} · VIS ${DG.vis} · GL ${DG.gl}`;}
 
-/* ---------------- toasts / coach / pip label ---------------- */
 let lastPipTxt='';
 function toast(msg,icon='check'){
   const t=document.createElement('div');t.className='toast';
@@ -329,8 +322,23 @@ function setCoach(icon,text){
 }
 function pipState(t){if(t===lastPipTxt)return;lastPipTxt=t;$('#pipState').textContent=t;}
 
-/* ---------------- items / library ---------------- */
+/* ---------------- library + persistence (IndexedDB) ---------------- */
 const items=[];let itemId=0;
+const DBX={db:null,ok:false};
+function openDB(){return new Promise(res=>{try{
+  const rq=indexedDB.open('avilus-share',1);
+  rq.onupgradeneeded=()=>{rq.result.createObjectStore('f',{keyPath:'id'});};
+  rq.onsuccess=()=>{DBX.db=rq.result;DBX.ok=true;res();};
+  rq.onerror=()=>res();
+}catch(e){res();}});}
+function dbSave(it){if(!DBX.ok||!it.file)return;
+  try{DBX.db.transaction('f','readwrite').objectStore('f')
+    .put({id:it.id,name:it.name,mime:it.file.type||'',size:it.file.size,blob:it.file,rx:it.received});}catch(e){}}
+function dbDel(id){if(!DBX.ok)return;try{DBX.db.transaction('f','readwrite').objectStore('f').delete(id);}catch(e){}}
+function dbLoad(){return new Promise(res=>{if(!DBX.ok)return res([]);
+  try{const rq=DBX.db.transaction('f').objectStore('f').getAll();
+    rq.onsuccess=()=>res(rq.result||[]);rq.onerror=()=>res([]);}catch(e){res([]);}});}
+
 function classify(f){
   const n=f.name.toLowerCase();
   if(/\.(jpe?g|png|gif|webp|bmp|avif)$/.test(n)||f.type.startsWith('image/'))return'image';
@@ -341,7 +349,7 @@ function ingestFile(f){
   if(!f||f.size>80*1048576)return;
   const kind=classify(f);
   const it={id:++itemId,kind,name:f.name,file:f,url:URL.createObjectURL(f),w:0,h:0,received:false};
-  items.push(it);
+  items.push(it);dbSave(it);
   if(kind==='image')probeSize(it);
 }
 function probeSize(it){
@@ -352,7 +360,6 @@ function probeSize(it){
 }
 function renderSections(){renderGrid();renderFiles();}
 
-/* ---------------- justified photo grid ---------------- */
 let gridFigs=[];
 function renderGrid(){
   const grid=$('#grid');grid.textContent='';gridFigs=[];
@@ -402,80 +409,89 @@ function renderFiles(){
   lucide.createIcons();
 }
 
-/* ---------------- folder / sample loading ---------------- */
-async function openFolder(){
-  const isTouch=matchMedia('(pointer:coarse)').matches;
-  try{
-    if(window.showDirectoryPicker&&!isTouch){
-      const dir=await showDirectoryPicker();
-      let n=0;
-      await walk(dir,0,()=>{if(n>=600)return false;n++;return true;});
-      renderSections();
-      toast(items.filter(i=>i.file).length+' files indexed','check');
-    }else if(isTouch){$('#fileInput').click();}
-    else{$('#dirInput').click();}
-  }catch(e){if(e.name!=='AbortError')toast('Could not open folder','x');}
+/* ---------------- generated samples (zero network — fixes "JPG" card) -------- */
+const ART=[['#122a4c','#4a7ba6','#e9c46a','#f4ead5'],['#2c1e3d','#7a4e7d','#e8a87c','#f6efe0'],
+  ['#0f3d33','#3c8a6d','#d9b26a','#f1ead8'],['#4a1c1c','#a4502e','#e9b44c','#f7efe2'],
+  ['#1d2b1f','#5a7d4a','#c9d8a0','#f2efe3'],['#23324a','#5a6f94','#c0c7d8','#f4f1ea'],
+  ['#3a2436','#8c5a74','#e3b7a0','#f6efe6'],['#20343f','#4a7d8c','#a8d0c8','#f2efe7']];
+const ARTN=['aurora','dune','tide','ember','moss','harbor','orchid','lagoon'];
+const ARTSZ=[[900,1200],[1200,800],[960,960],[1000,1400],[1200,760],[900,1350],[1100,860],[980,1225]];
+function lcg(seed){let s=(seed>>>0)||1;return()=>((s=(s*1664525+1013904223)>>>0)/4294967296);}
+function hexA(hx,a){const n=parseInt(hx.slice(1),16);return`rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;}
+function makeArtFile(i){
+  const [w,h]=ARTSZ[i%8];const rnd=lcg(i*7919+(Date.now()&0xffff));
+  const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');
+  const P=ART[i%8];
+  const bg=x.createLinearGradient(0,0,0,h);bg.addColorStop(0,P[0]);bg.addColorStop(1,P[1]);
+  x.fillStyle=bg;x.fillRect(0,0,w,h);
+  for(let b=0;b<5;b++){const bx=rnd()*w,by=rnd()*h*.75,br=(.18+rnd()*.4)*Math.max(w,h);
+    const rg=x.createRadialGradient(bx,by,0,bx,by,br);
+    rg.addColorStop(0,hexA(b%2?P[2]:P[3],.5));rg.addColorStop(1,hexA(P[2],0));
+    x.fillStyle=rg;x.fillRect(0,0,w,h);}
+  const sx=(.2+rnd()*.6)*w,sy=(.15+rnd()*.35)*h,sr=(.05+rnd()*.06)*Math.min(w,h);
+  x.fillStyle=hexA(P[3],.25);x.beginPath();x.arc(sx,sy,sr*1.9,0,7);x.fill();
+  x.fillStyle=hexA(P[3],.92);x.beginPath();x.arc(sx,sy,sr,0,7);x.fill();
+  const hy=h*(.6+rnd()*.15);
+  x.fillStyle=hexA(P[0],.92);x.beginPath();x.moveTo(0,hy+(rnd()-.5)*h*.05);
+  x.quadraticCurveTo(w*.5,hy+(rnd()-.5)*h*.08,w,hy+(rnd()-.5)*h*.05);
+  x.lineTo(w,h);x.lineTo(0,h);x.closePath();x.fill();
+  for(let g2=0;g2<1400;g2++){x.fillStyle=rnd()>.5?'rgba(255,255,255,.05)':'rgba(0,0,0,.05)';
+    x.fillRect(rnd()*w,rnd()*h,1.5,1.5);}
+  const vg=x.createRadialGradient(w/2,h/2,Math.min(w,h)*.35,w/2,h/2,Math.max(w,h)*.75);
+  vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.22)');x.fillStyle=vg;x.fillRect(0,0,w,h);
+  return new Promise(res=>c.toBlob(bl=>{if(bl)res(new File([bl],
+    `roll-${String(i%8+1).padStart(2,'0')} ${ARTN[i%8]}.jpg`,{type:'image/jpeg'}));},'image/jpeg',.9));
 }
-async function walk(dir,depth,alive){
-  if(depth>5||!alive())return;
-  for await(const[name,h]of dir.entries()){
-    if(!alive())return;
-    if(name.startsWith('.'))continue;
-    if(h.kind==='directory')await walk(h,depth+1,alive);
-    else{try{const f=await h.getFile();ingestFile(f);}catch(e){}}
-  }
-}
-const SAMPLES=[[900,1200],[1200,800],[880,880],[720,1080],[1150,760],[900,1350],[1000,700],
-  [820,820],[1200,900],[750,1000],[1080,810],[860,1150],[1160,770],[980,980],[1000,1250]];
-function loadSamples(){
-  SAMPLES.forEach((d,i)=>{
-    items.push({id:++itemId,kind:'image',name:`sample-${String(i+1).padStart(2,'0')}.jpg`,
-      url:`https://picsum.photos/seed/avilus-${i+7}/${d[0]}/${d[1]}.jpg`,w:d[0],h:d[1],received:false,file:null});
-  });
+async function loadSamples(auto=false){
+  const off=(Date.now()/60000|0);
+  for(let i=0;i<8;i++){const f=await makeArtFile(i+off);if(f)ingestFile(f);}
   renderSections();
-  toast('Sample roll loaded — 15 frames','images');
+  if(!auto)toast('Generated a fresh sample roll — saved locally','images');
 }
 
-/* ---------------- lightbox + warp shader ---------------- */
-const LB={item:null,open:false,holdBusy:false,texReady:false,gl:null,prog:null,u:{},tex:null,aspect:1.5,
-  grab:0,grabV:0,grabT:0,reach:0,reachT:0,glow:0,hand:{x:.5,y:.5,tx:.5,ty:.5}};
+/* ---------------- lightbox + sheet-grab shader (build 4 core) ---------------- */
+const LB={item:null,open:false,holdBusy:false,texReady:false,gl:null,u:{},tex:null,aspect:1.5,
+  grab:0,grabV:0,grabT:0,pop:0,popV:0,armed:0,glow:0,hand:{x:.5,y:.5,tx:.5,ty:.5}};
 
 function initGL(){
   const cv=$('#lbCanvas');
   const gl=cv.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:false});
-  if(!gl){DG.gl='fail';diag();toast('WebGL unavailable — the grab warp needs it','x');return;}
+  if(!gl){DG.gl='fail';diag();toast('WebGL unavailable — the grab animation needs it','x');return;}
   const vs=`attribute vec2 aPos;varying vec2 vUv;
     void main(){vUv=aPos*.5+.5;gl_Position=vec4(aPos,0.,1.);}`;
   const fs=`precision highp float;varying vec2 vUv;
     uniform sampler2D uTex;uniform vec2 uHand;
-    uniform float uReach,uGrab,uAspect,uTime,uGlow;
+    uniform float uGrab,uPop,uArmed,uGlow,uAspect,uTime;
     void main(){
-      vec2 p=vUv-.5; p.x*=uAspect;
-      vec2 h=uHand-.5; h.x*=uAspect;
-      float g=uGrab;
-      vec2 toH=h-p; float dH=length(toH);
-      float fall=exp(-dH*dH*2.4);
-      vec2 warp=normalize(toH+1e-5)*(uReach*.05*fall);
-      float edge=smoothstep(.04,.85,length(p));
-      vec2 q=p+warp+(h-p)*g*(.16+.74*edge);
-      float ang=g*.38*smoothstep(0.,.8,length(p-h));
+      vec2 p=vUv-.5;p.x*=uAspect;
+      vec2 h=uHand-.5;h.x*=uAspect;
+      float g=clamp(uGrab,0.,1.25);
+      vec2 d=p-h;float r=length(d)+1e-4;
+      /* rigid sheet: uniform shrink toward the fist + outward pop rebound */
+      float scale=1.-.56*g+uPop;
+      /* corner curl — smooth, monotonic, peaks at the rim: the sheet bends,
+         the picture inside never smears */
+      float curl=smoothstep(.15,1.05,r)*.30*g;
+      float ang=.13*g*smoothstep(.1,1.,r);
       float ca=cos(ang),sa=sin(ang);
-      q=h+mat2(ca,-sa,sa,ca)*(q-h);
-      float tr=g*(1.-g)*4.;
-      q.x+=tr*.02*sin(q.y*13.+uTime*17.);
-      vec2 uv=q; uv.x/=uAspect; uv+=.5;
-      float inb=step(0.,uv.x)*step(uv.x,1.)*step(0.,uv.y)*step(uv.y,1.);
-      vec3 col=vec3(0.);
-      if(inb>.5)col=texture2D(uTex,uv).rgb;
+      d=mat2(ca,-sa,sa,ca)*d;
+      vec2 q=h+d*(scale-curl);
+      vec2 uv=q;uv.x/=uAspect;uv+=.5;
       float eb=min(min(uv.x,1.-uv.x),min(uv.y,1.-uv.y));
-      float rim=1.-smoothstep(0.,.085,eb);
-      float flick=.86+.14*sin(uTime*7.+(uv.x+uv.y)*23.);
-      float energy=clamp(g*1.35+uReach*fall*.55+uGlow,0.,2.);
-      vec3 warm=vec3(1.,.72,.35);
-      col+=rim*rim*energy*1.7*warm*flick;
-      col+=rim*energy*.34*warm;
-      col*=1.-.22*g*(1.-rim);
-      gl_FragColor=vec4(col,inb);
+      float alpha=clamp(eb*400.,0.,1.);
+      vec3 col=vec3(0.);
+      if(alpha>0.001){
+        col=texture2D(uTex,clamp(uv,0.,1.)).rgb;
+        /* light from the boundaries — armed = faint, grab = blazing */
+        float rim=1.-smoothstep(0.,.085,eb);
+        float flick=.88+.12*sin(uTime*6.+r*19.);
+        float energy=max(g*1.25,uGlow)+uArmed*.4;
+        vec3 warm=vec3(1.,.72,.35);
+        col+=rim*rim*energy*1.6*warm*flick;
+        col+=rim*energy*.3*warm;
+        col*=1.-.13*g;
+      }
+      gl_FragColor=vec4(col,alpha);
     }`;
   const sh=(t,s)=>{const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);
     if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(o));return o;};
@@ -486,8 +502,8 @@ function initGL(){
   gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
   const loc=gl.getAttribLocation(pr,'aPos');
   gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-  LB.gl=gl;LB.prog=pr;
-  for(const n of['uTex','uHand','uReach','uGrab','uAspect','uTime','uGlow'])LB.u[n]=gl.getUniformLocation(pr,n);
+  LB.gl=gl;
+  for(const n of['uTex','uHand','uGrab','uPop','uArmed','uGlow','uAspect','uTime'])LB.u[n]=gl.getUniformLocation(pr,n);
   gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
   DG.gl='ok';diag();
 }
@@ -510,11 +526,12 @@ function drawLB(t){
   gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,LB.tex);
   gl.uniform1i(LB.u.uTex,0);
   gl.uniform2f(LB.u.uHand,LB.hand.x,LB.hand.y);
-  gl.uniform1f(LB.u.uReach,LB.reach);
-  gl.uniform1f(LB.u.uGrab,clamp(LB.grab,-.2,1.3));
+  gl.uniform1f(LB.u.uGrab,clamp(LB.grab,0,1.25));
+  gl.uniform1f(LB.u.uPop,LB.pop);
+  gl.uniform1f(LB.u.uArmed,LB.armed);
+  gl.uniform1f(LB.u.uGlow,LB.glow);
   gl.uniform1f(LB.u.uAspect,LB.aspect||1.5);
   gl.uniform1f(LB.u.uTime,t);
-  gl.uniform1f(LB.u.uGlow,LB.glow);
   gl.drawArrays(gl.TRIANGLES,0,3);
 }
 function sizeLightbox(){
@@ -526,7 +543,6 @@ function sizeLightbox(){
   cv.width=Math.round(w*d);cv.height=Math.round(h*d);
 }
 
-/* textures: images direct; text files & other docs get drawn onto paper */
 const readAsText=f=>new Promise(r=>{const x=new FileReader();x.onload=()=>r(String(x.result));x.readAsText(f.slice(0,200000));});
 function wrapLines(ctx,text,maxW){
   const words=String(text).split(' ');const out=[];let line='';
@@ -569,11 +585,25 @@ function makeCardCanvas(it){
   x.fillText('Show your open hand, then close it to take this file.',64,628);
   return c;
 }
+/* robust texture path: decode → downscale to ≤2048 (fixes huge-camera-photo
+   failures), never taints, falls back to the info card only if truly unreadable */
+function loadImg(url){return new Promise((res,rej)=>{const im=new Image();
+  if(!/^blob:/.test(url))im.crossOrigin='anonymous';
+  im.onload=()=>res(im);im.onerror=rej;im.src=url;});}
+function capToCanvas(img,max=2048){
+  const w=img.naturalWidth||img.width,h=img.naturalHeight||img.height;
+  if(!w||!h)throw new Error('empty');
+  if(Math.max(w,h)<=max)return img;
+  const k=max/Math.max(w,h);
+  const c=document.createElement('canvas');c.width=Math.round(w*k);c.height=Math.round(h*k);
+  c.getContext('2d').drawImage(img,0,0,c.width,c.height);return c;
+}
 async function texSource(it){
-  if(it.kind==='image')return new Promise(res=>{const im=new Image();im.crossOrigin='anonymous';
-    im.onload=()=>res(im);im.onerror=()=>res(makeCardCanvas(it));im.src=it.url;});
-  if(it.kind==='text')return makeTextCanvas(it,await readAsText(it.file));
-  return makeCardCanvas(it);
+  try{const im=await loadImg(it.url);return capToCanvas(im);}
+  catch(e){
+    if(it.kind==='text'){try{return makeTextCanvas(it,await readAsText(it.file));}catch(e2){}}
+    return makeCardCanvas(it);
+  }
 }
 async function ensureTexture(it){
   LB.texReady=false;
@@ -589,11 +619,12 @@ async function openLightbox(it,materialize=false){
   document.body.classList.add('lb');
   $('#lightbox').hidden=false;$('#lightbox').classList.remove('out');
   $('#lbName').textContent=it.name;
-  $('#lbHint').textContent=materialize?'incoming…':'show your open hand to the camera';
+  $('#lbHint').textContent=materialize?'incoming…':'photo is still — close your fist over it to grab';
   if(!camOn)setCoach('grab','No camera — press and hold the round button (right side) to grab instead.');
-  else setCoach('hand',`Show your open palm over the ${it.kind==='image'?'photo':'document'} — close it into a fist to take it.`);
+  else setCoach('hand',`The photo holds still. Put your open palm over it, then close a fist to take it.`);
   closeLinkPop();
-  LB.grab=materialize?1:0;LB.grabV=0;LB.grabT=0;LB.glow=materialize?1:0;
+  LB.grab=materialize?1:0;LB.grabV=0;LB.grabT=0;
+  LB.pop=0;LB.popV=0;LB.armed=0;LB.glow=materialize?1:0;
   LB.hand.x=.5;LB.hand.y=.5;LB.hand.tx=.5;LB.hand.ty=.5;
   if(LB.gl){
     $('#lbCanvas').hidden=false;$('#lbImg').hidden=true;
@@ -604,16 +635,26 @@ async function openLightbox(it,materialize=false){
   if(materialize)setTimeout(()=>setCoach('hand','Caught. It lives in your gallery now — marked RX.'),1500);
 }
 function closeLightboxNow(){
-  $('#lightbox').hidden=true;LB.open=false;LB.grab=0;LB.grabT=0;LB.grabV=0;
+  $('#lightbox').hidden=true;LB.open=false;
+  LB.grab=0;LB.grabT=0;LB.grabV=0;LB.pop=0;LB.popV=0;LB.armed=0;
   document.body.classList.remove('lb');
   if(S.mode==='idle')setCoach('hand',IDLE_COACH);
+}
+function deleteCurrent(){
+  if(LB.holdBusy||!LB.item)return;
+  const it=LB.item;
+  const idx=items.indexOf(it);if(idx>-1)items.splice(idx,1);
+  dbDel(it.id);
+  try{URL.revokeObjectURL(it.url);}catch(e){}
+  closeLightboxNow();renderSections();
+  toast('Removed from library','trash-2');
 }
 function doGrab(){
   if(!LB.open||LB.holdBusy||!LB.texReady)return;
   if(S.mode!=='idle'){setCoach('grab','Your hand is full — open your palm to release what you hold.');return;}
-  LB.holdBusy=true;LB.reachT=0;LB.grabT=1;
+  LB.holdBusy=true;LB.grabT=1;LB.popV=1.4;   /* the outward pop impulse */
   $('#lbHint').textContent='taken.';
-  setTimeout(finishHold,620);
+  setTimeout(finishHold,650);
 }
 function finishHold(){
   enterHolding();
@@ -621,7 +662,7 @@ function finishHold(){
   setTimeout(()=>{
     $('#lightbox').hidden=true;$('#lightbox').classList.remove('out');
     document.body.classList.remove('lb');
-    LB.open=false;LB.holdBusy=false;LB.grab=0;LB.grabT=0;LB.grabV=0;
+    LB.open=false;LB.holdBusy=false;LB.grab=0;LB.grabT=0;LB.grabV=0;LB.pop=0;LB.popV=0;
   },320);
 }
 
@@ -648,7 +689,7 @@ function onHandResults(res){
   const lm=lms[0],o=openness(lm);
   G.open=o;DG.vis='lock';diag();
   S.hand.present=true;
-  const mx=1-lm[9].x;   /* mirror to match the flipped video feed */
+  const mx=1-lm[9].x;
   S.hand.px=mx;S.hand.py=lm[9].y;
   S.hand.size=Math.hypot(lm[0].x-lm[9].x,lm[0].y-lm[9].y);
   S.hand.ok=S.hand.size>MIN_SIZE;
@@ -670,9 +711,8 @@ function onHandResults(res){
   if(!S.hand.ok)pipState('move closer');
   else pipState(G.state==='fist'?`fist ${pct}%`:G.state==='open'?`palm ${pct}%`:'hand…');
   if(LB.open&&S.mode==='idle'&&!LB.holdBusy){
-    $('#lbHint').textContent=G.state==='open'?'close your fist to take it':'';
+    $('#lbHint').textContent=G.state==='open'?'close your fist to take it':'photo is still';
   }
-  LB.reachT=(S.hand.present&&LB.open&&!LB.holdBusy)?1:0;
 }
 function updateHandUI(){
   $('#pip').classList.toggle('live',camOn);
@@ -708,7 +748,7 @@ async function startCamera(){
   })();
 }
 
-/* ---------------- PIP overlay: skeleton + meter + held thumb ---------------- */
+/* ---------------- PIP overlay ---------------- */
 const HOLD={item:null,x:.5,y:.5,tx:.5,ty:.5,scale:.5,alpha:0,launching:false,launchT:0};
 let PIPW=0,PIPH=0,PDPR=1;
 function sizePipOv(){
@@ -805,7 +845,7 @@ function drawOverlay(dt){
   }
 }
 
-/* ---------------- sender: holding → beacon → transfer ---------------- */
+/* ---------------- sender: beacon → transfer ---------------- */
 function makeQR(text){try{const q=qrcode(0,'M');q.addData(text);q.make();return q.createDataURL(5,6);}catch(e){return'';}}
 function beaconStatus(t){$('#beaconStatus').textContent=t;}
 function beaconBar(k,onOff){$('#bcBar').classList.toggle('on',!!onOff);$('#bcBarFill').style.width=(k*100)+'%';}
@@ -841,12 +881,6 @@ function stageBeacon(attempt=0){
 async function sendHeld(conn){
   const it=S.heldItem;if(!it)return;
   let f=it.file;
-  if(!f){
-    try{
-      const b=await(await fetch(it.url,{mode:'cors'})).blob();
-      it.file=f=new File([b],it.name,{type:b.type||'image/jpeg'});
-    }catch(e){beaconStatus('could not bundle the file — offline?');return;}
-  }
   beaconStatus('transferring "'+truncName(f.name,22)+'"…');beaconBar(0,true);
   conn.send({t:'meta',name:f.name,mime:f.type||'application/octet-stream',size:f.size,kind:it.kind});
   const CH=65536;let off=0;
@@ -870,7 +904,7 @@ function closeBeacon(){
   setCoach('hand',IDLE_COACH);updateHandUI();
 }
 
-/* ---------------- receiver: link → catch → materialize ---------------- */
+/* ---------------- receiver ---------------- */
 const RX={peer:null,conn:null,code:null,linked:false,busy:false,parts:[],meta:null,got:0};
 function linkStatus(t){$('#linkStatus').textContent=t;}
 function openLinkPop(){$('#linkPop').hidden=false;$('#codeInput').focus();}
@@ -915,7 +949,7 @@ async function finishRx(){
   const url=URL.createObjectURL(file);
   const kind=classify(file);
   const it={id:++itemId,kind,name:file.name,file,url,w:0,h:0,received:true};
-  items.push(it);
+  items.push(it);dbSave(it);
   if(kind==='image')probeSize(it);
   renderSections();
   RX.linked=false;RX.busy=false;S.mode='idle';
@@ -924,15 +958,21 @@ async function finishRx(){
   openLightbox(it,true);
 }
 
-/* ---------------- main loop ---------------- */
+/* ---------------- main loop: springs (grab + pop) ---------------- */
 let lastT=performance.now();
 function tick(now){
   const dt=Math.min(.05,(now-lastT)/1000);lastT=now;
-  if(LB.open||Math.abs(LB.grab)>.004){
+  if(LB.open||Math.abs(LB.grab)>.004||Math.abs(LB.pop)>.004){
+    /* grab: under-damped spring to 1 — dives inward, overshoots, settles */
     LB.grabV+=(LB.grabT-LB.grab)*110*dt;
     LB.grabV*=Math.exp(-10.5*dt);
     LB.grab+=LB.grabV*dt;
-    LB.reach=lerp(LB.reach,LB.reachT,1-Math.exp(-9*dt));
+    /* pop: velocity-kicked spring to 0 — the "a bit outward" rebound */
+    LB.popV+=(0-LB.pop)*90*dt;
+    LB.popV*=Math.exp(-8*dt);
+    LB.pop+=LB.popV*dt;
+    const armedT=(S.hand.present&&G.state==='open'&&LB.open&&!LB.holdBusy)?1:0;
+    LB.armed=lerp(LB.armed,armedT,1-Math.exp(-8*dt));
     LB.glow=Math.max(0,LB.glow-dt*.7);
     LB.hand.x=lerp(LB.hand.x,LB.hand.tx,1-Math.exp(-11*dt));
     LB.hand.y=lerp(LB.hand.y,LB.hand.ty,1-Math.exp(-11*dt));
@@ -943,10 +983,12 @@ function tick(now){
 }
 
 /* ---------------- wiring ---------------- */
-on($('#btnFolder'),'click',openFolder);
-on($('#btnFolder2'),'click',openFolder);
-on($('#btnSamples'),'click',loadSamples);
-on($('#btnSamples2'),'click',loadSamples);
+const pick=inp=>()=>inp.click();
+on($('#btnAdd'),'click',pick($('#fileInput')));
+on($('#btnAdd2'),'click',pick($('#fileInput')));
+on($('#btnFiles'),'click',pick($('#anyInput')));
+on($('#btnSamples'),'click',()=>loadSamples(false));
+on($('#btnSamples2'),'click',()=>loadSamples(false));
 on($('#btnLink'),'click',()=>{$('#linkPop').hidden?openLinkPop():closeLinkPop();});
 on($('#bcStop'),'click',closeBeacon);
 on($('#btnGo'),'click',()=>{
@@ -956,11 +998,12 @@ on($('#btnGo'),'click',()=>{
 });
 on($('#codeInput'),'input',e=>{e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');});
 on($('#codeInput'),'keydown',e=>{if(e.key==='Enter')$('#btnGo').click();});
-on($('#dirInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderSections();
-  toast('files indexed','check');e.target.value='';});
 on($('#fileInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderSections();
-  toast('photos added','check');e.target.value='';});
+  toast('photos added — saved on this device','check');e.target.value='';});
+on($('#anyInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderSections();
+  toast('files added — saved on this device','check');e.target.value='';});
 on($('#lbClose'),'click',()=>{if(!LB.holdBusy)closeLightboxNow();});
+on($('#lbDel'),'click',deleteCurrent);
 on($('#lightbox'),'click',e=>{if(e.target.id==='lightbox'&&!LB.holdBusy)closeLightboxNow();});
 on(document,'keydown',e=>{
   if(e.key==='Escape'){
@@ -968,9 +1011,25 @@ on(document,'keydown',e=>{
     if(LB.open&&!LB.holdBusy)closeLightboxNow();
   }
 });
+/* throw files at the page: drag & drop + paste */
+let dragDepth=0;
+on(window,'dragenter',e=>{
+  if(e.dataTransfer&&[...e.dataTransfer.types].includes('Files')){dragDepth++;$('#drop').classList.add('on');}
+});
+on(window,'dragover',e=>e.preventDefault());
+on(window,'dragleave',()=>{dragDepth=Math.max(0,dragDepth-1);if(!dragDepth)$('#drop').classList.remove('on');});
+on(window,'drop',e=>{
+  e.preventDefault();dragDepth=0;$('#drop').classList.remove('on');
+  const fs=[...(e.dataTransfer?e.dataTransfer.files:[])];
+  if(fs.length){fs.forEach(ingestFile);renderSections();toast(fs.length+' added — saved on this device','plus');}
+});
+on(window,'paste',e=>{
+  const fs=[...(e.clipboardData?e.clipboardData.files:[])];
+  if(fs.length){fs.forEach(ingestFile);renderSections();toast('pasted from clipboard','plus');}
+});
 on($('#lbGrab'),'contextmenu',e=>e.preventDefault());
 let armTimer=0;
-on($('#lbGrab'),'pointerdown',e=>{
+on($('#lbGrab'),'pointerdown',()=>{
   if(S.mode!=='idle'){setCoach('grab','Your hand is full — open your palm to release it first.');return;}
   $('#lbGrab').classList.add('arming');
   armTimer=setTimeout(()=>{doGrab();},550);
@@ -986,7 +1045,6 @@ on($('#pip'),'click',async()=>{
   if(camOn)return;
   try{await startCamera();setCoach('hand',IDLE_COACH);}catch(e){DG.cam='denied';diag();toast('Camera still blocked','camera-off');}
 });
-
 on($('#btnBegin'),'click',async()=>{
   const b=$('#btnBegin');b.disabled=true;
   b.querySelector('span').textContent='calibrating vision…';
@@ -1005,14 +1063,28 @@ on($('#btnBegin'),'click',async()=>{
 });
 
 /* ---------------- boot ---------------- */
-lucide.createIcons();
-initGL();
-diag();
-sizePipOv();
-setCoach('hand',IDLE_COACH);
-renderSections();
-pendingCode=(location.hash.match(/avilus=([A-Za-z0-9]{3,8})/)||[])[1]?.toUpperCase()||null;
-requestAnimationFrame(tick);
+(async function init(){
+  lucide.createIcons();
+  initGL();
+  sizePipOv();
+  setCoach('hand',IDLE_COACH);
+  diag();
+  await openDB();
+  const recs=await dbLoad();
+  for(const r of recs){
+    try{
+      const f=new File([r.blob],r.name,{type:r.mime||''});
+      const it={id:r.id,kind:classify(f),name:r.name,file:f,url:URL.createObjectURL(f),w:0,h:0,received:!!r.rx};
+      items.push(it);
+      if(it.kind==='image')probeSize(it);
+    }catch(e){}
+  }
+  if(items.length)itemId=items.reduce((m,i)=>Math.max(m,i.id),0);
+  renderSections();
+  if(!items.length)await loadSamples(true);   /* first run: instant local roll */
+  pendingCode=(location.hash.match(/avilus=([A-Za-z0-9]{3,8})/)||[])[1]?.toUpperCase()||null;
+  requestAnimationFrame(tick);
+})();
 </script>
 </body>
 </html>
