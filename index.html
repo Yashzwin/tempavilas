@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0d">
-<title>A.V.I.L.U.S Share · Build 5 — No Codes</title>
+<title>A.V.I.L.U.S Share · Build 6 — Throw</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -23,7 +23,6 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 ::selection{background:var(--amber);color:#171005}
 svg{display:block}
 
-/* ---------- header ---------- */
 header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
   padding:0 22px;height:58px;background:rgba(10,10,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .brand{font-family:Syne;font-weight:800;font-size:16px;letter-spacing:.14em;white-space:nowrap}
@@ -37,17 +36,16 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:c
   border-radius:8px;font-size:13px;transition:.18s}
 .actions button:hover{border-color:rgba(240,166,63,.55);color:var(--amber)}
 .actions button svg{width:15px;height:15px}
-#netChip{display:flex;align-items:center;gap:7px;padding:8px 13px;border:1px solid var(--line-2);
+#netChip{display:flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid var(--line-2);
   border-radius:8px;font-size:12px;color:var(--mut);transition:.18s}
-#netChip .nd{width:7px;height:7px;border-radius:50%;background:#5a5763;transition:.25s}
+#netChip .nd{width:7px;height:7px;border-radius:50%;background:#5a5763;transition:.25s;flex:none}
 #netChip.pair .nd{background:var(--amber);animation:pul 1.2s infinite}
-#netChip.link .nd{background:#7dc98f}
-#netChip.link{color:var(--txt);border-color:rgba(125,201,143,.35)}
+#netChip.range .nd{background:#7dc98f}
+#netChip.range{color:var(--txt);border-color:rgba(125,201,143,.4)}
 @keyframes pul{0%,100%{opacity:1}50%{opacity:.25}}
-@media(max-width:760px){.actions button span,#netChip span{display:none}header{padding:0 14px}
+@media(max-width:760px){.actions button span,#netChip span#netTxt{display:none}header{padding:0 14px}
   .bld{display:none}.brand em{display:none}}
 
-/* ---------- main ---------- */
 main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 .sec-head{display:flex;align-items:baseline;gap:12px;margin:26px 2px 14px}
 .sec-head h2{font-family:Syne;font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
@@ -76,7 +74,6 @@ main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 .btn-ghost:hover{border-color:rgba(240,166,63,.55);color:var(--amber)}
 .btn-solid svg,.btn-ghost svg{width:15px;height:15px}
 
-/* ---------- lightbox : plain flat photo, no shaders ---------- */
 #lightbox{position:fixed;inset:0;z-index:60;background:rgba(7,7,9,.93);display:flex;align-items:center;justify-content:center;
   opacity:1;transition:opacity .3s}
 #lightbox.out{opacity:0}
@@ -90,18 +87,18 @@ main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 #lbImg.picked{box-shadow:0 40px 110px rgba(0,0,0,.75),0 0 0 2px rgba(240,166,63,.85),0 0 70px rgba(240,166,63,.5)}
 #lbImg.mat{animation:mat .65s cubic-bezier(.2,.9,.3,1.2)}
 @keyframes mat{
-  0%{transform:scale(.9);filter:brightness(1.9) saturate(1.3);
+  0%{transform:scale(.88);filter:brightness(2) saturate(1.3);
      box-shadow:0 0 0 3px rgba(240,166,63,.9),0 0 90px rgba(240,166,63,.7)}
   100%{transform:scale(1);filter:none}
 }
 #lbBar{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;max-width:80vw}
 #lbName{font-size:13px}
 #lbHint{font-size:12px;color:var(--amber);margin-top:5px;letter-spacing:.02em;font-weight:600}
-#lbClose,#lbDel{position:absolute;top:18px;width:40px;height:40px;border:1px solid var(--line-2);border-radius:50%;
+#lbClose,#lbDel,#lbDl{position:absolute;top:18px;width:40px;height:40px;border:1px solid var(--line-2);border-radius:50%;
   display:grid;place-items:center;color:var(--mut);transition:.18s;background:rgba(19,18,23,.7)}
-#lbClose{right:18px}#lbDel{left:18px}
-#lbClose:hover,#lbDel:hover{border-color:var(--amber);color:var(--amber)}
-#lbClose svg,#lbDel svg{width:16px;height:16px}
+#lbClose{right:18px}#lbDl{right:68px}#lbDel{left:18px}
+#lbClose:hover,#lbDel:hover,#lbDl:hover{border-color:var(--amber);color:var(--amber)}
+#lbClose svg,#lbDel svg,#lbDl svg{width:16px;height:16px}
 #lbGrab{position:absolute;right:24px;bottom:192px;display:flex;flex-direction:column;align-items:center;gap:6px;
   color:var(--mut);font-size:10px;letter-spacing:.14em;text-transform:uppercase;touch-action:none;user-select:none}
 #lbGrab .ring{width:46px;height:46px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:.15s}
@@ -113,7 +110,6 @@ main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
 }
 body.lb #coach{opacity:0}
 
-/* ---------- camera pip ---------- */
 #pip{position:fixed;right:20px;bottom:20px;width:196px;height:147px;border-radius:14px;overflow:hidden;z-index:80;
   border:1px solid var(--line-2);background:#000;transition:border-color .25s,box-shadow .25s}
 #pip.live{border-color:rgba(240,166,63,.65);box-shadow:0 0 0 1px rgba(240,166,63,.22)}
@@ -130,7 +126,6 @@ body.lb #coach{opacity:0}
   pointer-events:none;font-variant-numeric:tabular-nums}
 @media(max-width:640px){#diag{left:12px;bottom:106px;font-size:9.5px}}
 
-/* ---------- coach ---------- */
 #coach{position:fixed;left:20px;bottom:20px;z-index:85;display:flex;align-items:center;gap:11px;max-width:340px;
   background:rgba(17,16,21,.88);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px;
   padding:12px 15px;pointer-events:none;transition:opacity .25s}
@@ -139,21 +134,11 @@ body.lb #coach{opacity:0}
 #coach span{font-size:12.5px;line-height:1.5}
 @media(max-width:640px){#coach{left:12px;right:150px;bottom:12px;max-width:none;padding:10px 12px}}
 
-/* ---------- incoming transfer (replaces code/QR) ---------- */
-#incoming{position:fixed;top:74px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:16px;
-  background:var(--panel);border:1px solid rgba(240,166,63,.45);border-radius:14px;padding:14px 16px;min-width:340px;
-  box-shadow:0 18px 60px rgba(0,0,0,.55)}
-.ic-live{display:flex;align-items:center;gap:8px;font-family:Syne;font-weight:700;font-size:10.5px;letter-spacing:.22em;color:var(--amber)}
-.pulse{width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pul 1.4s infinite}
-.ic-name{font-size:14px;font-weight:600;margin:5px 0 3px;max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ic-sub{font-size:11.5px;color:var(--mut)}
-#btnCatch{background:var(--amber);color:#181004;font-weight:700;border-radius:9px;padding:12px 18px;font-size:13px;flex:none}
-#btnCatch:hover{filter:brightness(1.08)}
-#incBar{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--line-2);border-radius:2px;overflow:hidden;border-radius:0 0 13px 13px}
-#incBar i{display:block;height:100%;width:0;background:var(--amber);transition:width .15s}
-@media(max-width:560px){#incoming{width:calc(100vw - 24px);min-width:0;flex-wrap:wrap}}
+#flash{position:fixed;inset:0;z-index:110;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 50% 45%,rgba(240,166,63,.5),transparent 62%)}
+#flash.go{animation:fl .7s ease-out}
+@keyframes fl{0%{opacity:0}18%{opacity:1}100%{opacity:0}}
 
-/* ---------- drop overlay / toasts / intro ---------- */
 #drop{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;
   background:rgba(240,166,63,.1);backdrop-filter:blur(3px)}
 #drop.on{display:flex}
@@ -191,31 +176,31 @@ body.lb #coach{opacity:0}
 
 <div id="intro">
   <div class="in-wrap">
-    <div class="in-over">HANDS-ON PHOTO TRANSFER</div>
+    <div class="in-over">THROW PHOTOS DEVICE TO DEVICE</div>
     <div class="in-mark">A<em>.</em>V<em>.</em>I<em>.</em>L<em>.</em>U<em>.</em>S</div>
     <div class="in-sub">SHARE</div>
     <div class="in-rule"></div>
     <div class="in-g">
       <div><i data-lucide="image-plus"></i><div><b>THROW PHOTOS IN — DRAG &amp; DROP OR PASTE</b>
-        <small>Photos only. Everything you add is saved on this device, even after closing the tab.</small></div></div>
-      <div><i data-lucide="grab"></i><div><b>FIST PICKS THE PHOTO UP — PALM LAUNCHES IT</b>
-        <small>The photo stays perfectly flat. Close your fist over it and it lifts into your hand. Open your palm and it flies to the other device automatically — no codes, ever.</small></div></div>
-      <div><i data-lucide="hand"></i><div><b>AUTOMATIC PAIRING</b>
-        <small>Open this site on both devices and they find each other by themselves. The chip in the header turns green when linked.</small></div></div>
+        <small>Photos only, saved on this device. Download any of them from the viewer.</small></div></div>
+      <div><i data-lucide="grab"></i><div><b>FIST PICKS UP · OPEN PALM THROWS</b>
+        <small>The photo lifts into your hand — perfectly flat, never distorted. Open your fist and it flies.</small></div></div>
+      <div><i data-lucide="hand"></i><div><b>IT ONLY FLIES IF SOMEONE'S THERE</b>
+        <small>The photo lands automatically on every nearby device whose camera can see your hand — no catching, no codes. If no device sees your hand, the photo just drops back into your gallery.</small></div></div>
     </div>
     <button id="btnBegin" class="btn-solid"><i data-lucide="camera"></i><span>Begin — enable camera</span></button>
-    <div class="in-note" id="inNote">The camera never leaves this device. Transfers run device-to-device.<br>Chrome or Edge recommended.</div>
-    <div class="in-ver">BUILD 5 · NO CODES</div>
+    <div class="in-note" id="inNote">The camera never leaves this device. Prop the receiving device so its camera faces you.<br>Chrome or Edge recommended.</div>
+    <div class="in-ver">BUILD 6 · THROW</div>
   </div>
 </div>
 
 <header>
-  <div class="brand">A.V.I.L.U.S<em>SHARE</em><span class="bld">BUILD 5 · NO CODES</span></div>
+  <div class="brand">A.V.I.L.U.S<em>SHARE</em><span class="bld">BUILD 6 · THROW</span></div>
   <div class="right">
-    <button id="netChip" class=""><span class="nd"></span><span id="netTxt">pairing…</span></button>
+    <button id="netChip"><span class="nd"></span><span id="netTxt">pairing…</span></button>
     <div class="actions">
       <button id="btnAdd"><i data-lucide="image-plus"></i><span>Photos</span></button>
-      <button id="btnSamples"><i data-lucide="images"></i><span>Samples</span></button>
+      <button id="btnSamples"><i data-lucide="images"></i><span>Demo roll</span></button>
     </div>
   </div>
 </header>
@@ -226,10 +211,9 @@ body.lb #coach{opacity:0}
   <div id="empty">
     <div>
       <h3>Throw pictures in</h3>
-      <p>Drag &amp; drop images anywhere on this page, paste with Ctrl+V, or tap Photos. They're saved on this device.</p>
+      <p>Drag &amp; drop images anywhere, paste with Ctrl+V, or tap Photos. Saved on this device.</p>
       <div class="row">
         <button class="btn-solid" id="btnAdd2"><i data-lucide="image-plus"></i>Add photos</button>
-        <button class="btn-ghost" id="btnSamples2"><i data-lucide="images"></i>Generate samples</button>
       </div>
     </div>
   </div>
@@ -239,6 +223,7 @@ body.lb #coach{opacity:0}
   <img id="lbImg" alt="">
   <div id="lbBar"><div id="lbName"></div><div id="lbHint"></div></div>
   <button id="lbDel"><i data-lucide="trash-2"></i></button>
+  <button id="lbDl"><i data-lucide="download"></i></button>
   <button id="lbClose"><i data-lucide="x"></i></button>
   <button id="lbGrab"><span class="ring"><i data-lucide="grab"></i></span><span class="lbl">hold to pick up</span></button>
 </div>
@@ -252,16 +237,7 @@ body.lb #coach{opacity:0}
 <div id="diag">CAM — · VIS — · NET —</div>
 <div id="coach"><span class="ic" id="coachIcon"><i data-lucide="hand"></i></span><span id="coachText"></span></div>
 
-<div id="incoming" hidden>
-  <div>
-    <div class="ic-live"><span class="pulse"></span>INCOMING</div>
-    <div class="ic-name" id="incName">photo.jpg</div>
-    <div class="ic-sub">make a fist, then open your palm to catch</div>
-  </div>
-  <button id="btnCatch">Catch</button>
-  <div id="incBar"><i id="incBarFill"></i></div>
-</div>
-
+<div id="flash"></div>
 <div id="drop"><div class="dz"><i data-lucide="image-plus"></i><b>Drop to add</b><small>photos land in your gallery</small></div></div>
 <div id="toasts"></div>
 <input type="file" id="fileInput" accept="image/*" multiple hidden>
@@ -271,8 +247,9 @@ body.lb #coach{opacity:0}
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js"></script>
 <script>
 /* ================================================================
-   A.V.I.L.U.S SHARE — BUILD 5
-   photos only · flat pickup (no shaders) · automatic pairing
+   A.V.I.L.U.S SHARE — BUILD 6
+   photos only · fist pickup · open-palm throw · range-gated
+   auto-landing (no catch step, no codes) · downloads
    ================================================================ */
 const $=s=>document.querySelector(s);
 const on=(el,ev,fn,o)=>el.addEventListener(ev,fn,o);
@@ -281,7 +258,6 @@ const lerp=(a,b,t)=>a+(b-a)*t;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const truncName=(s,n=28)=>s.length>n?s.slice(0,n-1)+'…':s;
-const fmtSize=n=>n<1024?n+' B':n<1048576?(n/1024).toFixed(1)+' KB':(n/1048576).toFixed(1)+' MB';
 
 const IDLE_COACH='Throw photos in — drag & drop, paste, or tap Photos.';
 const S={mode:'idle',hand:{present:false,ok:false,px:.5,py:.5,size:.15,pts:null}};
@@ -303,8 +279,9 @@ function setCoach(icon,text){
   $('#coachText').textContent=text;
 }
 function pipState(t){if(t===lastPipTxt)return;lastPipTxt=t;$('#pipState').textContent=t;}
+function flashScreen(){const f=$('#flash');f.classList.remove('go');void f.offsetWidth;f.classList.add('go');}
 
-/* ---------------- photo library (IndexedDB persisted) ---------------- */
+/* ---------------- photo library (IndexedDB) ---------------- */
 const items=[];let itemId=0;
 const DBX={db:null,ok:false};
 function openDB(){return new Promise(res=>{try{
@@ -335,7 +312,6 @@ function probeSize(it){
     const g=gridFigs.find(r=>r.it===it);if(g){g.a=it.w/it.h;relayout();}};
   im.src=it.url;
 }
-function renderSections(){renderGrid();}
 let gridFigs=[];
 function renderGrid(){
   const grid=$('#grid');grid.textContent='';gridFigs=[];
@@ -368,51 +344,57 @@ function relayout(){
   grid.style.height=Math.max(0,y-gap)+'px';
 }
 
-/* ---------------- generated samples (zero network) ---------------- */
-const ART=[['#122a4c','#4a7ba6','#e9c46a','#f4ead5'],['#2c1e3d','#7a4e7d','#e8a87c','#f6efe0'],
-  ['#0f3d33','#3c8a6d','#d9b26a','#f1ead8'],['#4a1c1c','#a4502e','#e9b44c','#f7efe2'],
-  ['#1d2b1f','#5a7d4a','#c9d8a0','#f2efe3'],['#23324a','#5a6f94','#c0c7d8','#f4f1ea'],
-  ['#3a2436','#8c5a74','#e3b7a0','#f6efe6'],['#20343f','#4a7d8c','#a8d0c8','#f2efe7']];
-const ARTN=['aurora','dune','tide','ember','moss','harbor','orchid','lagoon'];
-const ARTSZ=[[900,1200],[1200,800],[960,960],[1000,1400],[1200,760],[900,1350],[1100,860],[980,1225]];
+/* ---------------- demo roll: clean minimal landscape posters ---------------- */
+const POSTERS=[
+ {n:'dusk',   sky:['#35235d','#d96a4f','#f2b47e'],sun:'#ffe3b3',m:['#4a2a55','#33204a','#1c1230']},
+ {n:'night',  sky:['#0c1631','#16244a','#22335c'],sun:'#e8ecf5',m:['#101c3a','#0a1226','#060b1c'],stars:true},
+ {n:'tide',   sky:['#0e3a3a','#2a6e62','#7fc4b4'],sun:'#f5e9c8',m:['#1c4a44','#123632','#0a2624']},
+ {n:'ember',  sky:['#3a1420','#8c3230','#c65a3a'],sun:'#ffd9a8',m:['#57202a','#3c1620','#240d14']},
+ {n:'sage',   sky:['#dfe8dc','#eef0e2','#f7f3e7'],sun:'#fff6df',m:['#9fb5a0','#7a947f','#5c7562']},
+ {n:'strait', sky:['#123c5c','#3f789c','#9fc6dd'],sun:'#f2f6f2',m:['#1d5470','#143c54','#0c2838']},
+];
+const PSZ=[[960,1280],[1280,880],[1080,1080],[1120,1400],[1280,800],[980,1300]];
 function lcg(seed){let s=(seed>>>0)||1;return()=>((s=(s*1664525+1013904223)>>>0)/4294967296);}
-function hexA(hx,a){const n=parseInt(hx.slice(1),16);return`rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;}
-function makeArtFile(i){
-  const [w,h]=ARTSZ[i%8];const rnd=lcg(i*7919+(Date.now()&0xffff));
+function makePoster(i){
+  const P=POSTERS[i%6],[w,h]=PSZ[i%6];
+  const rnd=lcg(i*104729+(Date.now()&0xffff));
   const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');
-  const P=ART[i%8];
-  const bg=x.createLinearGradient(0,0,0,h);bg.addColorStop(0,P[0]);bg.addColorStop(1,P[1]);
-  x.fillStyle=bg;x.fillRect(0,0,w,h);
-  for(let b=0;b<5;b++){const bx=rnd()*w,by=rnd()*h*.75,br=(.18+rnd()*.4)*Math.max(w,h);
-    const rg=x.createRadialGradient(bx,by,0,bx,by,br);
-    rg.addColorStop(0,hexA(b%2?P[2]:P[3],.5));rg.addColorStop(1,hexA(P[2],0));
-    x.fillStyle=rg;x.fillRect(0,0,w,h);}
-  const sx=(.2+rnd()*.6)*w,sy=(.15+rnd()*.35)*h,sr=(.05+rnd()*.06)*Math.min(w,h);
-  x.fillStyle=hexA(P[3],.25);x.beginPath();x.arc(sx,sy,sr*1.9,0,7);x.fill();
-  x.fillStyle=hexA(P[3],.92);x.beginPath();x.arc(sx,sy,sr,0,7);x.fill();
-  const hy=h*(.6+rnd()*.15);
-  x.fillStyle=hexA(P[0],.92);x.beginPath();x.moveTo(0,hy+(rnd()-.5)*h*.05);
-  x.quadraticCurveTo(w*.5,hy+(rnd()-.5)*h*.08,w,hy+(rnd()-.5)*h*.05);
-  x.lineTo(w,h);x.lineTo(0,h);x.closePath();x.fill();
-  for(let g2=0;g2<1400;g2++){x.fillStyle=rnd()>.5?'rgba(255,255,255,.05)':'rgba(0,0,0,.05)';
-    x.fillRect(rnd()*w,rnd()*h,1.5,1.5);}
-  const vg=x.createRadialGradient(w/2,h/2,Math.min(w,h)*.35,w/2,h/2,Math.max(w,h)*.75);
-  vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.22)');x.fillStyle=vg;x.fillRect(0,0,w,h);
+  const sky=x.createLinearGradient(0,0,0,h*.72);
+  sky.addColorStop(0,P.sky[0]);sky.addColorStop(.62,P.sky[1]);sky.addColorStop(1,P.sky[2]);
+  x.fillStyle=sky;x.fillRect(0,0,w,h);
+  if(P.stars){for(let s2=0;s2<160;s2++){x.globalAlpha=.25+rnd()*.6;x.fillStyle='#dfe6f5';
+    x.fillRect(rnd()*w,rnd()*h*.55,rnd()>.9?2.4:1.3,1.3);}x.globalAlpha=1;}
+  const sx=w*(.3+rnd()*.4),sy=h*(.24+rnd()*.16),sr=Math.min(w,h)*(.07+rnd()*.04);
+  const gl=x.createRadialGradient(sx,sy,sr*.4,sx,sy,sr*4);
+  gl.addColorStop(0,P.sun+'cc');gl.addColorStop(1,P.sun+'00');
+  x.fillStyle=gl;x.fillRect(0,0,w,h);
+  x.fillStyle=P.sun;x.beginPath();x.arc(sx,sy,sr,0,7);x.fill();
+  for(let k=0;k<3;k++){
+    const base=h*(.5+.15*k),a1=h*(.035+rnd()*.05),a2=h*(.02+rnd()*.04),
+      f1=.8+rnd()*1.6,f2=2.2+rnd()*2.4,p1=rnd()*7,p2=rnd()*7;
+    x.fillStyle=P.m[k];x.beginPath();x.moveTo(0,h);
+    for(let px=0;px<=w;px+=6){
+      const t=px/w;
+      const y=base+Math.sin(t*f1*3.1+p1)*a1+Math.sin(t*f2*3.1+p2)*a2;
+      x.lineTo(px,y);
+    }
+    x.lineTo(w,h);x.closePath();x.fill();
+  }
+  x.globalAlpha=.045;
+  for(let g2=0;g2<900;g2++){x.fillStyle=rnd()>.5?'#fff':'#000';x.fillRect(rnd()*w,rnd()*h,1.4,1.4);}
+  x.globalAlpha=1;
   return new Promise(res=>c.toBlob(bl=>{if(bl)res(new File([bl],
-    `roll-${String(i%8+1).padStart(2,'0')} ${ARTN[i%8]}.jpg`,{type:'image/jpeg'}));},'image/jpeg',.9));
+    `poster-${String(i%6+1).padStart(2,'0')} ${P.n}.jpg`,{type:'image/jpeg'}));},'image/jpeg',.92));
 }
-async function loadSamples(auto=false){
+async function loadDemo(auto=false){
   const off=(Date.now()/60000|0);
-  for(let i=0;i<8;i++){const f=await makeArtFile(i+off);if(f)ingestFile(f);}
-  renderSections();
-  if(!auto)toast('Generated a fresh sample roll','images');
+  for(let i=0;i<6;i++){const f=await makePoster(i+off);if(f)ingestFile(f);}
+  renderGrid();
+  if(!auto)toast('Fresh demo roll generated','images');
 }
 
-/* ---------------- lightbox: flat photo + rigid pickup ---------------- */
-/* No WebGL, no shaders, no warping. The photo is an <img>; the pickup
-   animates only translate/scale/rotate — rigid transforms, so pixels
-   can never smear, bend or "mess up". */
-const LB={item:null,open:false,busy:false,pick:null,cx0:0,cy0:0,h0:1};
+/* ---------------- lightbox: flat photo, rigid pickup ---------------- */
+const LB={item:null,open:false,busy:false,pick:null,cx0:0,cy0:0};
 
 function openLightbox(it,materialize=false){
   LB.item=it;LB.open=false;LB.busy=false;LB.pick=null;
@@ -422,12 +404,12 @@ function openLightbox(it,materialize=false){
   img.style.transform='';
   img.src=it.url;
   $('#lbName').textContent=it.name;
-  $('#lbHint').textContent=materialize?'caught — added to your gallery':'photo is still — close your fist over it to pick it up';
+  $('#lbHint').textContent=materialize?'caught out of the air — added to your gallery':'photo is still — close your fist over it to pick it up';
   if(!camOn)setCoach('grab','No camera — press and hold the round button (right side) to pick the photo up.');
   else setCoach('hand','The photo holds still. Open palm over it, then close a fist to pick it up.');
   $('#lightbox').hidden=false;$('#lightbox').classList.remove('out');
   LB.open=true;
-  if(materialize){img.classList.add('mat');setTimeout(()=>img.classList.remove('mat'),700);}
+  if(materialize){flashScreen();img.classList.add('mat');setTimeout(()=>img.classList.remove('mat'),700);}
 }
 function closeLightboxNow(){
   if(LB.busy)return;
@@ -443,18 +425,25 @@ function deleteCurrent(){
   try{URL.revokeObjectURL(it.url);}catch(e){}
   $('#lightbox').hidden=true;LB.open=false;LB.item=null;
   document.body.classList.remove('lb');
-  renderSections();toast('Removed from gallery','trash-2');
+  renderGrid();toast('Removed from gallery','trash-2');
+}
+function downloadCurrent(){
+  if(!LB.item)return;
+  const a=document.createElement('a');
+  a.href=LB.item.url;a.download=LB.item.name||'photo.jpg';
+  document.body.appendChild(a);a.click();a.remove();
+  toast('Downloading "'+truncName(LB.item.name,22)+'"','download');
 }
 function startPickup(){
   if(!LB.open||LB.busy)return;
   const img=$('#lbImg');
   if(!img.complete||!img.naturalWidth){toast('Photo still loading — one sec','image-plus');return;}
-  if(S.mode!=='idle'){setCoach('grab','Your hand is full — open your palm to launch it first.');return;}
+  if(S.mode!=='idle'){setCoach('grab','Your hand is full — open your palm first.');return;}
   LB.busy=true;
   img.classList.remove('armed');img.classList.add('picked');
   $('#lbHint').textContent='picked up.';
   const r=img.getBoundingClientRect();
-  LB.cx0=r.left+r.width/2;LB.cy0=r.top+r.height/2;LB.h0=r.height;
+  LB.cx0=r.left+r.width/2;LB.cy0=r.top+r.height/2;
   const pip=$('#pip').getBoundingClientRect();
   LB.pick={phase:'lift',t:0,x:LB.cx0,y:LB.cy0,s:1,rot:0,
     pipX:pip.left+pip.width/2,pipY:pip.top+pip.height/2,endS:(pip.height*.42)/r.height};
@@ -473,9 +462,7 @@ function tickPickup(dt){
   const endS=p.phase==='lift'?1.08:p.endS;
   p.s=lerp(p.s,endS,1-Math.exp(-9*dt));
   if(p.phase==='lift'){p.t+=dt;if(p.t>.55)p.phase='fly';}
-  else{
-    if(Math.hypot(t.x-p.x,t.y-p.y)<14&&Math.abs(p.s-p.endS)<.02){finishPickup();return;}
-  }
+  else if(Math.hypot(t.x-p.x,t.y-p.y)<14&&Math.abs(p.s-p.endS)<.02){finishPickup();return;}
   $('#lbImg').style.transform=
     `translate(${(p.x-LB.cx0).toFixed(1)}px,${(p.y-LB.cy0).toFixed(1)}px) scale(${p.s.toFixed(3)}) rotate(${p.rot.toFixed(2)}deg)`;
 }
@@ -487,7 +474,7 @@ function finishPickup(){
 }
 
 /* ---------------- hand tracking ---------------- */
-const G={state:'none',open:1,openFrames:0,fistFrames:0,cool:0};
+const G={state:'none',open:1,openFrames:0,fistFrames:0,cool:0,lastHand:0};
 const OPEN_TH=1.5, FIST_TH=1.33, MIN_SIZE=.05, COOL_MS=500;
 const HAND_CONN=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[5,9],[9,10],[10,11],[11,12],
   [9,13],[13,14],[14,15],[15,16],[13,17],[17,18],[18,19],[19,20],[0,17]];
@@ -506,9 +493,9 @@ function onHandResults(res){
     return;
   }
   const lm=lms[0],o=openness(lm);
-  G.open=o;DG.vis='lock';diag();
+  G.open=o;G.lastHand=performance.now();DG.vis='lock';diag();
   S.hand.present=true;
-  const mx=1-lm[9].x;   /* mirror to match the flipped feed */
+  const mx=1-lm[9].x;
   S.hand.px=mx;S.hand.py=lm[9].y;
   S.hand.size=Math.hypot(lm[0].x-lm[9].x,lm[0].y-lm[9].y);
   S.hand.ok=S.hand.size>MIN_SIZE;
@@ -535,15 +522,14 @@ function onHandResults(res){
 function updateHandUI(){
   $('#pip').classList.toggle('live',camOn);
   if(S.mode==='holding')pipState('holding');
+  else if(S.mode==='throwing')pipState(HOLD.fx&&HOLD.fx.type==='throw'?'thrown':'released');
   else if(!camOn)pipState('camera off');
   else if(!S.hand.present)pipState('searching…');
 }
 function onGrabGesture(){
-  if(NET.incoming)return;                    /* an incoming photo takes priority */
-  if(LB.open&&!LB.busy)startPickup();
+  if(S.mode==='idle'&&LB.open&&!LB.busy)startPickup();
 }
 function onReleaseGesture(){
-  if(NET.incoming){doCatch();return;}        /* fist → open palm catches */
   if(S.mode==='holding'&&HOLD.item)launchHeld();
 }
 
@@ -568,8 +554,8 @@ async function startCamera(){
   })();
 }
 
-/* ---------------- PIP overlay: skeleton + meter + held photo ---------------- */
-const HOLD={item:null,x:.5,y:.5,tx:.5,ty:.5,scale:.5,alpha:0,launching:false,launchT:0};
+/* ---------------- PIP overlay ---------------- */
+const HOLD={item:null,x:.5,y:.5,tx:.5,ty:.5,scale:.5,alpha:0,fx:null};
 let PIPW=0,PIPH=0,PDPR=1;
 function sizePipOv(){
   const p=$('#pip'),c=$('#pipOv'),r=p.getBoundingClientRect();
@@ -584,13 +570,14 @@ function thumbEl(it){
   const e=new Image();e.src=it.url;it._thumb=e;return e;
 }
 function enterHolding(){
-  HOLD.item=LB.item;
+  HOLD.item=LB.item;HOLD.fx=null;
   HOLD.tx=S.hand.present?S.hand.px:.5;HOLD.ty=S.hand.present?S.hand.py:.5;
-  HOLD.x=HOLD.tx;HOLD.y=HOLD.ty;HOLD.alpha=0;HOLD.scale=.4;HOLD.launching=false;
+  HOLD.x=HOLD.tx;HOLD.y=HOLD.ty;HOLD.alpha=0;HOLD.scale=.4;
   S.mode='holding';
-  setCoach('grab',`In your hand: "${truncName(HOLD.item.name,24)}". Open your palm to launch it to the linked device.`);
+  setCoach('grab',`In your hand: "${truncName(HOLD.item.name,22)}". Open your palm to throw — it lands only on devices that can see your hand.`);
   updateHandUI();
 }
+function endFx(){HOLD.fx=null;HOLD.item=null;HOLD.alpha=0;S.mode='idle';updateHandUI();}
 function drawHand(x){
   const pts=S.hand.pts;if(!pts)return;
   const d=PDPR;
@@ -629,10 +616,18 @@ function drawOverlay(dt){
   x.clearRect(0,0,c.width,c.height);
   if(S.hand.present){drawHand(x);drawMeter(x);}else drawGuide(x);
   if(S.mode==='holding'&&S.hand.present){HOLD.tx=S.hand.px;HOLD.ty=S.hand.py;}
-  if(HOLD.launching){
-    HOLD.launchT+=dt;const k=HOLD.launchT/.6;
-    HOLD.scale=1+k*1.4;HOLD.alpha=Math.max(0,1-k*1.2);
-    if(k>=1){HOLD.launching=false;HOLD.alpha=0;HOLD.item=null;}
+  if(HOLD.fx){
+    const f=HOLD.fx;f.t+=dt;
+    if(f.type==='throw'){
+      const k=Math.min(1,f.t/.62);
+      HOLD.scale=1+1.6*k;HOLD.alpha=1-k*k;
+      HOLD.x+=dt*1.1;HOLD.y-=dt*.8;
+      if(k>=1)endFx();
+    }else{
+      const k=Math.min(1,f.t/.5);
+      HOLD.alpha=1-k;HOLD.y+=dt*1.2;HOLD.scale=Math.max(.3,1-k*.6);
+      if(k>=1)endFx();
+    }
   }else if(HOLD.item){
     HOLD.alpha=lerp(HOLD.alpha,S.hand.present?1:.5,.08);
     HOLD.scale=lerp(HOLD.scale,1,.12);
@@ -646,7 +641,7 @@ function drawOverlay(dt){
       let th=c.height*.42*HOLD.scale,tw=th*a;
       const mw=c.width*.62;if(tw>mw){tw=mw;th=tw/a;}
       const px=HOLD.x*c.width-tw/2,py=HOLD.y*c.height-th/2;
-      x.save();x.globalAlpha=HOLD.alpha;
+      x.save();x.globalAlpha=Math.max(0,HOLD.alpha);
       rr(x,px,py,tw,th,tw*.09);x.save();x.clip();
       const s=Math.max(tw/el.naturalWidth,th/el.naturalHeight);
       const iw=el.naturalWidth*s,ih=el.naturalHeight*s;
@@ -660,151 +655,150 @@ function drawOverlay(dt){
   }
 }
 
-/* ---------------- automatic pairing (no codes) ----------------
-   One well-known rendezvous id. First device to open the site
-   claims it and listens; the second connects to it. From then on
-   the two are linked bidirectionally — either can send.        */
-const STAGE_ID='avilus-stage-v5';
-const NET={peer:null,conn:null,role:'—',connected:false,run:true,
-  incoming:null,incTimer:0,pending:null,sendTimer:0};
-function netUI(){
+/* ---------------- automatic room (no codes) ----------------
+   All devices that open the site meet at one shared rendezvous
+   point. The first becomes the "stage" and relays; the rest
+   connect to it. Every device announces a heartbeat:
+     {t:'hb', id, hand}  — hand = my camera currently sees a hand
+   A device is IN RANGE when its heartbeat is fresh AND hand=true,
+   i.e. it can see the sharing hand right now.                */
+const DEVID=Math.random().toString(36).slice(2,6);
+const STAGE_ID='avilus-room-v6';
+const NET={peer:null,link:null,conns:new Set(),connDev:new Map(),devs:new Map(),role:'—',run:true};
+const RX={busy:false,meta:null,parts:[],got:0};
+
+function handFlag(){return camOn&&S.hand.present&&(performance.now()-G.lastHand<1600);}
+function inRangeIds(){
+  const now=performance.now(),out=[];
+  for(const[id,v]of NET.devs){if(id===DEVID)continue;if(now-v.ts<3500&&v.hand)out.push(id);}
+  return out;
+}
+function linkedCount(){return NET.role==='stage'?NET.conns.size:(NET.link&&NET.link.open?1:0);}
+function refreshChip(){
   const chip=$('#netChip'),txt=$('#netTxt');
-  chip.className='';
-  if(NET.connected){chip.classList.add('link');txt.textContent='linked';
-    DG.net='link';}
-  else if(NET.role==='stage'){chip.classList.add('pair');txt.textContent='waiting for 2nd device';
-    DG.net='wait';}
-  else{chip.classList.add('pair');txt.textContent='pairing…';
-    DG.net='pair';}
-  diag();
+  const lk=linkedCount(),w=inRangeIds().length;
+  chip.className=lk?(w?'range':'pair'):'pair';
+  txt.textContent=!lk?'pairing…':(lk?`${lk} linked · ${w} in range`:'');
+  DG.net=lk?`${lk}L·${w}W`:'wait';diag();
+}
+function relay(d,fromConn){
+  if(NET.role!=='stage')return;
+  for(const c of NET.conns){if(c!==fromConn&&c.open){try{c.send(d);}catch(e){}}}
+}
+function relayTargeted(d,fromConn,to){
+  if(NET.role!=='stage'||!to.length)return;
+  for(const[c,id]of NET.connDev){
+    if(c!==fromConn&&c.open&&to.includes(id)){try{c.send(d);}catch(e){}}
+  }
+}
+function handleMsg(d,fromConn){
+  if(!d||typeof d!=='object')return;
+  if(d.t==='hi'||d.t==='hb'){
+    if(fromConn)NET.connDev.set(fromConn,d.id);
+    NET.devs.set(d.id,{hand:!!d.hand,ts:performance.now()});
+    relay(d,fromConn);refreshChip();return;
+  }
+  const to=d.to||[];
+  if(to.includes(DEVID))receiveMsg(d);
+  relayTargeted(d,fromConn,to);
 }
 function bindConn(c){
-  NET.conn=c;NET.connected=true;netUI();
-  toast('Second device linked — transfers are live','link');
-  c.on('data',onNetData);
-  c.on('close',()=>{NET.conn=null;NET.connected=false;netUI();
-    toast('Other device left — re-pairing','link');setTimeout(netInit,2000);});
+  NET.conns.add(c);
+  try{c.send({t:'hi',id:DEVID,hand:handFlag()});}catch(e){}
+  c.on('data',d=>handleMsg(d,c));
+  c.on('close',()=>{
+    NET.conns.delete(c);
+    for(const[cc,id]of NET.connDev)if(cc===c){NET.connDev.delete(cc);NET.devs.delete(id);}
+    if(NET.link===c)NET.link=null;
+    refreshChip();
+    if(NET.role==='client')setTimeout(netInit,2000);
+  });
   c.on('error',()=>{});
 }
 function netInit(){
   if(!NET.run)return;
   try{NET.peer&&NET.peer.destroy();}catch(e){}
-  NET.conn=null;NET.connected=false;netUI();
+  NET.link=null;NET.conns.clear();NET.connDev.clear();refreshChip();
   const claim=new Peer(STAGE_ID,{debug:0});NET.peer=claim;
   claim.on('open',()=>{
-    NET.role='stage';netUI();
+    NET.role='stage';refreshChip();
     claim.on('connection',c=>bindConn(c));
   });
   claim.on('error',e=>{
-    if(e.type==='unavailable-id'){        /* someone else holds the stage → join them */
-      try{claim.destroy();}catch(x){}
-      joinStage();
-    }else if(e.type==='peer-unavailable'){/* stage vanished mid-join → retry */
-      try{NET.peer&&NET.peer.destroy();}catch(x){}
-      setTimeout(netInit,2500);
-    }else if(e.type!=='network'){
-      setTimeout(netInit,4000);
-    }
+    if(e.type==='unavailable-id'){try{claim.destroy();}catch(x){}joinRoom();}
+    else if(e.type==='peer-unavailable'){try{NET.peer&&NET.peer.destroy();}catch(x){}setTimeout(netInit,2500);}
+    else if(e.type!=='network')setTimeout(netInit,4000);
   });
 }
-function joinStage(){
+function joinRoom(){
   if(!NET.run)return;
-  const p=new Peer({debug:0});NET.peer=p;NET.role='client';netUI();
+  const p=new Peer({debug:0});NET.peer=p;NET.role='client';refreshChip();
   p.on('open',()=>{
     const c=p.connect(STAGE_ID,{reliable:true});
-    c.on('open',()=>bindConn(c));
+    c.on('open',()=>{NET.link=c;bindConn(c);});
     c.on('error',()=>{try{p.destroy();}catch(x){}});
   });
   p.on('error',e=>{
     if(e.type==='peer-unavailable'){try{p.destroy();}catch(x){}setTimeout(netInit,2500);}
   });
 }
+setInterval(()=>{ /* heartbeat + prune */
+  const m={t:'hb',id:DEVID,hand:handFlag()};
+  if(NET.role==='stage')handleMsg(m,null);
+  else if(NET.link&&NET.link.open){try{NET.link.send(m);}catch(e){}}
+  const now=performance.now();
+  for(const[id,v]of NET.devs)if(now-v.ts>6000)NET.devs.delete(id);
+  refreshChip();
+},900);
 
-/* ---------------- send / receive over the paired link ---------------- */
+/* ---------------- throw / drop / receive ---------------- */
+function sendTargeted(msg,to){
+  if(NET.role==='stage'){
+    for(const[c,id]of NET.connDev){if(c.open&&to.includes(id)){try{c.send(msg);}catch(e){}}}
+  }else if(NET.link&&NET.link.open){try{NET.link.send(msg);}catch(e){}}
+}
 function launchHeld(){
-  const it=HOLD.item;
-  if(!it)return;
-  if(!NET.connected){
-    toast('No device linked yet — open this site on the receiving device','link');
-    setCoach('link','Still in your hand. Once the header chip turns green, open your palm to launch.');
-    return;
-  }
-  HOLD.launching=true;HOLD.launchT=0;
-  NET.pending={item:it};
-  try{NET.conn.send({t:'offer',name:it.name,size:it.file.size});}catch(e){toast('Link lost','x');return;}
-  setCoach('send','Launched. Waiting for the other hand to catch it…');
-  clearTimeout(NET.sendTimer);
-  NET.sendTimer=setTimeout(()=>{
-    if(NET.pending){NET.pending=null;toast('Nobody caught it — it stays in your gallery','hand');S.mode='idle';updateHandUI();}
-  },25000);
+  const it=HOLD.item;if(!it)return;
+  if(!linkedCount()){dropHeld('not linked to any device yet');return;}
+  const targets=inRangeIds();
+  if(!targets.length){dropHeld('no other device can see your hand');return;}
+  HOLD.fx={type:'throw',t:0};S.mode='throwing';updateHandUI();
+  sendToTargets(targets,it);
 }
-async function streamPhoto(it){
-  const f=it.file;
-  try{NET.conn.send({t:'meta',name:f.name,mime:f.type||'image/jpeg',size:f.size});}catch(e){return;}
-  const CH=65536;let off=0;
-  while(off<f.size){
-    if(NET.conn.dataChannel&&NET.conn.dataChannel.bufferedAmount>4194304){await sleep(25);continue;}
-    const buf=await f.slice(off,off+CH).arrayBuffer();
-    try{NET.conn.send(buf);}catch(e){toast('Transfer interrupted','x');return;}
-    off+=buf.byteLength;
-  }
-  NET.conn.send({t:'end'});
-  toast('Delivered "'+truncName(f.name,26)+'"','send');
+async function sendToTargets(to,it){
+  try{
+    sendTargeted({t:'tx',to,name:it.name,mime:it.file.type||'image/jpeg',size:it.file.size},to);
+    const CH=65536;let off=0;
+    while(off<it.file.size){
+      const buf=await it.file.slice(off,off+CH).arrayBuffer();
+      sendTargeted({t:'chunk',to,b:buf},to);
+      off+=buf.byteLength;
+      if(NET.link&&NET.link.dataChannel&&NET.link.dataChannel.bufferedAmount>4194304)await sleep(25);
+    }
+    sendTargeted({t:'end',to},to);
+    toast('Threw the photo to '+to.length+' device'+(to.length>1?'s':''),'send');
+  }catch(e){toast('Transfer failed — link lost','x');}
 }
-function showIncoming(d){
-  NET.incoming={name:d.name,size:d.size};
-  $('#incName').textContent=d.name;
-  $('#incoming').hidden=false;$('#incBarFill').style.width='0';
-  setCoach('hand','Incoming photo — make a fist, then open your palm to catch it.');
-  clearTimeout(NET.incTimer);
-  NET.incTimer=setTimeout(()=>declineIncoming('timed out'),20000);
+function dropHeld(why){
+  HOLD.fx={type:'drop',t:0};S.mode='throwing';updateHandUI();
+  setCoach('hand','Released — '+why+'. The photo stays in your gallery.');
 }
-function hideIncoming(){$('#incoming').hidden=true;NET.incoming=null;clearTimeout(NET.incTimer);}
-function declineIncoming(why){
-  try{NET.conn&&NET.conn.send({t:'deny'});}catch(e){}
-  hideIncoming();
-  toast('Incoming photo '+why,'hand');
-  if(S.mode==='idle')setCoach('hand',IDLE_COACH);
-}
-function doCatch(){
-  if(!NET.incoming||!NET.connected)return;
-  const inc=NET.incoming;hideIncoming();
-  try{NET.conn.send({t:'accept'});}catch(e){toast('Link lost','x');return;}
-  RX.busy=true;RX.meta={name:inc.name,mime:'image/jpeg',size:inc.size};RX.parts=[];RX.got=0;
-  setCoach('download','Catching "'+truncName(inc.name,24)+'"…');
-}
-const RX={busy:false,meta:null,parts:[],got:0};
-function onNetData(d){
-  if(d instanceof ArrayBuffer||(d&&d.byteLength!==undefined&&d.buffer)){
-    const u=d instanceof ArrayBuffer?new Uint8Array(d):new Uint8Array(d.buffer,d.byteOffset,d.byteLength);
-    RX.parts.push(u);RX.got+=u.byteLength;
-    if(RX.meta&&RX.meta.size)$('#incBarFill').style.width=
-      (RX.meta.hidden?0:Math.min(100,RX.got/RX.meta.size*100))+'%';
-    return;
-  }
-  if(!d||typeof d!=='object')return;
-  if(d.t==='offer'){showIncoming(d);}
-  else if(d.t==='accept'){
-    clearTimeout(NET.sendTimer);
-    if(NET.pending){const it=NET.pending.item;NET.pending=null;streamPhoto(it);
-      S.mode='idle';updateHandUI();}
-  }
-  else if(d.t==='deny'){
-    clearTimeout(NET.sendTimer);NET.pending=null;
-    toast('The other hand didn\u2019t catch it — photo stays with you','hand');
-    S.mode='idle';updateHandUI();
-  }
-  else if(d.t==='meta'){RX.meta=d;RX.parts=[];RX.got=0;RX.busy=true;}
-  else if(d.t==='end'){finishRx();}
+function receiveMsg(d){
+  if(d.t==='tx'){
+    RX.meta={name:d.name,mime:d.mime,size:d.size};RX.parts=[];RX.got=0;RX.busy=true;
+    setCoach('download','A photo is flying in: "'+truncName(d.name,22)+'"…');
+  }else if(d.t==='chunk'&&RX.busy){
+    const b=d.b instanceof ArrayBuffer?new Uint8Array(d.b):new Uint8Array(d.b.buffer,d.b.byteOffset,d.b.byteLength);
+    RX.parts.push(b);RX.got+=b.byteLength;
+  }else if(d.t==='end'&&RX.busy)finishRx();
 }
 async function finishRx(){
   const meta=RX.meta;if(!meta)return;
-  const blob=new Blob(RX.parts,{type:meta.mime});RX.parts=[];RX.busy=false;
+  const blob=new Blob(RX.parts,{type:meta.mime});RX.parts=[];RX.busy=false;RX.meta=null;
   const file=new File([blob],meta.name,{type:meta.mime});
   const it={id:++itemId,kind:'image',name:file.name,file,url:URL.createObjectURL(file),w:0,h:0,received:true};
   items.push(it);dbSave(it);probeSize(it);
-  renderSections();
-  RX.meta=null;
+  renderGrid();
   toast('Caught "'+truncName(file.name,26)+'" — added to gallery','hand');
   setCoach('hand',IDLE_COACH);
   openLightbox(it,true);
@@ -816,8 +810,6 @@ function tick(now){
   const dt=Math.min(.05,(now-lastT)/1000);lastT=now;
   if(LB.pick)tickPickup(dt);
   else if(LB.open&&!LB.busy){
-    /* armed = faint breathing edge light while an open palm is seen.
-       The photo itself NEVER moves. */
     $('#lbImg').classList.toggle('armed',G.state==='open'&&S.hand.ok);
   }
   if(camOn)drawOverlay(dt);
@@ -827,16 +819,18 @@ function tick(now){
 /* ---------------- wiring ---------------- */
 on($('#btnAdd'),'click',()=>$('#fileInput').click());
 on($('#btnAdd2'),'click',()=>$('#fileInput').click());
-on($('#btnSamples'),'click',()=>loadSamples(false));
-on($('#btnSamples2'),'click',()=>loadSamples(false));
-on($('#netChip'),'click',()=>toast(NET.connected
-  ?'Linked to the other device — open your palm while holding a photo to send.'
-  :'Open this same site on the other device — they pair automatically, no codes.','link'));
-on($('#fileInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderSections();
+on($('#btnSamples'),'click',()=>loadDemo(false));
+on($('#netChip'),'click',()=>{
+  const w=inRangeIds().length;
+  toast(linkedCount()
+    ?`${linkedCount()} device(s) in the room · ${w} can see your hand right now. Prop the receiving device so its camera faces you.`
+    :'Open this site on the other device — pairing is automatic. Keep its camera able to see you.','link');
+});
+on($('#fileInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderGrid();
   toast('photos added — saved on this device','check');e.target.value='';});
-on($('#btnCatch'),'click',doCatch);
 on($('#lbClose'),'click',closeLightboxNow);
 on($('#lbDel'),'click',deleteCurrent);
+on($('#lbDl'),'click',downloadCurrent);
 on($('#lightbox'),'click',e=>{if(e.target.id==='lightbox')closeLightboxNow();});
 on(document,'keydown',e=>{
   if(e.key==='Escape'&&LB.open)closeLightboxNow();
@@ -850,12 +844,12 @@ on(window,'dragleave',()=>{dragDepth=Math.max(0,dragDepth-1);if(!dragDepth)$('#d
 on(window,'drop',e=>{
   e.preventDefault();dragDepth=0;$('#drop').classList.remove('on');
   const fs=[...(e.dataTransfer?e.dataTransfer.files:[])].filter(isImage);
-  if(fs.length){fs.forEach(ingestFile);renderSections();toast(fs.length+' photo(s) added','plus');}
+  if(fs.length){fs.forEach(ingestFile);renderGrid();toast(fs.length+' photo(s) added','plus');}
   else toast('Photos only','image-plus');
 });
 on(window,'paste',e=>{
   const fs=[...(e.clipboardData?e.clipboardData.files:[])].filter(isImage);
-  if(fs.length){fs.forEach(ingestFile);renderSections();toast('pasted from clipboard','plus');}
+  if(fs.length){fs.forEach(ingestFile);renderGrid();toast('pasted from clipboard','plus');}
 });
 on($('#lbGrab'),'contextmenu',e=>e.preventDefault());
 let armTimer=0;
@@ -905,8 +899,8 @@ on($('#btnBegin'),'click',async()=>{
     }catch(e){}
   }
   if(items.length)itemId=items.reduce((m,i)=>Math.max(m,i.id),0);
-  renderSections();
-  if(!items.length)await loadSamples(true);
+  renderGrid();
+  if(!items.length)await loadDemo(true);
   requestAnimationFrame(tick);
 })();
 </script>
