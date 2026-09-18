@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0d">
-<title>A.V.I.L.U.S Share · Build 8 — Air Carry</title>
+<title>A.V.I.L.U.S — Gallery · B9</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0a0a0d; --panel:#131217;
@@ -20,126 +20,67 @@
 body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',ui-sans-serif,sans-serif;
   -webkit-font-smoothing:antialiased;min-height:100vh;-webkit-tap-highlight-color:transparent}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
-::selection{background:var(--amber);color:#171005}
 svg{display:block}
 
 header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-  padding:0 22px;height:58px;background:rgba(10,10,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.brand{font-family:Syne;font-weight:800;font-size:16px;letter-spacing:.14em;white-space:nowrap}
-.brand em{font-style:normal;color:var(--amber);font-size:9.5px;letter-spacing:.32em;vertical-align:2px;margin-left:10px;
-  border:1px solid rgba(240,166,63,.45);padding:3px 7px 2px;border-radius:3px}
-.bld{font-size:8.5px;letter-spacing:.22em;color:var(--amber);border:1px solid rgba(240,166,63,.45);
-  padding:3px 7px 2px;border-radius:3px;margin-left:10px;vertical-align:2px;font-weight:600}
-.right{display:flex;align-items:center;gap:8px}
+  padding:0 22px;height:56px;background:rgba(10,10,13,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:Syne;font-weight:800;font-size:15px;letter-spacing:.14em}
+.brand i{font-style:normal;color:var(--mut);font-size:9px;letter-spacing:.22em;margin-left:8px;vertical-align:2px}
 .actions{display:flex;gap:8px}
 .actions button{display:flex;align-items:center;gap:7px;padding:8px 13px;border:1px solid var(--line-2);
-  border-radius:8px;font-size:13px;transition:.18s}
+  border-radius:8px;font-size:13px;color:var(--mut);transition:.18s}
 .actions button:hover{border-color:rgba(240,166,63,.55);color:var(--amber)}
 .actions button svg{width:15px;height:15px}
-#netChip{display:flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid var(--line-2);
-  border-radius:8px;font-size:12px;color:var(--mut);transition:.18s}
-#netChip .nd{width:7px;height:7px;border-radius:50%;background:#5a5763;transition:.25s;flex:none}
-#netChip.pair .nd{background:var(--amber);animation:pul 1.2s infinite}
-#netChip.range .nd{background:#7dc98f}
-#netChip.range{color:var(--txt);border-color:rgba(125,201,143,.4)}
-@keyframes pul{0%,100%{opacity:1}50%{opacity:.25}}
-@media(max-width:760px){.actions button span,#netTxt{display:none}header{padding:0 14px}
-  .bld{display:none}.brand em{display:none}}
+@media(max-width:640px){.actions button span{display:none}header{padding:0 14px}}
 
-main{max-width:1280px;margin:0 auto;padding:86px 26px 130px}
-.sec-head{display:flex;align-items:baseline;gap:12px;margin:26px 2px 14px}
-.sec-head h2{font-family:Syne;font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
-.sec-head span{font-size:12px;color:var(--mut)}
+main{max-width:1280px;margin:0 auto;padding:80px 22px 90px}
 #grid{position:relative;width:100%}
 #grid figure{position:absolute;overflow:hidden;border-radius:7px;background:#141318;cursor:zoom-in;
-  outline:1px solid rgba(236,231,219,.06);outline-offset:-1px;transition:outline-color .18s,box-shadow .18s}
+  outline:1px solid rgba(236,231,219,.06);outline-offset:-1px;transition:outline-color .25s,box-shadow .25s}
 #grid figure img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .18s}
-#grid figure:hover{outline-color:rgba(240,166,63,.7);z-index:2}
-#grid figure:hover img{filter:brightness(1.08)}
-#grid figure.carried{outline:2px solid rgba(240,166,63,.85);box-shadow:0 0 24px rgba(240,166,63,.35);z-index:2}
-#grid figure::after{content:attr(data-name);position:absolute;left:0;right:0;bottom:0;padding:24px 10px 8px;font-size:11px;color:#fff;
-  background:linear-gradient(transparent,rgba(0,0,0,.62));opacity:0;transition:opacity .18s;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#grid figure:hover::after{opacity:1}
+#grid figure:hover{outline-color:rgba(240,166,63,.6);z-index:2}
+#grid figure:hover img{filter:brightness(1.07)}
+#grid figure.carried{outline:2px solid rgba(240,166,63,.8);box-shadow:0 0 22px rgba(240,166,63,.28);z-index:2}
 #grid figure .rx{position:absolute;top:7px;left:7px;font-size:9px;letter-spacing:.18em;color:var(--amber);
   border:1px solid rgba(240,166,63,.55);background:rgba(10,10,13,.6);padding:2px 5px;border-radius:3px}
 
-#empty{display:none;place-items:center;border:1px dashed var(--line-2);border-radius:14px;min-height:340px;text-align:center;padding:30px}
-#empty h3{font-family:Syne;font-size:24px;margin-bottom:8px}
-#empty p{color:var(--mut);font-size:13px;margin-bottom:20px;max-width:430px;line-height:1.6}
+#empty{display:none;place-items:center;border:1px dashed var(--line-2);border-radius:14px;min-height:320px;text-align:center;padding:30px}
+#empty p{color:var(--mut);font-size:13px;margin-bottom:18px}
 .btn-solid{background:var(--amber);color:#181004;font-weight:600;padding:10px 18px;border-radius:8px;
   display:inline-flex;align-items:center;gap:8px;font-size:13px;transition:.18s}
 .btn-solid:hover{filter:brightness(1.08)}
 .btn-solid svg{width:15px;height:15px}
 
-#lightbox{position:fixed;inset:0;z-index:60;background:rgba(7,7,9,.93);display:flex;align-items:center;justify-content:center;
+#lightbox{position:fixed;inset:0;z-index:60;background:rgba(7,7,9,.94);display:flex;align-items:center;justify-content:center;
   opacity:1;transition:opacity .3s}
 #lightbox.out{opacity:0}
-#lbImg{max-width:86vw;max-height:72vh;border-radius:4px;will-change:transform;
+#lbImg{max-width:88vw;max-height:76vh;border-radius:4px;will-change:transform,opacity;
   box-shadow:0 26px 80px rgba(0,0,0,.6)}
 #lbImg.armed{animation:breathe 1.6s ease-in-out infinite}
 @keyframes breathe{
   0%,100%{box-shadow:0 26px 80px rgba(0,0,0,.6),0 0 0 1px rgba(240,166,63,.25),0 0 26px rgba(240,166,63,.18)}
   50%{box-shadow:0 26px 80px rgba(0,0,0,.6),0 0 0 2px rgba(240,166,63,.6),0 0 54px rgba(240,166,63,.42)}
 }
-#lbImg.picked{box-shadow:0 40px 110px rgba(0,0,0,.75),0 0 0 2px rgba(240,166,63,.85),0 0 70px rgba(240,166,63,.5)}
 #lbImg.mat{animation:mat .65s cubic-bezier(.2,.9,.3,1.2)}
 @keyframes mat{
   0%{transform:scale(.88);filter:brightness(2) saturate(1.3);
      box-shadow:0 0 0 3px rgba(240,166,63,.9),0 0 90px rgba(240,166,63,.7)}
   100%{transform:scale(1);filter:none}
 }
-#lbBar{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;max-width:80vw}
-#lbName{font-size:13px}
-#lbHint{font-size:12px;color:var(--amber);margin-top:5px;letter-spacing:.02em;font-weight:600}
-#lbClose,#lbDel,#lbDl{position:absolute;top:18px;width:40px;height:40px;border:1px solid var(--line-2);border-radius:50%;
+#lbClose,#lbDel,#lbDl{position:absolute;top:16px;width:40px;height:40px;border:1px solid var(--line-2);border-radius:50%;
   display:grid;place-items:center;color:var(--mut);transition:.18s;background:rgba(19,18,23,.7)}
-#lbClose{right:18px}#lbDl{right:68px}#lbDel{left:18px}
+#lbClose{right:16px}#lbDl{right:64px}#lbDel{left:16px}
 #lbClose:hover,#lbDel:hover,#lbDl:hover{border-color:var(--amber);color:var(--amber)}
 #lbClose svg,#lbDel svg,#lbDl svg{width:16px;height:16px}
-#lbGrab{position:absolute;right:24px;bottom:192px;display:flex;flex-direction:column;align-items:center;gap:6px;
-  color:var(--mut);font-size:10px;letter-spacing:.14em;text-transform:uppercase;touch-action:none;user-select:none}
-#lbGrab .ring{width:46px;height:46px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:.15s}
-#lbGrab .ring svg{width:18px;height:18px}
+#lbGrab{position:absolute;right:22px;bottom:22px;display:flex;flex-direction:column;align-items:center;gap:5px;
+  color:var(--mut);font-size:9px;letter-spacing:.16em;text-transform:uppercase;touch-action:none;user-select:none}
+#lbGrab .ring{width:44px;height:44px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:.15s}
+#lbGrab .ring svg{width:17px;height:17px}
 #lbGrab:active .ring,#lbGrab.arming .ring{border-color:var(--amber);color:var(--amber);transform:scale(.92)}
-@media(max-width:640px){
-  #lbBar{left:16px;right:16px;transform:none;text-align:left;bottom:126px}#lbName{font-size:12px}
-  #lbGrab{bottom:130px;right:16px}
-}
-body.lb #coach{opacity:0}
+@media(max-width:640px){#lbGrab{right:14px;bottom:14px}}
 
-#pip{position:fixed;right:20px;bottom:20px;width:196px;height:147px;border-radius:14px;overflow:hidden;z-index:80;
-  border:1px solid var(--line-2);background:#000;transition:border-color .25s,box-shadow .25s}
-#pip.live{border-color:rgba(240,166,63,.65);box-shadow:0 0 0 1px rgba(240,166,63,.22)}
-#pip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
-#pipOv{position:absolute;inset:0;width:100%;height:100%}
-#pipTag{position:absolute;left:8px;bottom:7px;display:flex;align-items:center;gap:6px;font-size:9.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:rgba(236,233,225,.85);background:rgba(7,7,9,.55);padding:3px 8px;border-radius:20px}
-#pipTag .dot{width:5px;height:5px;border-radius:50%;background:#5a5763;transition:.2s}
-#pip.live #pipTag .dot{background:var(--amber)}
-@media(max-width:640px){#pip{width:128px;height:96px;right:12px;bottom:12px}}
-
-#diag{position:fixed;left:20px;bottom:96px;z-index:84;font-size:10.5px;letter-spacing:.08em;color:var(--mut);
-  background:rgba(19,18,23,.88);border:1px solid var(--line);padding:6px 10px;border-radius:8px;
-  pointer-events:none;font-variant-numeric:tabular-nums}
-@media(max-width:640px){#diag{left:12px;bottom:106px;font-size:9.5px}}
-
-#coach{position:fixed;left:20px;bottom:20px;z-index:85;display:flex;align-items:center;gap:11px;max-width:340px;
-  background:rgba(17,16,21,.88);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px;
-  padding:12px 15px;pointer-events:none;transition:opacity .25s}
-#coach .ic{color:var(--amber);flex:none}
-#coach .ic svg{width:19px;height:19px}
-#coach span{font-size:12.5px;line-height:1.5}
-@media(max-width:640px){#coach{left:12px;right:150px;bottom:12px;max-width:none;padding:10px 12px}}
-
-#airChip{position:fixed;top:74px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:14px;
-  background:var(--panel);border:1px solid rgba(240,166,63,.45);border-radius:14px;padding:12px 16px;
-  box-shadow:0 18px 60px rgba(0,0,0,.55);max-width:calc(100vw - 24px)}
-.ac-live{display:flex;align-items:center;gap:8px;font-family:Syne;font-weight:700;font-size:10.5px;letter-spacing:.22em;color:var(--amber);white-space:nowrap}
-.pulse{width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pul 1.4s infinite;flex:none}
-#acSub{font-size:11.5px;color:var(--mut)}
-#btnTakeBack{border:1px solid var(--line-2);border-radius:8px;padding:8px 13px;font-size:12px;flex:none;transition:.18s}
-#btnTakeBack:hover{border-color:rgba(240,166,63,.55);color:var(--amber)}
+/* camera runs hidden */
+#cam{position:fixed;width:2px;height:2px;opacity:.01;pointer-events:none;bottom:0;right:0}
 
 #flash{position:fixed;inset:0;z-index:110;pointer-events:none;opacity:0;
   background:radial-gradient(circle at 50% 45%,rgba(240,166,63,.5),transparent 62%)}
@@ -149,150 +90,64 @@ body.lb #coach{opacity:0}
 #drop{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;
   background:rgba(240,166,63,.1);backdrop-filter:blur(3px)}
 #drop.on{display:flex}
-#drop .dz{border:2px dashed var(--amber);border-radius:18px;padding:38px 48px;text-align:center;background:rgba(19,18,23,.92)}
-#drop .dz svg{width:34px;height:34px;color:var(--amber);margin:0 auto 12px}
-#drop .dz b{font-family:Syne;font-size:19px;display:block;margin-bottom:6px}
-#drop .dz small{color:var(--mut);font-size:12.5px}
-
-#toasts{position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:100;display:flex;flex-direction:column;
-  gap:8px;align-items:center;pointer-events:none}
-.toast{display:flex;align-items:center;gap:9px;background:var(--panel);border:1px solid var(--line-2);
-  border-left:2px solid var(--amber);border-radius:9px;padding:10px 15px;font-size:12.5px;opacity:0;
-  transform:translateY(-8px);transition:.25s;max-width:86vw}
-.toast.in{opacity:1;transform:none}
-.toast svg{width:14px;height:14px;color:var(--amber);flex:none}
-
-#intro{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .6s}
-#intro.gone{opacity:0;pointer-events:none}
-.in-wrap{max-width:560px;padding:30px;text-align:center}
-.in-over{font-size:10.5px;letter-spacing:.34em;color:var(--mut);margin-bottom:18px}
-.in-mark{font-family:Syne;font-weight:800;font-size:clamp(40px,8.5vw,82px);letter-spacing:.06em;line-height:1}
-.in-mark em{font-style:normal;color:var(--amber)}
-.in-sub{font-size:12px;letter-spacing:.46em;color:var(--mut);margin:14px 0 0}
-.in-rule{width:56px;height:1px;background:var(--amber);margin:32px auto}
-.in-g{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;text-align:left}
-.in-g>div{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:10px;padding:13px 16px}
-.in-g svg{width:19px;height:19px;color:var(--amber);flex:none}
-.in-g b{font-size:12.5px;letter-spacing:.06em;display:block}
-.in-g small{font-size:11.5px;color:var(--mut);line-height:1.45}
-.in-note{margin-top:16px;font-size:11px;color:var(--mut);line-height:1.6}
-.in-ver{margin-top:10px;font-size:10px;letter-spacing:.24em;color:var(--amber);font-weight:600}
+#drop .dz{border:2px dashed var(--amber);border-radius:18px;padding:36px 46px;text-align:center;background:rgba(19,18,23,.92)}
+#drop .dz svg{width:32px;height:32px;color:var(--amber);margin:0 auto 10px}
+#drop .dz b{font-family:Syne;font-size:18px;display:block}
 </style>
 </head>
 <body>
 
-<div id="intro">
-  <div class="in-wrap">
-    <div class="in-over">CARRY PHOTOS BETWEEN DEVICES</div>
-    <div class="in-mark">A<em>.</em>V<em>.</em>I<em>.</em>L<em>.</em>U<em>.</em>S</div>
-    <div class="in-sub">SHARE</div>
-    <div class="in-rule"></div>
-    <div class="in-g">
-      <div><i data-lucide="image-plus"></i><div><b>THROW PHOTOS IN — DRAG &amp; DROP OR PASTE</b>
-        <small>Photos only, saved on this device. Download any of them from the viewer.</small></div></div>
-      <div><i data-lucide="grab"></i><div><b>CLOSE YOUR FIST OVER A PHOTO — IT'S IN YOUR HAND</b>
-        <small>Walk away. The moment your hand leaves this camera, the photo goes with you — the screen lets go.</small></div></div>
-      <div><i data-lucide="hand"></i><div><b>OPEN YOUR PALM AT ANY OTHER DEVICE — IT LANDS THERE</b>
-        <small>Every paired device watches for your open palm. The photo appears there and disappears from the device you took it from. Open your palm back here to put it back.</small></div></div>
-    </div>
-    <button id="btnBegin" class="btn-solid"><i data-lucide="camera"></i><span>Begin — enable camera</span></button>
-    <div class="in-note" id="inNote">The camera only reads your hand — nothing is recorded, nothing leaves this device.<br>Chrome or Edge recommended.</div>
-    <div class="in-ver">BUILD 8 · AIR CARRY</div>
-  </div>
-</div>
-
 <header>
-  <div class="brand">A.V.I.L.U.S<em>SHARE</em><span class="bld">BUILD 8 · AIR CARRY</span></div>
-  <div class="right">
-    <button id="netChip"><span class="nd"></span><span id="netTxt">pairing…</span></button>
-    <div class="actions">
-      <button id="btnAdd"><i data-lucide="image-plus"></i><span>Photos</span></button>
-      <button id="btnSamples"><i data-lucide="images"></i><span>Demo roll</span></button>
-    </div>
+  <div class="brand">A.V.I.L.U.S<i>B9</i></div>
+  <div class="actions">
+    <button id="btnAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>Photos</span></button>
+    <button id="btnDemo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span>Demo</span></button>
   </div>
 </header>
 
 <main>
-  <div class="sec-head"><h2>Photos</h2><span id="photoCount"></span></div>
   <div id="grid"></div>
   <div id="empty">
     <div>
-      <h3>Throw pictures in</h3>
-      <p>Drag &amp; drop images anywhere, paste with Ctrl+V, or tap Photos. Saved on this device.</p>
-      <div class="row">
-        <button class="btn-solid" id="btnAdd2"><i data-lucide="image-plus"></i>Add photos</button>
-      </div>
+      <p>Drag &amp; drop photos here, or paste with Ctrl+V.</p>
+      <button class="btn-solid" id="btnAdd2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg>Add photos
+      </button>
     </div>
   </div>
 </main>
 
 <div id="lightbox" hidden>
   <img id="lbImg" alt="">
-  <div id="lbBar"><div id="lbName"></div><div id="lbHint"></div></div>
-  <button id="lbDel"><i data-lucide="trash-2"></i></button>
-  <button id="lbDl"><i data-lucide="download"></i></button>
-  <button id="lbClose"><i data-lucide="x"></i></button>
-  <button id="lbGrab"><span class="ring"><i data-lucide="grab"></i></span><span class="lbl">hold to pick up</span></button>
+  <button id="lbDel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+  <button id="lbDl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+  <button id="lbClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  <button id="lbGrab"><span class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11.5V9a2 2 0 0 0-2-2v1.3"/><path d="M14 10V4a2 2 0 0 0-2-2v8"/><path d="M10 10.5V6a2 2 0 0 0-2-2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></span><span>hold</span></button>
 </div>
 
-<div id="pip">
-  <video id="cam" playsinline muted autoplay></video>
-  <canvas id="pipOv"></canvas>
-  <div id="pipTag"><span class="dot"></span><span id="pipState">camera off</span></div>
-</div>
-
-<div id="diag">CAM — · VIS — · NET —</div>
-<div id="coach"><span class="ic" id="coachIcon"><i data-lucide="hand"></i></span><span id="coachText"></span></div>
-
-<div id="airChip" hidden>
-  <span class="ac-live"><span class="pulse"></span><span id="acTitle">PHOTO IN THE AIR</span></span>
-  <span id="acSub"></span>
-  <button id="btnTakeBack" hidden>Take back</button>
-</div>
-
+<video id="cam" playsinline muted autoplay></video>
 <div id="flash"></div>
-<div id="drop"><div class="dz"><i data-lucide="image-plus"></i><b>Drop to add</b><small>photos land in your gallery</small></div></div>
-<div id="toasts"></div>
+<div id="drop"><div class="dz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><b>Drop to add</b></div></div>
 <input type="file" id="fileInput" accept="image/*" multiple hidden>
 
-<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js"></script>
 <script>
 /* ================================================================
-   A.V.I.L.U.S SHARE — BUILD 8 · AIR CARRY
-   fist = pick up · hand leaves camera = photo carried in the air ·
-   open palm at ANY paired device = it lands there & vanishes here ·
-   open palm back here = put back · move semantics (not a copy)
+   A.V.I.L.U.S — BUILD 9 · SILENT GALLERY
+   fist = pick up · hand leaves camera = carried in the air ·
+   open palm at any paired device = lands there, vanishes here ·
+   everything else runs in the background, no UI.
    ================================================================ */
 const $=s=>document.querySelector(s);
 const on=(el,ev,fn,o)=>el.addEventListener(ev,fn,o);
-const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const lerp=(a,b,t)=>a+(b-a)*t;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const truncName=(s,n=28)=>s.length>n?s.slice(0,n-1)+'…':s;
 
-const IDLE_COACH='Throw photos in — drag & drop, paste, or tap Photos.';
-const S={mode:'idle',hand:{present:false,ok:false,px:.5,py:.5,size:.15,pts:null}};
-let camOn=false;
+const S={mode:'idle',hand:{present:false,ok:false,px:.5,py:.5,size:.15}};
+let camOn=false,camTries=0;
 
-const DG={cam:'—',vis:'—',net:'—'};
-function diag(){$('#diag').textContent=`CAM ${DG.cam} · VIS ${DG.vis} · NET ${DG.net}`;}
-
-let lastPipTxt='';
-function toast(msg,icon='check'){
-  const t=document.createElement('div');t.className='toast';
-  t.innerHTML=`<i data-lucide="${icon}"></i><span>${esc(msg)}</span>`;
-  $('#toasts').appendChild(t);lucide.createIcons();
-  requestAnimationFrame(()=>t.classList.add('in'));
-  setTimeout(()=>{t.classList.remove('in');setTimeout(()=>t.remove(),300)},3800);
-}
-function setCoach(icon,text){
-  $('#coachIcon').innerHTML=`<i data-lucide="${icon}"></i>`;lucide.createIcons();
-  $('#coachText').textContent=text;
-}
-function pipState(t){if(t===lastPipTxt)return;lastPipTxt=t;$('#pipState').textContent=t;}
 function flashScreen(){const f=$('#flash');f.classList.remove('go');void f.offsetWidth;f.classList.add('go');}
 
 /* ---------------- photo library (IndexedDB) ---------------- */
@@ -314,9 +169,7 @@ function dbLoad(){return new Promise(res=>{if(!DBX.ok)return res([]);
 
 function isImage(f){return f&&(f.type.startsWith('image/')||/\.(jpe?g|png|gif|webp|bmp|avif)$/i.test(f.name));}
 function ingestFile(f){
-  if(!f)return;
-  if(!isImage(f)){toast('Photos only — skipped "'+truncName(f.name,20)+'"','image-plus');return;}
-  if(f.size>60*1048576){toast('Too large (over 60 MB)','x');return;}
+  if(!f||!isImage(f)||f.size>60*1048576)return;
   const it={id:++itemId,kind:'image',name:f.name,file:f,url:URL.createObjectURL(f),w:0,h:0,received:false};
   items.push(it);dbSave(it);probeSize(it);
 }
@@ -329,10 +182,9 @@ function probeSize(it){
 let gridFigs=[];
 function renderGrid(){
   const grid=$('#grid');grid.textContent='';gridFigs=[];
-  $('#photoCount').textContent=items.length?items.length+' frames':'';
   $('#empty').style.display=items.length?'none':'grid';
   gridFigs=items.map(it=>{
-    const f=document.createElement('figure');f.dataset.name=it.name;
+    const f=document.createElement('figure');
     if(it.received){const s=document.createElement('span');s.className='rx';s.textContent='RX';f.appendChild(s);}
     const img=new Image();img.loading='lazy';img.src=it.url;img.alt=it.name;
     f.appendChild(img);
@@ -348,7 +200,7 @@ function markCarried(it,onOff){
 }
 function relayout(){
   const grid=$('#grid');const W=grid.clientWidth;if(!W)return;
-  const gap=8,target=W>1000?236:W>640?184:128;
+  const gap=8,target=innerWidth>1000?236:innerWidth>640?184:122;
   let row=[],sum=0,y=0;
   const flush=h=>{let x=0;for(const r of row){const w=r.a*h;
     r.f.style.left=x+'px';r.f.style.top=y+'px';r.f.style.width=w+'px';r.f.style.height=h+'px';x+=w+gap;}
@@ -362,7 +214,7 @@ function relayout(){
   grid.style.height=Math.max(0,y-gap)+'px';
 }
 
-/* ---------------- demo roll ---------------- */
+/* ---------------- demo roll (generated locally) ---------------- */
 const POSTERS=[
  {n:'dusk',   sky:['#35235d','#d96a4f','#f2b47e'],sun:'#ffe3b3',m:['#4a2a55','#33204a','#1c1230']},
  {n:'night',  sky:['#0c1631','#16244a','#22335c'],sun:'#e8ecf5',m:['#101c3a','#0a1226','#060b1c'],stars:true},
@@ -393,8 +245,7 @@ function makePoster(i){
     x.fillStyle=P.m[k];x.beginPath();x.moveTo(0,h);
     for(let px=0;px<=w;px+=6){
       const t=px/w;
-      const y=base+Math.sin(t*f1*3.1+p1)*a1+Math.sin(t*f2*3.1+p2)*a2;
-      x.lineTo(px,y);
+      x.lineTo(px,base+Math.sin(t*f1*3.1+p1)*a1+Math.sin(t*f2*3.1+p2)*a2);
     }
     x.lineTo(w,h);x.closePath();x.fill();
   }
@@ -404,36 +255,28 @@ function makePoster(i){
   return new Promise(res=>c.toBlob(bl=>{if(bl)res(new File([bl],
     `poster-${String(i%6+1).padStart(2,'0')} ${P.n}.jpg`,{type:'image/jpeg'}));},'image/jpeg',.92));
 }
-async function loadDemo(auto=false){
+async function loadDemo(){
   const off=(Date.now()/60000|0);
   for(let i=0;i<6;i++){const f=await makePoster(i+off);if(f)ingestFile(f);}
   renderGrid();
-  if(!auto)toast('Fresh demo roll generated','images');
 }
 
-/* ---------------- lightbox: flat photo, rigid pickup ---------------- */
+/* ---------------- viewer + pickup ---------------- */
 const LB={item:null,open:false,busy:false,pick:null,cx0:0,cy0:0};
 
 function openLightbox(it,materialize=false){
-  LB.item=it;LB.open=false;LB.busy=false;LB.pick=null;
-  document.body.classList.add('lb');
+  LB.item=it;LB.open=true;LB.busy=false;LB.pick=null;
   const img=$('#lbImg');
-  img.classList.remove('picked','armed','mat');
-  img.style.transform='';
+  img.classList.remove('armed','mat');
+  img.style.transform='';img.style.opacity='';
   img.src=it.url;
-  $('#lbName').textContent=it.name;
-  $('#lbHint').textContent=materialize?'arrived out of the air — added to your gallery':'photo is still — close your fist over it to pick it up';
-  if(!camOn)setCoach('grab','No camera — press and hold the round button (right side) to pick the photo up.');
-  else setCoach('hand','The photo holds still. Open palm over it, then close a fist to pick it up.');
   $('#lightbox').hidden=false;$('#lightbox').classList.remove('out');
-  LB.open=true;
   if(materialize){flashScreen();img.classList.add('mat');setTimeout(()=>img.classList.remove('mat'),700);}
 }
 function closeLightboxNow(){
   if(LB.busy)return;
   $('#lightbox').hidden=true;LB.open=false;LB.item=null;LB.pick=null;
-  document.body.classList.remove('lb');
-  setCoach('hand',IDLE_COACH);
+  const img=$('#lbImg');img.style.transform='';img.style.opacity='';
 }
 function deleteCurrent(){
   if(LB.busy||!LB.item)return;
@@ -442,108 +285,75 @@ function deleteCurrent(){
   dbDel(it.id);
   try{URL.revokeObjectURL(it.url);}catch(e){}
   $('#lightbox').hidden=true;LB.open=false;LB.item=null;
-  document.body.classList.remove('lb');
-  renderGrid();toast('Removed from gallery','trash-2');
+  renderGrid();
 }
 function downloadCurrent(){
   if(!LB.item)return;
   const a=document.createElement('a');
   a.href=LB.item.url;a.download=LB.item.name||'photo.jpg';
   document.body.appendChild(a);a.click();a.remove();
-  toast('Downloading "'+truncName(LB.item.name,22)+'"','download');
 }
 function startPickup(){
   if(!LB.open||LB.busy)return;
   const img=$('#lbImg');
-  if(!img.complete||!img.naturalWidth){toast('Photo still loading — one sec','image-plus');return;}
-  if(S.mode!=='idle'){setCoach('grab','Your hand is full — release what you carry first.');return;}
+  if(!img.complete||!img.naturalWidth)return;
+  if(S.mode!=='idle')return;
   LB.busy=true;
-  img.classList.remove('armed');img.classList.add('picked');
-  $('#lbHint').textContent='in your hand.';
+  img.classList.remove('armed');
   const r=img.getBoundingClientRect();
   LB.cx0=r.left+r.width/2;LB.cy0=r.top+r.height/2;
-  const pip=$('#pip').getBoundingClientRect();
-  LB.pick={phase:'lift',t:0,x:LB.cx0,y:LB.cy0,s:1,rot:0,
-    pipX:pip.left+pip.width/2,pipY:pip.top+pip.height/2,endS:(pip.height*.42)/r.height};
-}
-function pickupTarget(){
-  if(S.hand.present)return{x:S.hand.px*innerWidth,y:S.hand.py*innerHeight};
-  return{x:LB.pick.pipX,y:LB.pick.pipY};
+  LB.pick={phase:'lift',t:0};
 }
 function tickPickup(dt){
   const p=LB.pick;if(!p)return;
-  const t=p.phase==='lift'?pickupTarget():{x:p.pipX,y:p.pipY};
-  const k=p.phase==='lift'?6:8.5;
-  p.x=lerp(p.x,t.x,1-Math.exp(-k*dt));
-  p.y=lerp(p.y,t.y,1-Math.exp(-k*dt));
-  p.rot=lerp(p.rot,clamp((t.x-p.x)*.04,-7,7),1-Math.exp(-8*dt));
-  const endS=p.phase==='lift'?1.08:p.endS;
-  p.s=lerp(p.s,endS,1-Math.exp(-9*dt));
-  if(p.phase==='lift'){p.t+=dt;if(p.t>.55)p.phase='fly';}
-  else if(Math.hypot(t.x-p.x,t.y-p.y)<14&&Math.abs(p.s-p.endS)<.02){finishPickup();return;}
-  $('#lbImg').style.transform=
-    `translate(${(p.x-LB.cx0).toFixed(1)}px,${(p.y-LB.cy0).toFixed(1)}px) scale(${p.s.toFixed(3)}) rotate(${p.rot.toFixed(2)}deg)`;
+  p.t+=dt;
+  const img=$('#lbImg');
+  if(p.phase==='lift'){
+    const k=Math.min(1,p.t/.5);
+    img.style.transform=`translate(0,${(-14*k).toFixed(1)}px) scale(${(1+.06*k).toFixed(3)})`;
+    if(k>=1){p.phase='fly';p.t=0;}
+  }else{
+    const k=Math.min(1,p.t/.35);
+    img.style.transform=`translate(0,${(-14-26*k).toFixed(1)}px) scale(${(1.06+.08*k).toFixed(3)})`;
+    img.style.opacity=String(1-k);
+    if(k>=1){LB.pick=null;finishPickup();}
+  }
 }
 function finishPickup(){
   enterHolding();
   $('#lightbox').hidden=true;
-  document.body.classList.remove('lb');
-  LB.open=false;LB.busy=false;LB.pick=null;
+  LB.open=false;LB.busy=false;
+  const img=$('#lbImg');img.style.transform='';img.style.opacity='';
 }
 
-/* ---------------- carry state machine ----------------
-   holding  : photo in hand, hand still visible to THIS camera
-   carrying : hand left the camera — photo is in the air,
-              every paired device watches for an open palm     */
+/* ---------------- carry state machine ---------------- */
 const CARRY={item:null};
 function enterHolding(){
   CARRY.item=LB.item;
-  HOLD.tx=S.hand.present?S.hand.px:.5;HOLD.ty=S.hand.present?S.hand.py:.5;
-  HOLD.x=HOLD.tx;HOLD.y=HOLD.ty;HOLD.alpha=0;HOLD.scale=.4;HOLD.fx=null;
-  HOLD.item=CARRY.item;
   S.mode='holding';
   markCarried(CARRY.item,true);
-  setCoach('grab',`In your hand: "${truncName(CARRY.item.name,22)}". Walk to the other device — open your palm there.`);
-  updateHandUI();
 }
 function enterCarrying(){
   if(!CARRY.item)return;
-  HOLD.item=null;HOLD.fx=null;HOLD.alpha=0;
-  S.mode='carrying';updateHandUI();
+  S.mode='carrying';
   bcast({t:'carry',id:DEVID,name:CARRY.item.name});
-  showAirChip(true);
-  setCoach('hand','Carrying "'+truncName(CARRY.item.name,20)+'". Open your palm in front of the other device — it appears there and vanishes from here.');
 }
-function releaseBack(){ /* open fist while hand still visible → put back */
-  const it=HOLD.item;if(!it)return;
-  HOLD.item=null;markCarried(it,false);
-  HOLD.fx={type:'drop',t:0};S.mode='throwing';updateHandUI();
-  bcast({t:'cancel'});NET.carry=null;hideAirChip();
-  setCoach('hand','Put back — "'+truncName(it.name,22)+'" stays in your gallery.');
+function releaseBack(){ /* opened fist while hand still in view → put back */
+  const it=CARRY.item;if(!it){S.mode='idle';return;}
+  CARRY.item=null;markCarried(it,false);
+  bcast({t:'cancel'});NET.carry=null;
+  S.mode='idle';
 }
-function takeBack(){ /* open palm at own device while carrying → reclaim */
-  const it=CARRY.item;if(!it){S.mode='idle';updateHandUI();return;}
-  CARRY.item=null;
-  markCarried(it,false);
-  bcast({t:'cancel'});NET.carry=null;hideAirChip();
-  S.mode='idle';updateHandUI();
-  setCoach('hand','Taken back — "'+truncName(it.name,22)+'" is in your gallery again.');
+function takeBack(){ /* open palm back at own device while carrying */
+  const it=CARRY.item;if(!it){S.mode='idle';return;}
+  CARRY.item=null;markCarried(it,false);
+  bcast({t:'cancel'});NET.carry=null;
+  S.mode='idle';
 }
-function showAirChip(mine){
-  $('#airChip').hidden=false;
-  $('#btnTakeBack').hidden=!mine;
-  $('#acTitle').textContent=mine?'IN YOUR HAND':'PHOTO IN THE AIR';
-  $('#acSub').textContent=mine
-    ?'walk to the other device · open your palm there'
-    :'open your palm in front of this camera to take it';
-}
-function hideAirChip(){$('#airChip').hidden=true;}
 
 /* ---------------- hand tracking ---------------- */
 const G={state:'none',open:1,openFrames:0,fistFrames:0,cool:0,lastHand:0};
 const OPEN_TH=1.5, FIST_TH=1.33, MIN_SIZE=.05, COOL_MS=500, LOST_MS=700;
-const HAND_CONN=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[5,9],[9,10],[10,11],[11,12],
-  [9,13],[13,14],[14,15],[15,16],[13,17],[17,18],[18,19],[19,20],[0,17]];
 function openness(lm){
   const d=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
   const palm=Math.max(1e-5,d(lm[0],lm[9]));
@@ -553,46 +363,29 @@ function openness(lm){
 function onHandResults(res){
   const lms=res.multiHandLandmarks;
   if(!lms||!lms.length){
-    G.openFrames=0;G.fistFrames=0;S.hand.present=false;S.hand.ok=false;S.hand.pts=null;
-    if(G.state!=='none'){G.state='none';updateHandUI();}
-    if(camOn){pipState('searching…');DG.vis='seek';diag();}
+    G.openFrames=0;G.fistFrames=0;S.hand.present=false;S.hand.ok=false;
+    if(G.state!=='none')G.state='none';
     return;
   }
   const lm=lms[0],o=openness(lm);
-  G.open=o;G.lastHand=performance.now();DG.vis='lock';diag();
+  G.open=o;G.lastHand=performance.now();
   S.hand.present=true;
-  const mx=1-lm[9].x;
-  S.hand.px=mx;S.hand.py=lm[9].y;
+  S.hand.px=1-lm[9].x;S.hand.py=lm[9].y;
   S.hand.size=Math.hypot(lm[0].x-lm[9].x,lm[0].y-lm[9].y);
   S.hand.ok=S.hand.size>MIN_SIZE;
-  S.hand.pts=lm.map(p=>({x:1-p.x,y:p.y}));
   let st=G.state;
   if(o>OPEN_TH){G.fistFrames=0;if(++G.openFrames>=3)st='open';}
   else if(o<FIST_TH){G.openFrames=0;if(++G.fistFrames>=3)st='fist';}
   else{G.openFrames=0;G.fistFrames=0;}
   if(st!==G.state){
-    const prev=G.state;G.state=st;updateHandUI();
+    const prev=G.state;G.state=st;
     const nowMs=performance.now();
     if(S.hand.ok&&nowMs-G.cool>COOL_MS){
       if(prev==='open'&&st==='fist'){G.cool=nowMs;onGrabGesture();}
-      else if(st==='open'){G.cool=nowMs;onOpenGesture();}   /* ANY → open */
+      else if(st==='open'){G.cool=nowMs;onOpenGesture();}
     }
   }
-  const pct=res.multiHandedness&&res.multiHandedness[0]?Math.round(res.multiHandedness[0].score*100):0;
-  if(!S.hand.ok)pipState('move closer');
-  else pipState(G.state==='fist'?`fist ${pct}%`:G.state==='open'?`palm ${pct}%`:'hand…');
-  if(LB.open&&!LB.busy){
-    $('#lbHint').textContent=G.state==='open'?'close your fist to pick it up':'photo is still';
-  }
-}
-function updateHandUI(){
-  $('#pip').classList.toggle('live',camOn);
-  if(S.mode==='holding')pipState('holding');
-  else if(S.mode==='carrying')pipState('carrying');
-  else if(S.mode==='sending')pipState('releasing');
-  else if(S.mode==='throwing')pipState('putting back');
-  else if(!camOn)pipState('camera off');
-  else if(!S.hand.present)pipState('searching…');
+  if(LB.open&&!LB.busy)$('#lbImg').classList.toggle('armed',G.state==='open'&&S.hand.ok);
 }
 function onGrabGesture(){
   if(S.mode==='idle'&&LB.open&&!LB.busy)startPickup();
@@ -602,129 +395,33 @@ function onOpenGesture(){
   if(S.mode==='carrying'){takeBack();return;}
   if(S.mode==='idle'&&!RX.busy&&NET.carry&&NET.carry.from!==DEVID)sendClaim();
 }
-
 async function startCamera(){
-  DG.cam='req';diag();
-  const video=$('#cam');
-  const stream=await navigator.mediaDevices.getUserMedia(
-    {video:{facingMode:'user',width:{ideal:640},height:{ideal:480}},audio:false});
-  video.srcObject=stream;await video.play();
-  camOn=true;DG.cam='on';DG.vis=typeof Hands!=='undefined'?'boot':'n/a';diag();
-  $('#pip').classList.add('on');updateHandUI();sizePipOv();
-  if(typeof Hands==='undefined'){
-    toast('Hand model did not load — "hold to pick up" still works','camera-off');return;
-  }
-  const hands=new Hands({locateFile:f=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/${f}`});
-  hands.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:.5,minTrackingConfidence:.5,selfieMode:false});
-  hands.onResults(onHandResults);
-  let busy=false;
-  (function pump(){
-    if(!busy&&video.readyState>=2){busy=true;hands.send({image:video}).catch(()=>{}).finally(()=>busy=false);}
-    requestAnimationFrame(pump);
-  })();
+  try{
+    const video=$('#cam');
+    const stream=await navigator.mediaDevices.getUserMedia(
+      {video:{facingMode:'user',width:{ideal:640},height:{ideal:480}},audio:false});
+    video.srcObject=stream;await video.play();
+    camOn=true;
+    if(typeof Hands==='undefined')return;
+    const hands=new Hands({locateFile:f=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/${f}`});
+    hands.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:.5,minTrackingConfidence:.5,selfieMode:false});
+    hands.onResults(onHandResults);
+    let busy=false;
+    (function pump(){
+      if(!busy&&video.readyState>=2){busy=true;hands.send({image:video}).catch(()=>{}).finally(()=>busy=false);}
+      requestAnimationFrame(pump);
+    })();
+  }catch(e){/* silent — the hold button still works */}
 }
 
-/* ---------------- PIP overlay ---------------- */
-const HOLD={item:null,x:.5,y:.5,tx:.5,ty:.5,scale:.5,alpha:0,fx:null};
-let PIPW=0,PIPH=0,PDPR=1;
-function sizePipOv(){
-  const p=$('#pip'),c=$('#pipOv'),r=p.getBoundingClientRect();
-  PDPR=Math.min(devicePixelRatio||1,2);
-  c.width=Math.max(2,Math.round(r.width*PDPR));c.height=Math.max(2,Math.round(r.height*PDPR));
-  PIPW=c.width;PIPH=c.height;
-}
-function rr(x,px,py,w,h,r){x.beginPath();x.moveTo(px+r,py);x.arcTo(px+w,py,px+w,py+h,r);
-  x.arcTo(px+w,py+h,px,py+h,r);x.arcTo(px,py+h,px,py,r);x.arcTo(px,py,px+w,py,r);x.closePath();}
-function thumbEl(it){
-  if(it._thumb)return it._thumb;
-  const e=new Image();e.src=it.url;it._thumb=e;return e;
-}
-function endFx(){HOLD.fx=null;HOLD.item=null;HOLD.alpha=0;S.mode='idle';updateHandUI();}
-function drawHand(x){
-  const pts=S.hand.pts;if(!pts)return;
-  const d=PDPR;
-  const col=G.state==='fist'?'#ff6b57':G.state==='open'?'#f0a63f':'rgba(255,255,255,.85)';
-  x.strokeStyle=col;x.fillStyle=col;
-  x.lineWidth=Math.max(1.2,1.4*d);
-  x.shadowColor='rgba(0,0,0,.65)';x.shadowBlur=3*d;
-  x.beginPath();
-  for(const[a,b]of HAND_CONN){x.moveTo(pts[a].x*PIPW,pts[a].y*PIPH);x.lineTo(pts[b].x*PIPW,pts[b].y*PIPH);}
-  x.stroke();
-  for(let i=0;i<21;i++){
-    const r=(i===0?3.4:(i%4===0?2.8:2))*d;
-    x.beginPath();x.arc(pts[i].x*PIPW,pts[i].y*PIPH,r,0,7);x.fill();
-  }
-  x.shadowBlur=0;
-}
-function drawMeter(x){
-  const d=PDPR,w=64*d,h=5*d,px=PIPW-w-8*d,py=PIPH-8*d-h;
-  const map=o=>clamp((o-.9)/(2.05-.9),0,1)*w;
-  x.fillStyle='rgba(255,255,255,.14)';x.fillRect(px,py,w,h);
-  x.fillStyle='rgba(255,255,255,.35)';
-  x.fillRect(px+map(FIST_TH),py-2*d,1,h+4*d);
-  x.fillRect(px+map(OPEN_TH),py-2*d,1,h+4*d);
-  x.fillStyle=G.state==='fist'?'#ff6b57':G.state==='open'?'#f0a63f':'rgba(255,255,255,.6)';
-  x.fillRect(px,py,map(G.open),h);
-}
-function drawGuide(x){
-  const d=PDPR;
-  x.strokeStyle='rgba(255,255,255,.35)';x.setLineDash([5*d,5*d]);x.lineWidth=1*d;
-  x.beginPath();x.arc(PIPW/2,PIPH*.44,PIPH*.28,0,7);x.stroke();x.setLineDash([]);
-  x.fillStyle='rgba(255,255,255,.6)';x.font=`600 ${10*d}px "Space Grotesk",sans-serif`;x.textAlign='center';
-  x.fillText('show your hand here',PIPW/2,PIPH*.44+PIPH*.28+16*d);
-}
-function drawOverlay(dt){
-  const c=$('#pipOv'),x=c.getContext('2d');
-  x.clearRect(0,0,c.width,c.height);
-  if(S.hand.present){drawHand(x);drawMeter(x);}else drawGuide(x);
-  if(S.mode==='holding'&&S.hand.present){HOLD.tx=S.hand.px;HOLD.ty=S.hand.py;}
-  if(HOLD.fx){
-    const f=HOLD.fx;f.t+=dt;
-    const k=Math.min(1,f.t/.5);
-    HOLD.alpha=1-k;HOLD.y+=dt*1.2;HOLD.scale=Math.max(.3,1-k*.6);
-    if(k>=1)endFx();
-  }else if(HOLD.item){
-    HOLD.alpha=lerp(HOLD.alpha,S.hand.present?1:.5,.08);
-    HOLD.scale=lerp(HOLD.scale,1,.12);
-  }
-  HOLD.x=lerp(HOLD.x,HOLD.tx,.22);HOLD.y=lerp(HOLD.y,HOLD.ty,.22);
-  const it=HOLD.item;
-  if(it&&HOLD.alpha>.02){
-    const el=thumbEl(it);
-    if(el.complete&&el.naturalWidth){
-      const a=el.naturalWidth/el.naturalHeight;
-      let th=c.height*.42*HOLD.scale,tw=th*a;
-      const mw=c.width*.62;if(tw>mw){tw=mw;th=tw/a;}
-      const px=HOLD.x*c.width-tw/2,py=HOLD.y*c.height-th/2;
-      x.save();x.globalAlpha=Math.max(0,HOLD.alpha);
-      rr(x,px,py,tw,th,tw*.09);x.save();x.clip();
-      const s=Math.max(tw/el.naturalWidth,th/el.naturalHeight);
-      const iw=el.naturalWidth*s,ih=el.naturalHeight*s;
-      x.drawImage(el,px+(tw-iw)/2,py+(th-ih)/2,iw,ih);
-      x.restore();
-      x.shadowColor='rgba(240,166,63,.85)';x.shadowBlur=14;
-      x.strokeStyle='rgba(240,166,63,.9)';x.lineWidth=1.5;
-      rr(x,px,py,tw,th,tw*.09);x.stroke();
-      x.restore();
-    }
-  }
-}
-
-/* ---------------- automatic room ---------------- */
+/* ---------------- automatic room (silent) ---------------- */
 const DEVID=Math.random().toString(36).slice(2,6);
-const STAGE_ID='avilus-room-v8';
+const STAGE_ID='avilus-room-v9';
 const NET={peer:null,link:null,conns:new Set(),connDev:new Map(),devs:new Map(),
   role:'—',run:true,carry:null,claimTs:0};
 const RX={busy:false,meta:null,parts:[],got:0};
 
 function linkedCount(){return NET.role==='stage'?NET.conns.size:(NET.link&&NET.link.open?1:0);}
-function refreshChip(){
-  const lk=linkedCount();
-  const chip=$('#netChip'),txt=$('#netTxt');
-  chip.className=lk?'range':'pair';
-  txt.textContent=!lk?'pairing…':lk+' linked';
-  DG.net=lk?lk+'L':'wait';diag();
-}
 function relay(d,fromConn){
   if(NET.role!=='stage')return;
   for(const c of NET.conns){if(c!==fromConn&&c.open){try{c.send(d);}catch(e){}}}
@@ -743,26 +440,21 @@ function handleMsg(d,fromConn){
   if(d.t==='hi'||d.t==='hb'){
     if(fromConn)NET.connDev.set(fromConn,d.id);
     NET.devs.set(d.id,{ts:performance.now()});
-    relay(d,fromConn);refreshChip();return;
+    relay(d,fromConn);return;
   }
   if(d.t==='carry'){
-    if(d.id!==DEVID&&S.mode==='idle'){
+    if(d.id!==DEVID&&S.mode==='idle')
       NET.carry={from:d.id,name:d.name,ts:performance.now()};
-      showAirChip(false);
-    }
     relay(d,fromConn);return;
   }
   if(d.t==='cancel'||d.t==='gone'){
-    const had=NET.carry;
-    NET.carry=null;hideAirChip();
-    if(d.t==='gone'&&had&&had.from!==DEVID)toast('The photo landed on another device','hand');
+    NET.carry=null;
     relay(d,fromConn);return;
   }
   if(d.t==='claim'){
     if(S.mode==='carrying'&&CARRY.item&&d.id!==DEVID)winClaim(d.id);
     relay(d,fromConn);return;
   }
-  /* photo payload */
   const to=d.to||['*'];
   if(to.includes('*')||to.includes(DEVID))receiveMsg(d);
   if(NET.role==='stage'){
@@ -780,7 +472,6 @@ function bindConn(c){
     NET.conns.delete(c);
     for(const[cc,id]of NET.connDev)if(cc===c){NET.connDev.delete(cc);NET.devs.delete(id);}
     if(NET.link===c)NET.link=null;
-    refreshChip();
     if(NET.role==='client')setTimeout(netInit,2000);
   });
   c.on('error',()=>{});
@@ -788,10 +479,10 @@ function bindConn(c){
 function netInit(){
   if(!NET.run)return;
   try{NET.peer&&NET.peer.destroy();}catch(e){}
-  NET.link=null;NET.conns.clear();NET.connDev.clear();refreshChip();
+  NET.link=null;NET.conns.clear();NET.connDev.clear();
   const claim=new Peer(STAGE_ID,{debug:0});NET.peer=claim;
   claim.on('open',()=>{
-    NET.role='stage';refreshChip();
+    NET.role='stage';
     claim.on('connection',c=>bindConn(c));
   });
   claim.on('error',e=>{
@@ -802,7 +493,7 @@ function netInit(){
 }
 function joinRoom(){
   if(!NET.run)return;
-  const p=new Peer({debug:0});NET.peer=p;NET.role='client';refreshChip();
+  const p=new Peer({debug:0});NET.peer=p;NET.role='client';
   p.on('open',()=>{
     const c=p.connect(STAGE_ID,{reliable:true});
     c.on('open',()=>{NET.link=c;bindConn(c);});
@@ -818,11 +509,10 @@ setInterval(()=>{
   else if(NET.link&&NET.link.open){try{NET.link.send(m);}catch(e){}}
   const now=performance.now();
   for(const[id,v]of NET.devs)if(now-v.ts>6000)NET.devs.delete(id);
-  refreshChip();
 },900);
-setInterval(()=>{ /* keep the carry alive on all devices; prune stale ones */
+setInterval(()=>{
   if(S.mode==='carrying'&&CARRY.item)bcast({t:'carry',id:DEVID,name:CARRY.item.name});
-  if(NET.carry&&performance.now()-NET.carry.ts>6000){NET.carry=null;hideAirChip();}
+  if(NET.carry&&performance.now()-NET.carry.ts>6000)NET.carry=null;
 },2000);
 
 /* ---------------- claim → release ---------------- */
@@ -831,13 +521,12 @@ function sendClaim(){
   const now=performance.now();
   if(now-NET.claimTs<1500)return;
   NET.claimTs=now;
-  $('#acSub').textContent='reaching for it…';
   bcast({t:'claim',id:DEVID});
 }
 async function winClaim(claimId){
   const it=CARRY.item;if(!it)return;
-  CARRY.item=null;NET.carry=null;hideAirChip();
-  S.mode='sending';updateHandUI();
+  CARRY.item=null;NET.carry=null;
+  S.mode='sending';
   try{
     sendToId({t:'tx',to:[claimId],name:it.name,mime:it.file.type||'image/jpeg',size:it.file.size},claimId);
     const CH=65536;let off=0;
@@ -855,17 +544,14 @@ async function winClaim(claimId){
     try{URL.revokeObjectURL(it.url);}catch(e){}
     renderGrid();
     bcast({t:'gone'});
-    toast('Released — the photo left this device','send');
   }catch(e){
-    toast('Transfer failed — photo returned to gallery','x');
     items.push(it);dbSave(it);markCarried(it,false);renderGrid();
   }
-  S.mode='idle';updateHandUI();
+  S.mode='idle';
 }
 function receiveMsg(d){
   if(d.t==='tx'){
     RX.meta={name:d.name,mime:d.mime,size:d.size};RX.parts=[];RX.got=0;RX.busy=true;
-    setCoach('download','A photo is landing…');
   }else if(d.t==='chunk'&&RX.busy){
     const b=d.b instanceof ArrayBuffer?new Uint8Array(d.b):new Uint8Array(d.b.buffer,d.b.byteOffset,d.b.byteLength);
     RX.parts.push(b);RX.got+=b.byteLength;
@@ -878,9 +564,7 @@ async function finishRx(){
   const it={id:++itemId,kind:'image',name:file.name,file,url:URL.createObjectURL(file),w:0,h:0,received:true};
   items.push(it);dbSave(it);probeSize(it);
   renderGrid();
-  NET.carry=null;hideAirChip();
-  toast('Caught "'+truncName(file.name,26)+'" — added to gallery','hand');
-  setCoach('hand',IDLE_COACH);
+  NET.carry=null;
   openLightbox(it,true);
 }
 
@@ -889,34 +573,20 @@ let lastT=performance.now();
 function tick(now){
   const dt=Math.min(.05,(now-lastT)/1000);lastT=now;
   if(LB.pick)tickPickup(dt);
-  else if(LB.open&&!LB.busy){
-    $('#lbImg').classList.toggle('armed',G.state==='open'&&S.hand.ok);
-  }
-  /* hand slipped out of frame while holding → the photo goes into the air */
   if(S.mode==='holding'&&performance.now()-G.lastHand>LOST_MS)enterCarrying();
-  if(camOn)drawOverlay(dt);
   requestAnimationFrame(tick);
 }
 
 /* ---------------- wiring ---------------- */
 on($('#btnAdd'),'click',()=>$('#fileInput').click());
 on($('#btnAdd2'),'click',()=>$('#fileInput').click());
-on($('#btnSamples'),'click',()=>loadDemo(false));
-on($('#btnTakeBack'),'click',takeBack);
-on($('#netChip'),'click',()=>{
-  const lk=linkedCount();
-  toast(lk?lk+' device(s) linked. Pick a photo up here, walk over, open your palm at the other device.'
-          :'Open this site on the other device — pairing is automatic, no codes.','link');
-});
-on($('#fileInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderGrid();
-  toast('photos added — saved on this device','check');e.target.value='';});
+on($('#btnDemo'),'click',()=>loadDemo());
+on($('#fileInput'),'change',e=>{[...e.target.files].forEach(ingestFile);renderGrid();e.target.value='';});
 on($('#lbClose'),'click',closeLightboxNow);
 on($('#lbDel'),'click',deleteCurrent);
 on($('#lbDl'),'click',downloadCurrent);
 on($('#lightbox'),'click',e=>{if(e.target.id==='lightbox')closeLightboxNow();});
-on(document,'keydown',e=>{
-  if(e.key==='Escape'&&LB.open)closeLightboxNow();
-});
+on(document,'keydown',e=>{if(e.key==='Escape'&&LB.open)closeLightboxNow();});
 let dragDepth=0;
 on(window,'dragenter',e=>{
   if(e.dataTransfer&&[...e.dataTransfer.types].includes('Files')){dragDepth++;$('#drop').classList.add('on');}
@@ -926,12 +596,11 @@ on(window,'dragleave',()=>{dragDepth=Math.max(0,dragDepth-1);if(!dragDepth)$('#d
 on(window,'drop',e=>{
   e.preventDefault();dragDepth=0;$('#drop').classList.remove('on');
   const fs=[...(e.dataTransfer?e.dataTransfer.files:[])].filter(isImage);
-  if(fs.length){fs.forEach(ingestFile);renderGrid();toast(fs.length+' photo(s) added','plus');}
-  else toast('Photos only','image-plus');
+  if(fs.length){fs.forEach(ingestFile);renderGrid();}
 });
 on(window,'paste',e=>{
   const fs=[...(e.clipboardData?e.clipboardData.files:[])].filter(isImage);
-  if(fs.length){fs.forEach(ingestFile);renderGrid();toast('pasted from clipboard','plus');}
+  if(fs.length){fs.forEach(ingestFile);renderGrid();}
 });
 on($('#lbGrab'),'contextmenu',e=>e.preventDefault());
 let armTimer=0;
@@ -945,31 +614,15 @@ on($('#lbGrab'),'pointerup',()=>{
   else if(S.mode==='carrying')takeBack();
 });
 on($('#lbGrab'),'pointerleave',()=>{clearTimeout(armTimer);$('#lbGrab').classList.remove('arming');});
+on(window,'pointerdown',()=>{ /* silent camera retry if the first ask failed */
+  if(!camOn&&camTries<3){camTries++;startCamera();}
+},{capture:true});
 let rsz=0;
-on(window,'resize',()=>{clearTimeout(rsz);rsz=setTimeout(()=>{relayout();sizePipOv();},150);});
-on($('#pip'),'click',async()=>{
-  if(camOn)return;
-  try{await startCamera();setCoach('hand',IDLE_COACH);}catch(e){DG.cam='denied';diag();toast('Camera still blocked','camera-off');}
-});
-on($('#btnBegin'),'click',async()=>{
-  const b=$('#btnBegin');b.disabled=true;
-  b.querySelector('span').textContent='calibrating vision…';
-  try{
-    await startCamera();
-    $('#intro').classList.add('gone');setTimeout(()=>$('#intro').remove(),700);
-    setCoach('hand',IDLE_COACH);
-  }catch(e){
-    DG.cam='denied';diag();
-    b.disabled=false;b.querySelector('span').textContent='retry camera';
-    $('#inNote').textContent='Camera unavailable ('+(e.name||'error')+'). You can still browse and use "hold to pick up".';
-  }
-});
+on(window,'resize',()=>{clearTimeout(rsz);rsz=setTimeout(relayout,150);});
 
-/* ---------------- boot ---------------- */
+/* ---------------- boot: everything silent ---------------- */
 (async function init(){
-  lucide.createIcons();
-  sizePipOv();
-  setCoach('hand',IDLE_COACH);
+  camTries=1;startCamera();
   netInit();
   await openDB();
   const recs=await dbLoad();
@@ -983,7 +636,7 @@ on($('#btnBegin'),'click',async()=>{
   }
   if(items.length)itemId=items.reduce((m,i)=>Math.max(m,i.id),0);
   renderGrid();
-  if(!items.length)await loadDemo(true);
+  if(!items.length)await loadDemo();
   requestAnimationFrame(tick);
 })();
 </script>
